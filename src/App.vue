@@ -100,8 +100,8 @@ main {
 .title {
   padding: 40px 45px;
   width: 1500px;
-  background: rgba(255, 255, 255, .1);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
   border-radius: 10px;
   margin: 68px auto;
   top: 50%;
@@ -111,7 +111,7 @@ main {
 }
 
 .title:hover {
-  background: rgba(255, 255, 255, .2);
+  background: rgba(0, 0, 0, 0);
 }
 
 .container {
