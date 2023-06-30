@@ -5,13 +5,18 @@ import ExtensionCard from "@/components/ExtensionCard.vue";
 <template>
   <main>
     <div class="title">
-      <h1>TurboWarp 第三方扩展</h1>
-    </div>
-    <section class="container">
+      <h1 style="text-align:center;">TurboWarp 第三方扩展</h1>
+      <section class="container">
+        <ExtensionCard data="lab/Animated-Text">
+          <template v-slot:name>Animated-Text</template>
+          <template v-slot:author>Scratch Lab</template>
+          <template v-slot:desc>一个显示和动画文本的简单方法<br>与Scratch Lab的动画文本兼容</template>
+        </ExtensionCard>
+
         <ExtensionCard data="-SIPC-/Recording">
           <template v-slot:name>Recording</template>
           <template v-slot:author>-SIPC-</template>
-          <template v-slot:desc>利用用户设备上的麦克风录制音频，并将录制的音频文件进行下载</template>
+          <template v-slot:desc>利用用户设备上的麦克风录制音频<br>并将录制的音频文件进行下载</template>
         </ExtensionCard>
 
         <ExtensionCard data="-SIPC-/Consoles">
@@ -53,7 +58,7 @@ import ExtensionCard from "@/components/ExtensionCard.vue";
         <ExtensionCard data="LoserFox/post-process">
           <template v-slot:name>post-process</template>
           <template v-slot:author>LoserFox</template>
-          <template v-slot:desc>用于对舞台进行色散、故障和其他视觉效果的操作</template>
+          <template v-slot:desc>用于对舞台进行色散、故障<br>和其他视觉效果的操作</template>
         </ExtensionCard>
 
         <ExtensionCard data="zmh-program/ChatGPT">
@@ -73,12 +78,15 @@ import ExtensionCard from "@/components/ExtensionCard.vue";
           <template v-slot:author>CK七星松</template>
           <template v-slot:desc>提供了丰富的数学运算和图形处理功能<br>适用于编程和数据可视化等领域</template>
         </ExtensionCard>
-
-
-      <!-- 更多扩展 -->
-    </section>
+      </section>
+    </div>
+    <!-- <div class="title"> -->
+    <!-- <h1>rCodenow 第三方扩展</h1> -->
+    <!-- </div> -->
+    <!-- 更多扩展 -->
     <footer class="post">
-        <a href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Hgd2J7dxazSx1QE462aKjLi5CXcm5U4G&authKey=Vb%2FA%2BFamtI97LgQkc3LWA0bE%2Bc1W1%2FonuAqfrtaZNRmz3Ia%2Fks%2Bfbd37UPd81xn1&noverify=0&group_code=770741679">提交你的扩展</a>
+      <a
+        href="https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Hgd2J7dxazSx1QE462aKjLi5CXcm5U4G&authKey=Vb%2FA%2BFamtI97LgQkc3LWA0bE%2Bc1W1%2FonuAqfrtaZNRmz3Ia%2Fks%2Bfbd37UPd81xn1&noverify=0&group_code=770741679">提交你的扩展</a>
     </footer>
   </main>
 </template>
@@ -88,11 +96,12 @@ main {
   display: flex;
   flex-direction: column;
 }
+
 .title {
   padding: 40px 45px;
-  width: max-content;
-  background: rgba(255,255,255,.1);
-  backdrop-filter: blur(5px);
+  width: 1500px;
+  background: rgba(255, 255, 255, .1);
+  backdrop-filter: blur(8px);
   border-radius: 10px;
   margin: 68px auto;
   top: 50%;
@@ -102,7 +111,7 @@ main {
 }
 
 .title:hover {
-  background: rgba(255,255,255,.2);
+  background: rgba(255, 255, 255, .2);
 }
 
 .container {
@@ -111,11 +120,11 @@ main {
   flex-wrap: wrap;
   padding: 20px 40px;
   gap: 12px;
-  
+
 }
 
 .post {
-  text-align:center;
+  text-align: center;
   margin: 24px auto 16px;
 }
 
