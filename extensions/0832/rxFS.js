@@ -1,9 +1,59 @@
 ﻿/*!
-* Made by 0832
-*/
+ * Made by 0832
+ * This file was originally under the rxLI Version 2.1 license:
+ * https://0832k12.github.io/rxLi/2.1/
+ * 
+ * However they have since claimed it to be "directly compatible with MIT license",
+ * which is the license we use this file under.
+ */
 
 (function (Scratch) {
     'use strict';
+
+    Scratch.translate.setup({
+        zh: {
+            start: '新建 [STR] ',
+            folder: '设置 [STR] 为 [STR2] ',
+            folder_default: '大主教大祭司主宰世界!',
+            sync: '将 [STR] 的位置更改为 [STR2] ',
+            del: '删除 [STR] ',
+            webin: '从网络加载 [STR]',
+            open: '打开 [STR]',
+            clean: '清空文件系统',
+            in: '从 [STR] 导入文件系统',
+            out: '导出文件系统',
+            list: '列出 [STR] 下的所有文件',
+            search: '搜索 [STR]'
+        },
+        ru: {
+            start: 'Создать [STR]',
+            folder: 'Установить [STR] в [STR2]',
+            folder_default: 'Архиепископ Верховный жрец Правитель мира!',
+            sync: 'Изменить расположение [STR] на [STR2]',
+            del: 'Удалить [STR]',
+            webin: 'Загрузить [STR] из Интернета',
+            open: 'Открыть [STR]',
+            clean: 'Очистить файловую систему',
+            in: 'Импортировать файловую систему из [STR]',
+            out: 'Экспортировать файловую систему',
+            list: 'Список всех файлов в [STR]',
+            search: 'Поиск [STR]'
+        },
+        jp: {
+            start: '新規作成 [STR]',
+            folder: '[STR] を [STR2] に設定する',
+            folder_default: '大主教大祭司世界の支配者！',
+            sync: '[STR] の位置を [STR2] に変更する',
+            del: '[STR] を削除する',
+            webin: '[STR] をウェブから読み込む',
+            open: '[STR] を開く',
+            clean: 'ファイルシステムをクリアする',
+            in: '[STR] からファイルシステムをインポートする',
+            out: 'ファイルシステムをエクスポートする',
+            list: '[STR] にあるすべてのファイルをリストする',
+            search: '[STR] を検索する'
+        }
+    });
 
     var rxFSfi = new Array();
     var rxFSsy = new Array();
@@ -25,7 +75,7 @@
                         blockIconURI: file,
                         opcode: 'start',
                         blockType: Scratch.BlockType.COMMAND,
-                        text: '新建 [STR] ',
+                        text: Scratch.translate({ id: 'start', default: 'Create [STR]' }),
                         arguments: {
                             STR: {
                                 type: Scratch.ArgumentType.STRING,
@@ -37,7 +87,7 @@
                         blockIconURI: file,
                         opcode: 'folder',
                         blockType: Scratch.BlockType.COMMAND,
-                        text: '设置 [STR] 为 [STR2] ',
+                        text: Scratch.translate({ id: 'folder', default: 'Set [STR] to [STR2]' }),
                         arguments: {
                             STR: {
                                 type: Scratch.ArgumentType.STRING,
@@ -45,7 +95,7 @@
                             },
                             STR2: {
                                 type: Scratch.ArgumentType.STRING,
-                                defaultValue: 'rxFS很好用！'
+                                defaultValue: Scratch.translate({ id: 'folder_default', default: 'rxFS is good!' }),
                             }
                         }
                     },
@@ -53,7 +103,7 @@
                         blockIconURI: file,
                         opcode: 'sync',
                         blockType: Scratch.BlockType.COMMAND,
-                        text: '将 [STR] 的位置更改为 [STR2] ',
+                        text: Scratch.translate({ id: 'sync', default: 'Change the location of [STR] to [STR2]' }),
                         arguments: {
                             STR: {
                                 type: Scratch.ArgumentType.STRING,
@@ -69,7 +119,7 @@
                         blockIconURI: file,
                         opcode: 'del',
                         blockType: Scratch.BlockType.COMMAND,
-                        text: '删除 [STR] ',
+                        text: Scratch.translate({ id: 'del', default: 'Delete [STR]' }),
                         arguments: {
                             STR: {
                                 type: Scratch.ArgumentType.STRING,
@@ -81,7 +131,7 @@
                         blockIconURI: file,
                         opcode: 'webin',
                         blockType: Scratch.BlockType.REPORTER,
-                        text: '从网络加载 [STR]',
+                        text: Scratch.translate({ id: 'webin', default: 'Load [STR] from the web' }),
                         arguments: {
                             STR: {
                                 type: Scratch.ArgumentType.STRING,
@@ -93,7 +143,7 @@
                         blockIconURI: file,
                         opcode: 'open',
                         blockType: Scratch.BlockType.REPORTER,
-                        text: '打开 [STR]',
+                        text: Scratch.translate({ id: 'open', default: 'Open [STR]' }),
                         arguments: {
                             STR: {
                                 type: Scratch.ArgumentType.STRING,
@@ -106,14 +156,14 @@
                         blockIconURI: folder,
                         opcode: 'clean',
                         blockType: Scratch.BlockType.COMMAND,
-                        text: '清空文件系统',
+                        text: Scratch.translate({ id: 'clean', default: 'Clear the file system' }),
                         arguments: {}
                     },
                     {
                         blockIconURI: folder,
                         opcode: 'in',
                         blockType: Scratch.BlockType.COMMAND,
-                        text: '从 [STR] 导入文件系统',
+                        text: Scratch.translate({ id: 'in', default: 'Import file system from [STR]' }),
                         arguments: {
                             STR: {
                                 type: Scratch.ArgumentType.STRING,
@@ -125,14 +175,14 @@
                         blockIconURI: folder,
                         opcode: 'out',
                         blockType: Scratch.BlockType.REPORTER,
-                        text: '导出文件系统',
+                        text: Scratch.translate({ id: 'out', default: 'Export file system' }),
                         arguments: {}
                     },
                     {
                         blockIconURI: folder,
                         opcode: 'list',
                         blockType: Scratch.BlockType.REPORTER,
-                        text: '列出 [STR] 下的所有文件',
+                        text: Scratch.translate({ id: 'list', default: 'List all files under [STR]' }),
                         arguments: {
                             STR: {
                                 type: Scratch.ArgumentType.STRING,
@@ -144,7 +194,7 @@
                         blockIconURI: folder,
                         opcode: 'search',
                         blockType: Scratch.BlockType.REPORTER,
-                        text: '搜索 [STR]',
+                        text: Scratch.translate({ id: 'search', default: 'Search [STR]' }),
                         arguments: {
                             STR: {
                                 type: Scratch.ArgumentType.STRING,
@@ -198,7 +248,7 @@
             str = encodeURIComponent(STR);
             for (var i in rxFSsy) {
                 if (!(rxFSsy[(i)].indexOf(str) == undefined)) {
-                    Search = [Search, ',"', rxFSsy[(i)],'"'].join('');
+                    Search = [Search, ',"', rxFSsy[(i)], '"'].join('');
                 }
             }
             return decodeURIComponent(Search);
@@ -210,14 +260,14 @@
             str = encodeURIComponent(STR);
             for (var i in rxFSsy) {
                 if (rxFSsy[(i)].slice(0, str.length) == str) {
-                    Search = [Search, ',"', rxFSsy[(i)],'"'].join('');
+                    Search = [Search, ',"', rxFSsy[(i)], '"'].join('');
                 }
             }
             return decodeURIComponent(Search);
         }
 
         webin({ STR }) {
-            return fetch(STR)
+            return Scratch.fetch(STR)
                 .then((response) => {
                     return response.text();
                 })
@@ -239,4 +289,3 @@
 
     Scratch.extensions.register(new rxFS());
 })(Scratch);
-// 0823 3630993905
