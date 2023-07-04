@@ -78,7 +78,7 @@
       mediaRecorder.stop();
       console.log('停止录音');
     }
-    stopRecordingAndDownload({name}) {
+    stopRecordingAndDownload({ name }) {
       if (!mediaRecorder) {
         console.error('录音未开始');
         return;
