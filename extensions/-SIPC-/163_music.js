@@ -1,4 +1,4 @@
-class MusicExtension {
+﻿class MusicExtension {
     constructor(runtime) {
       this.runtime = runtime;
       this.audioElement = null;
