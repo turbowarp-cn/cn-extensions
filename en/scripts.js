@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   function enableExtension(extensionName) {
     url = window.location.origin
-    console.log(`使用扩展：${extensionName}`);
+    console.log(`Use of extensions:${extensionName}`);
     window.open("https://turbowarp.cn/editor.html?extension="+ url + "/extensions/" + `${extensionName}` + '.js' );
   }
   function ExtensionURL(extensionName){
@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text)
       .then(() => {
-        alert("复制成功!");
+        alert("Reproduction success!");
       })
       .catch((error) => {
-        alert("无法复制文本到剪贴板:", error);
+        alert("Cannot copy text to clipboard.", error);
       });
     } else {
-      prompt("复制失败，请手动复制",text)
+      prompt("Copy failed, please copy manually",text)
     }
   }
 

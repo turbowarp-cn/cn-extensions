@@ -48,6 +48,6 @@ button:hover {
 
 .category-title {
   text-align: center;
-  margin: 20px auto 0;
-  width: 80%; /* 根据需要调整宽度 */
+  margin: 30% auto 10;
+  width: 100%; /* 根据需要调整宽度 */
 }
