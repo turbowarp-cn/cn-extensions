@@ -34,6 +34,17 @@
           }
         },
         {
+          opcode: '获取歌词',
+          blockType: Scratch.BlockType.REPORTER,
+          text: '获取 [id] 的歌词',
+          arguments: {
+            id: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: '1952657896'
+            }
+          }
+        },
+        {
           opcode: '播放音乐',
           blockType: Scratch.BlockType.COMMAND,
           text: '从 [url] 播放音乐',
@@ -132,7 +143,22 @@
           opcode: '获取音乐总时长',
           blockType: Scratch.BlockType.REPORTER,
           text: '音乐总时长（秒）'
-        }
+        },
+        {
+          opcode: '获取当前时间歌词',
+          blockType: Scratch.BlockType.REPORTER,
+          text: '[lyricsText] 在 [currentTime] 时显示',
+          arguments: {
+            lyricsText: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: '歌词'
+            },
+            currentTime: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '时间'
+            }
+          }
+        },
       ],
     };
   }
@@ -194,6 +220,26 @@
     this.audioElement = new Audio(url);
     this.audioElement.play();
   }
+  获取歌词(args) {
+    const cacheKey = `lyrics_${args.id}`;
+    const cachedLyrics = localStorage.getItem(cacheKey);
+    if (cachedLyrics) {
+      return Promise.resolve(cachedLyrics);
+    }
+    return new Promise((resolve, reject) => {
+      const url = `https://163.sipc-api.top/lyric?id=${args.id}`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const lrc = data.lrc.lyric;
+          localStorage.setItem(cacheKey, lrc);
+          resolve(lrc);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
   //电台部分
   获取电台曲目(args) {
     return new Promise((resolve, reject) => {
@@ -217,14 +263,14 @@
         });
     });
   }
-  网页ID转音乐ID(args){
+  网页ID转音乐ID(args) {
     return new Promise((resolve, reject) => {
       const url = `https://163.sipc-api.top/dj/program/detail?id=${args.id}`;
       fetch(url)
         .then(response => response.json())
         .then(data => {
-            const songId = data.program.mainSong.id;
-            resolve(songId);
+          const songId = data.program.mainSong.id;
+          resolve(songId);
         })
         .catch(error => {
           reject(error);
@@ -249,7 +295,7 @@
       this.audioElement.pause();
       this.audioElement = null;
     }
-  }  
+  }
   跳转到时间(args) {
     const time = args.time;
     if (this.audioElement) {
@@ -282,6 +328,27 @@
       return this.audioElement.duration;
     }
     return 0;
+  }
+  获取当前时间歌词(args) {
+    const lines = args.lyricsText.trim().split('\n');
+    const lyrics = [];
+
+    for (let line of lines) {
+      const matches = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
+      if (matches) {
+        const time = parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
+        const text = matches[3].trim();
+        lyrics.push({ time, text });
+      }
+    }
+
+    for (let i = lyrics.length - 1; i >= 0; i--) {
+      const { time, text } = lyrics[i];
+      if (time <= args.currentTime) {
+        return text;
+      }
+    }
+    return '';
   }
 }
 
