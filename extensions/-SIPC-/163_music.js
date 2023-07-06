@@ -252,7 +252,6 @@
               name: program.mainSong.name,
               id: program.mainSong.id
             }));
-            console.log(formattedData);
             resolve(JSON.stringify(formattedData));
           } else {
             reject(new Error('无法获取电台信息'));
