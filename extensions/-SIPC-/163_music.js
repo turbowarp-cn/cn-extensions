@@ -63,7 +63,7 @@
         {
           opcode: '网页ID转音乐ID',
           blockType: Scratch.BlockType.REPORTER,
-          text: '获取音乐ID [id]',
+          text: '电台音乐ID转音乐ID [id]',
           arguments: {
             id: {
               type: Scratch.ArgumentType.STRING,
