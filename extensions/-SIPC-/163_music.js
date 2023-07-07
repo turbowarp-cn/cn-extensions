@@ -159,6 +159,21 @@
             }
           }
         },
+        {
+          opcode: '获取当前时间歌词在第几行',
+          blockType: Scratch.BlockType.REPORTER,
+          text: '[lyricsText] 在 [currentTime] 时是第几行',
+          arguments: {
+            lyricsText: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: '歌词'
+            },
+            currentTime: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '时间'
+            }
+          }
+        },
       ],
     };
   }
@@ -349,6 +364,21 @@
     }
     return '';
   }
+  获取当前时间歌词在第几行(args) {
+      const lines = args.lyricsText.trim().split('\n');
+      const currentTime = args.currentTime;
+    
+      for (let i = lines.length - 1; i >= 0; i--) {
+        const matches = lines[i].match(/\[(\d+):(\d+\.\d+)\](.*)/);
+        if (matches) {
+          const time = parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
+          if (time <= currentTime) {
+            return i + 1;
+          }
+        }
+      }
+      return 0;
+    }
 }
 
 Scratch.extensions.register(new MusicExtension());
