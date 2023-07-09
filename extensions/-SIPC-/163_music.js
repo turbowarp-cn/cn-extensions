@@ -45,6 +45,17 @@
           }
         },
         {
+          opcode: '获取封面',
+          blockType: Scratch.BlockType.REPORTER,
+          text: '获取 [id] 的封面',
+          arguments: {
+            id: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: '1952657896'
+            }
+          }
+        },
+        {
           opcode: '播放音乐',
           blockType: Scratch.BlockType.COMMAND,
           text: '从 [url] 播放音乐',
@@ -219,6 +230,20 @@
           }
           const songInfo = getMusicUrl(data);
           resolve(songInfo);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+  获取封面(args) {
+    return new Promise((resolve, reject) => {
+      const url = `https://163.sipc-api.top/song/detail?ids=${args.id}`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const picUrl = data.songs[0].al.picUrl;
+          resolve(picUrl);
         })
         .catch(error => {
           reject(error);
