@@ -327,7 +327,17 @@
   }
   //信息部分
   是否正在播放音乐() {
-    return this.audioElement && !this.audioElement.paused;
+    if (this.audioElement) {
+      if (!this.audioElement.paused && !this.audioElement.ended) {
+        return true;
+      } else if (this.audioElement.paused) {
+        return "pause";
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
   获取播放时间() {
@@ -365,20 +375,20 @@
     return '';
   }
   获取当前时间歌词在第几行(args) {
-      const lines = args.lyricsText.trim().split('\n');
-      const currentTime = args.currentTime;
-    
-      for (let i = lines.length - 1; i >= 0; i--) {
-        const matches = lines[i].match(/\[(\d+):(\d+\.\d+)\](.*)/);
-        if (matches) {
-          const time = parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
-          if (time <= currentTime) {
-            return i + 1;
-          }
+    const lines = args.lyricsText.trim().split('\n');
+    const currentTime = args.currentTime;
+
+    for (let i = lines.length - 1; i >= 0; i--) {
+      const matches = lines[i].match(/\[(\d+):(\d+\.\d+)\](.*)/);
+      if (matches) {
+        const time = parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
+        if (time <= currentTime) {
+          return i + 1;
         }
       }
-      return 0;
     }
+    return 0;
+  }
 }
 
 Scratch.extensions.register(new MusicExtension());
