@@ -1,6 +1,5 @@
 const extensionsList = [
     //163_music
-    "//163 Music",
     "搜索音乐 [Let's live]:: reporter #4d4d4f",
     "获取音乐url [1952657896] ::reporter #4d4d4f",
     "获取 [1952657896] 的歌词 ::reporter #4d4d4f",

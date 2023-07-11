@@ -8,7 +8,7 @@
 <div id="search-results"></div>
 <script type="module">
     const searchResultsContainer = document.querySelector('#search-results');
-    searchResultsContainer.innerHTML = '输入框中无内容！';//若尚未搜索，则显示文本
+    searchResultsContainer.innerHTML = '输入积木关键词来搜索哦~';//若尚未搜索，则显示文本
     import scratchblocks from "./assets/js/scratchblocks.min.es.js";
     import loadTranslations from "./assets/js/translations-all-es.js";
     loadTranslations(scratchblocks);
@@ -27,7 +27,7 @@
     searchResultsContainer.innerHTML = '';
 
     if (searchResults.length === 0) {
-        searchResultsContainer.innerHTML = '搜索无结果。';
+        searchResultsContainer.textContent = '无结果';
     } else {
         searchResults.forEach(item => {
         const preElement = document.createElement('pre');
