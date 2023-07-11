@@ -10,7 +10,6 @@
       name: '网易云音乐',
       color1: "#4d4d4f",
       blocks: [
-        //音乐部分
         {
           opcode: '搜索音乐',
           blockType: Scratch.BlockType.REPORTER,
