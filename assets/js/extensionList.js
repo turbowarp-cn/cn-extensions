@@ -37,5 +37,54 @@ const extensionsList = [
     "Encoding:将字符[A]转换为[UNICODE]:: reporter #6495ed",
     "Encoding:[65]对应的[UNICODE]字符 ::reporter #6495ed",
     "Encoding:随机生成[8]位字符串 ::reporter #6495ed",
-    "Encoding:使用[1234567890]随机生成[8]位字符串:: reporter #6495ed"
+    "Encoding:使用[1234567890]随机生成[8]位字符串:: reporter #6495ed",
+    //Recording
+    "Recording:开始录音:: command #696969",
+    "Recording:停止录音:: command #696969",
+    "Recording:停止录音并用[recording.wav]作为文件名下载:: command #696969",
+    "Recording:录音?:: boolean #696969",
+    //Temporaryvariables
+    "Temporaryvariables:将临时变量[i]设为[1] :: command #566270",
+    "Temporaryvariables:删除临时变量[i] :: command #566270",
+    "Temporaryvariables:读取临时变量[i]的值 :: reporter #566270",
+    "Temporaryvariables:临时变量[i]是否存在? :: boolean #566270",
+    //Time
+    "Time:当前时间戳 :: reporter #ff8000",
+    "Time:当前时区:: reporter #ff8000",
+    "Time:从[1145141980000]提取[年] :: reporter #ff8000",
+    "Time:将[1145141980000]转换为日期时间:: reporter #ff8000",
+    "Time:将 [2006-04-16 06:59:40]转换为时间戳:: reporter #ff8000",
+    //WebData
+    "WebData:将此项目命名为[i] :: command #001999",
+    "WebData:将 [1] 命名为[i_]保存到云端数据库 :: command #001999",
+    "WebData:删除云端数据库中的[i] :: command #001999",
+    "WebData:连接到互联网了吗?:: boolean #001999",
+    "WebData:从云端数据库中读取[i]的值 ::reporter #001999",
+    "WebData:云端数据库是否保存了[i]?:: boolean #001999",
+    //eval
+    "0832eval:执行Javascript [1+1] :: reporter #f54242",
+    //list
+    "0832list:获取列表 [rx] :: reporter #f54242",
+    "0832list:设置列表 [rx] 为 [[1,2]] :: command #f54242",
+    //rxFS
+    "0832rxfs:新建 [/rxFS/example]:: command #192d50",
+    "0832rxfs:设置 [/rxFS/example] 为 [rxFS is good!]:: command #192d50",
+    "0832rxfs:将 [/rxFS/example] 的位置更改为 [/rxFS/example]:: command #192d50",
+    "0832rxfs:删除 [/rxFS/example]:: command #192d50",
+    "0832rxfs:从网络加载 [https://0832k12.github.io/rxFS/hello.txt]:: reporter #192d50",
+    "0832rxfs:打开 [/rxFS/example]:: reporter #192d50",
+    "0832rxfs:清空文件系统:: command #192d50",
+    "0832rxfs:从 [/rxFS/] 导入文件系统:: command #192d50",
+    "0832rxfs:导出文件系统:: reporter #192d50",
+    "0832rxfs:列出 [/rxFS/] 下的所有文件:: reporter #192d50",
+    "0832rxfs:搜索 [/rxFS/example]:: reporter #192d50",
+    //Animated-Text
+    "text:显示文字 [欢迎来到我的项目!] :: pen command #0fbd8c",
+    "text:[打字机 v] 效果显示文字 [让我们开始吧!] :: command #0fbd8c",
+    "text:显示角色 ::command #0fbd8c",
+    "text:将字体设置为[Sans Serif v] ::command #0fbd8c",
+    "text:将颜色设置为[#a56afd] :: command #0fbd8c",
+    "text:将宽度设置为[200] 对齐方式[向左]:: command #0fbd8c",
+    "text:正在显示文本?:: boolean #0fbd8c",
+    "text:文本[字体 v] ::reporter #0fbd8c ::disableMonitor",
 ];
