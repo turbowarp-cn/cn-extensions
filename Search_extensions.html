@@ -4,41 +4,54 @@
 <script type="text/javascript" src="assets/js/extensionList.js"></script>
 <!-- JavaScript -->
 <div class="background">
-<input type="text" id="search-input" placeholder="在此输入以搜索扩展...">
-<div id="search-results"></div>
-<script type="module">
-    const searchResultsContainer = document.querySelector('#search-results');
-    searchResultsContainer.innerHTML = '输入积木关键词来搜索哦~';//若尚未搜索，则显示文本
-    import scratchblocks from "./assets/js/scratchblocks.min.es.js";
-    import loadTranslations from "./assets/js/translations-all-es.js";
-    loadTranslations(scratchblocks);
-
-    // 监听搜索框中的输入事件
-    const searchInput = document.querySelector('#search-input');
-    searchInput.addEventListener('input', () => {
-    // 获取搜索条件
-    const searchTerm = searchInput.value.toLowerCase();
-
-    // 过滤数据并呈现结果
-    const searchResults = extensionsList.filter(item =>
-        item.toLowerCase().includes(searchTerm)
-    );
-
-    searchResultsContainer.innerHTML = '';
-
-    if (searchResults.length === 0) {
-        searchResultsContainer.textContent = '无结果';
-    } else {
-        searchResults.forEach(item => {
-        const preElement = document.createElement('pre');
-        preElement.classList.add('blocks');
-        preElement.textContent = item;
-        searchResultsContainer.appendChild(preElement);
+    <input type="text" id="search-input" placeholder="在此输入以搜索扩展...">
+    <div id="search-results"></div>
+    <script type="module">
+        const searchResultsContainer = document.querySelector('#search-results');
+        searchResultsContainer.textContent = '输入积木关键词来搜索哦~'; // 若尚未搜索，则显示文本
+        import scratchblocks from "./assets/js/scratchblocks.min.es.js";
+        import loadTranslations from "./assets/js/translations-all-es.js";
+        loadTranslations(scratchblocks);
+        // 监听搜索框中的输入事件
+        const searchInput = document.querySelector('#search-input');
+        searchInput.addEventListener('input', () => {
+            // 获取搜索条件并转换为小写
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            // 过滤数据并呈现结果
+            const searchResults = extensionsList.filter(item =>
+                item.toLowerCase().includes(searchTerm)
+            );
+            searchResultsContainer.innerHTML = '';
+            if (searchResults.length === 0) {
+                searchResultsContainer.textContent = '无结果';
+            } else {
+                const extensions = {};
+                searchResults.forEach(item => {
+                    const extensionName = item.match(/^(.*?)\:/)[1].trim().toLowerCase();
+                    const extensionResult = item.replace(/^(.*?)\:/, '').trim(); // 删除扩展名
+                    if (!extensions[extensionName]) {
+                        extensions[extensionName] = [];
+                    }
+                    extensions[extensionName].push(extensionResult);
+                });
+                Object.keys(extensions).forEach(extensionName => {
+                    const extensionResults = extensions[extensionName];
+                    const extensionContainer = document.createElement('div');
+                    extensionContainer.classList.add('extension-container');
+                    const extensionTitle = document.createElement('h2');
+                    extensionTitle.textContent = extensionName.replace(/\b\w/g, c => c.toUpperCase()); // 自动大小写
+                    extensionContainer.appendChild(extensionTitle);
+                    extensionResults.forEach(result => {
+                        const preElement = document.createElement('pre');
+                        preElement.classList.add('blocks');
+                        preElement.textContent = result;
+                        extensionContainer.appendChild(preElement);
+                    });
+                    searchResultsContainer.appendChild(extensionContainer);
+                });
+                scratchblocks.renderMatching('pre.blocks', { style: 'scratch3', languages: ['en', 'zh_cn'], scale: 1 });
+            }
         });
-        scratchblocks.renderMatching('pre.blocks', { style: 'scratch3', languages: ['en', 'zh_cn'], scale: 1 });
-    }
-    });
-</script>
+    </script>
 </div>
-
 </html>
