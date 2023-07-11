@@ -65,6 +65,25 @@
 
       }
     `;
+    var screensplitShaderCode =
+    `
+      precision mediump float;
+      
+      varying vec2 v_texcoord;
+      varying vec4 vColor;      
+      uniform sampler2D u_texture;
+      uniform vec2 split ;
+      uniform vec2 offset ;
+      vec2 repeatUV(vec2 suv, float min, float max) {
+        return mod(suv, max - min) + min;
+    }
+      void main() {
+        vec4 col = texture2D(u_texture,repeatUV(v_texcoord / split + offset,0.0,1.0)) ;
+        gl_FragColor=col;
+
+      }
+      
+    `;
     var GlitchShaderCode =
     `
       precision mediump float;
@@ -271,7 +290,8 @@
         gray: null,
         reverse: null,
         pointillism: null,
-        cliping: null
+        cliping: null,
+        screensplit: null
       };
       programs.none = createProgram(gl,createshader(gl,gl.VERTEX_SHADER,vertexShaderCode),createshader(gl,gl.FRAGMENT_SHADER,noneShaderCode));
       programs.glitch = createProgram(gl,createshader(gl,gl.VERTEX_SHADER,vertexShaderCode),createshader(gl,gl.FRAGMENT_SHADER,GlitchShaderCode));
@@ -280,6 +300,7 @@
       programs.reverse = createProgram(gl,createshader(gl,gl.VERTEX_SHADER,vertexShaderCode),createshader(gl,gl.FRAGMENT_SHADER,ReverseShaderCode));
       programs.pointillism = createProgram(gl,createshader(gl,gl.VERTEX_SHADER,vertexShaderCode),createshader(gl,gl.FRAGMENT_SHADER,PointillismShaderCode));
       programs.cliping = createProgram(gl,createshader(gl,gl.VERTEX_SHADER,vertexShaderCode),createshader(gl,gl.FRAGMENT_SHADER,clipShaderCode));
+      programs.screensplit = createProgram(gl,createshader(gl,gl.VERTEX_SHADER,vertexShaderCode),createshader(gl,gl.FRAGMENT_SHADER,screensplitShaderCode));
       return programs;
     }
     function initShaderUniform(programs){
@@ -305,6 +326,10 @@
       gl.useProgram(programs.cliping);
       gl.uniform2fv( gl.getUniformLocation(programs.cliping, "u_pos1"), [0,0]);
       gl.uniform2fv( gl.getUniformLocation(programs.cliping, "u_pos2"), [1,1]);
+      gl.useProgram(programs.screensplit);
+      gl.uniform2fv( gl.getUniformLocation(programs.screensplit, "offset"), [0,0]);
+      gl.uniform2fv( gl.getUniformLocation(programs.screensplit, "split"), [1,1]);
+
     }
 
     var uniformLocationBuffer = {};
@@ -530,6 +555,22 @@ rendererDrawPrefix();
               },
             },
             {
+              opcode: 'opcodeChangeScreensplit',
+              text: 'Screensplit x:[split_x] y:[split_y]',
+              blockType: Scratch.BlockType.COMMAND,
+              arguments: {
+                split_x: {
+                  type: Scratch.ArgumentType.NUMBER,
+                  defaultValue: 1
+                },
+                split_y: {
+                  type: Scratch.ArgumentType.NUMBER,
+                  defaultValue: 1
+                }
+
+              },
+            },
+            {
               opcode: 'opcodeChangeCliping',
               text: 'Clip Start: X:[x1],Y:[y1] To: X:[x2],Y:[y2]',
               blockType: Scratch.BlockType.COMMAND,
@@ -632,6 +673,7 @@ rendererDrawPrefix();
                 "reverse",
                 "pointillism",
                 "cliping",
+                "screensplit",
                 "none",
               ]
             }
@@ -663,6 +705,9 @@ rendererDrawPrefix();
           }
           if (Menu == "cliping"){
             drawprogram = shaderPrograms.cliping;
+          }
+          if (Menu == "screensplit"){
+            drawprogram = shaderPrograms.screensplit;
           }
         vm.runtime.requestRedraw();
         vm.renderer.dirty = true;
@@ -707,6 +752,14 @@ rendererDrawPrefix();
           this.opcodeChangePostProcess({Menu: "pointillism"});
         }
         setUniform1f(gl,"u_threshold", Scratch.Cast.toNumber(threshold) / 100.0);
+        vm.renderer.dirty = true;
+      }
+      opcodeChangeScreensplit({split_x,split_y}){
+        if (drawprogram_mode != "screensplit" ){
+          console.log("post-process mode not screensplit, change to it.");
+          this.opcodeChangePostProcess({Menu: "screensplit"});
+        }
+        setUniform2fv(gl,"split", Scratch.Cast.toNumber(split_x),Scratch.Cast.toNumber(split_y));
         vm.renderer.dirty = true;
       }
       opcodeChangeCliping({x1,y1,x2,y2}){
