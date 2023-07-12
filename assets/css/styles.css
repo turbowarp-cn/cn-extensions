@@ -5,10 +5,14 @@ body {
 }
 
 header {
-  background-color: #0d8bf2;
-  color: white;
-  padding: 20px;
-  text-align: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: fit-content;
+	background-color: #0d8bf2;
+	color: white;
+	text-align: center;
 }
 
 .extensions {
@@ -16,6 +20,7 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
+	padding-top: 100px !important;
 }
 
 .extension {
