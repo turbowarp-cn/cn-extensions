@@ -52,6 +52,17 @@
                 scratchblocks.renderMatching('pre.blocks', { style: 'scratch3', languages: ['en', 'zh_cn'], scale: 1 });
             }
         });
+        // 获取 URL 参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const param = urlParams.get('search');
+        if (param) {
+            // 将参数填入搜索框
+            searchInput.value = param;
+            // 模拟输入事件
+            const event = new Event('input');
+            searchInput.dispatchEvent(event);
+        }
     </script>
 </div>
+
 </html>
