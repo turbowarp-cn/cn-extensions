@@ -13,7 +13,7 @@ html {
     background-color: rgb(42, 42, 42);
 }
 #search-input {
-    width: 200px;
+    width: 250px;
     height: 20px;
     border-radius: 15px;
     border: 0px solid black;
@@ -35,19 +35,52 @@ html {
 #search-input:hover {
     background-color: rgba(168, 168, 168, 0.641);
 }
+#search-input::placeholder {
+    transition-property: background-color,width,color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    transition-delay: 0;
+}
+#search-input:hover::placeholder {
+    color: whitesmoke;
+}
 #search-input:focus {
-    width: 300px;
+    background-color: rgba(168, 168, 168, 0.641);
 }
 .background {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     color: white;
-    width: -moz-fit-content;
-    width: fit-content;
-    margin: 10px;
-    padding: 10px;
-    padding-top: 5px !important;
-    padding-left: 15px !important;
+    font-size: 15px;
+    width: 300px;
+    height: 100%;
+    padding: 15px;
+    transition-property: background-color,width,color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0;
     --fullopacity: 1;
+    animation: fade-in 1s ease-out;
+}
+.background:hover {
+    width: 500px;
+    overflow-x: auto !important;
+    overflow-y: scroll !important;
+}
+.blocks {
+    --fullopacity: 1.5;
+    animation: fade-in 1s ease-out;
+}
+h2 {
+    --fullopacity: 1.5;
+    animation: fade-in 1s ease-out;
+}
+#search-results {
+    --fullopacity: 1.5;
     animation: fade-in 1s ease-out;
 }

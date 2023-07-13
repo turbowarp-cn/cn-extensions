@@ -1,16 +1,20 @@
 <!-- HTML代码 -->
 <!DOCTYPE html>
-<title>搜索扩展</title>
-<link rel="stylesheet" href="./assets/css/Search_extensions_style.css" />
-<script type="text/javascript" src="assets/js/extensionList.js"></script>
-<!-- JavaScript -->
-<div class="background">
-    <input type="text" id="search-input" placeholder="在此输入以搜索扩展...">
-    <div id="search-results"></div>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/Search_extensions_style.css" />
+    <script type="text/javascript" src="assets/js/extensionList.js"></script>
+    <title>搜索扩展</title>
     <script type="module">
+        var texts = {
+            "noResults": "无结果",
+            "noInput": "输入积木关键词来搜索哦~"
+        }
         const searchResultsContainer = document.querySelector('#search-results');
-        searchResultsContainer.textContent = '输入积木关键词来搜索哦~'; // 若尚未搜索，则显示文本
-        // 引入scratchblocks库
+        searchResultsContainer.textContent = texts.noInput; // 若尚未搜索，则显示文本
         import scratchblocks from "./assets/js/scratchblocks.min.es.js";
         import loadTranslations from "./assets/js/translations-all-es.js";
         loadTranslations(scratchblocks);
@@ -20,38 +24,43 @@
             // 获取搜索条件并转换为小写
             const searchTerm = searchInput.value.trim().toLowerCase();
             // 过滤数据并呈现结果
-            const searchResults = extensionsList.filter(item =>
-                item.toLowerCase().includes(searchTerm)
-            );
-            searchResultsContainer.innerHTML = '';
-            if (searchResults.length === 0) {
-                searchResultsContainer.textContent = '无结果';
-            } else {
-                const extensions = {};
-                searchResults.forEach(item => {
-                    const extensionName = item.match(/^(.*?)\:/)[1].trim().toLowerCase();
-                    const extensionResult = item.replace(/^(.*?)\:/, '').trim(); // 删除扩展名
-                    if (!extensions[extensionName]) {
-                        extensions[extensionName] = [];
-                    }
-                    extensions[extensionName].push(extensionResult);
-                });
-                Object.keys(extensions).forEach(extensionName => {
-                    const extensionResults = extensions[extensionName];
-                    const extensionContainer = document.createElement('div');
-                    extensionContainer.classList.add('extension-container');
-                    const extensionTitle = document.createElement('h2');
-                    extensionTitle.textContent = extensionName.replace(/\b\w/g, c => c.toUpperCase()); // 自动大小写
-                    extensionContainer.appendChild(extensionTitle);
-                    extensionResults.forEach(result => {
-                        const preElement = document.createElement('pre');
-                        preElement.classList.add('blocks');
-                        preElement.textContent = result;
-                        extensionContainer.appendChild(preElement);
+            if (searchInput.value) {    //判定输入框内是否有内容
+                const searchResults = extensionsList.filter(item =>
+                    item.toLowerCase().includes(searchTerm)
+                );
+                searchResultsContainer.innerHTML = '';
+                if (searchResults.length === 0) {
+                    searchResultsContainer.textContent = texts.noResults;
+                } else {
+                    const extensions = {};
+                    searchResults.forEach(item => {
+                        const extensionName = item.match(/^(.*?)\:/)[1].trim().toLowerCase();
+                        const extensionResult = item.replace(/^(.*?)\:/, '').trim(); // 删除扩展名
+                        if (!extensions[extensionName]) {
+                            extensions[extensionName] = [];
+                        }
+                        extensions[extensionName].push(extensionResult);
                     });
-                    searchResultsContainer.appendChild(extensionContainer);
-                });
-                scratchblocks.renderMatching('pre.blocks', { style: 'scratch3', languages: ['en', 'zh_cn'], scale: 1 });
+                    Object.keys(extensions).forEach(extensionName => {
+                        const extensionResults = extensions[extensionName];
+                        const extensionContainer = document.createElement('div');
+                        extensionContainer.classList.add('extension-container');
+                        const extensionTitle = document.createElement('h2');
+                        extensionTitle.textContent = extensionName.replace(/\b\w/g, c => c.toUpperCase()); // 自动大小写
+                        extensionContainer.appendChild(extensionTitle);
+                        extensionResults.forEach(result => {
+                            const preElement = document.createElement('pre');
+                            preElement.classList.add('blocks');
+                            preElement.textContent = result;
+                            extensionContainer.appendChild(preElement);
+                        });
+                        searchResultsContainer.appendChild(extensionContainer);
+                    });
+                    scratchblocks.renderMatching('pre.blocks', { style: 'scratch3', languages: ['en', 'zh_cn'], scale: 1 });
+                }
+            }
+            else {
+                searchResultsContainer.innerHTML = texts.noInput;//此时仍判定为尚未搜索，显示结果为空。
             }
         });
         // 获取 URL 参数
@@ -65,6 +74,14 @@
             searchInput.dispatchEvent(event);
         }
     </script>
-</div>
+</head>
+
+<body>
+    <!-- JavaScript -->
+    <div class="background">
+        <input type="text" id="search-input" placeholder="在此输入以搜索扩展...">
+        <div id="search-results"></div>
+    </div>
+</body>
 
 </html>
