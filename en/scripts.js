@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text)
       .then(() => {
-        alert("Reproduction success!");
+        alert("Successfully copied to your clipboard.");
       })
       .catch((error) => {
         alert("Cannot copy text to clipboard.", error);
