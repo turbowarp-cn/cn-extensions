@@ -695,7 +695,7 @@
             arguments: {
               TEXT: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: 'TurboWarp is great!'
+                defaultValue: 'make Turbowarp great again!'
               }
             }
           },
