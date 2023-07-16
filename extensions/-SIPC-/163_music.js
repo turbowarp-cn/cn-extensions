@@ -44,6 +44,17 @@
           }
         },
         {
+          opcode: '获取翻译歌词',
+          blockType: Scratch.BlockType.REPORTER,
+          text: '获取 [id] 的翻译歌词',
+          arguments: {
+            id: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: '1952657896'
+            }
+          }
+        },
+        {
           opcode: '获取封面',
           blockType: Scratch.BlockType.REPORTER,
           text: '获取 [id] 的封面',
@@ -184,6 +195,21 @@
             }
           }
         },
+        {
+          opcode: '获取第几行的歌词时间',
+          blockType: Scratch.BlockType.REPORTER,
+          text: '[lyricsText] 在[linenumber]行 是第几秒 ',
+          arguments: {
+            lyricsText: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: '歌词'
+            },
+            linenumber: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '行数'
+            }
+          }
+        },
       ],
     };
   }
@@ -279,6 +305,27 @@
         });
     });
   }
+  获取翻译歌词(args){
+    const cacheKey = `tranlates_lyrics_${args.id}`;
+    const cachedLyrics = localStorage.getItem(cacheKey);
+    if (cachedLyrics) {
+      return Promise.resolve(cachedLyrics);
+    }
+    return new Promise((resolve, reject) => {
+      const url = `https://163.sipc-api.top/lyric?id=${args.id}`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const lrc = data.tlyric.lyric;
+          localStorage.setItem(cacheKey, lrc);
+          resolve(lrc);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+  
   //电台部分
   获取电台曲目(args) {
     return new Promise((resolve, reject) => {
@@ -398,6 +445,17 @@
     }
     return '';
   }
+  获取第几行的歌词时间(args){
+    const lines = args.lyricsText.trim().split('\n');
+
+    let line = lines[args.linenumber]
+    const matches = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
+    if (matches) {
+        return parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
+      }
+    return '';
+  }
+  
   获取当前时间歌词在第几行(args) {
     const lines = args.lyricsText.trim().split('\n');
     const currentTime = args.currentTime;
