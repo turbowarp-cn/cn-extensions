@@ -5,10 +5,14 @@ body {
 }
 
 header {
-  background-color: #0d8bf2;
-  color: white;
-  padding: 20px;
-  text-align: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: fit-content;
+	background-color: #0d8bf2;
+	color: white;
+	text-align: center;
 }
 
 .extensions {
@@ -16,6 +20,7 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
+	padding-top: 100px !important;
 }
 
 .extension {
@@ -26,6 +31,7 @@ header {
   padding: 20px;
   width: 350px;
   flex: 0 0 calc(30% - 120px);
+  text-align: center;
 }
 
 button {
@@ -50,4 +56,10 @@ button:hover {
   text-align: center;
   margin: 20px auto 0;
   width: 80%; /* 根据需要调整宽度 */
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d8bf2;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }

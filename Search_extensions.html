@@ -1,76 +1,87 @@
 <!-- HTML代码 -->
 <!DOCTYPE html>
-<input type="text" id="search-input" placeholder="搜索扩展...">
-<div id="search-results"></div>
+<html lang="zh-hans">
 
-<!-- JavaScript代码 -->
-
-</script>
-<script type="module">
-    // 定义扩展列表
-    const extensionsList = [
-        //163_music
-        "搜索音乐 [Let's live]:: reporter #4d4d4f",
-        "获取音乐url [1952657896] ::reporter #4d4d4f",
-        "获取 [1952657896] 的歌词 ::reporter #4d4d4f",
-        "获取 [1952657896] 的封面::reporter #4d4d4f",
-        "从 [https://example.com/music.mp3] 播放音乐 ::command #4d4d4f",
-        "▶ 播放音乐::command #4d4d4f",
-        "⏸ 暂停音乐::command #4d4d4f",
-        "⏹ 停止音乐::command #4d4d4f",
-        "跳转到时间 [0] 秒::command #4d4d4f",
-        "将音量调到 [100]::command #4d4d4f",
-        "是否正在播放音乐?::boolean #4d4d4f",
-        "音乐播放时间::reporter #4d4d4f",
-        "音乐总时长::reporter #4d4d4f",
-        "[歌词] 在 [时间] 时显示 ::reporter #4d4d4f",
-        "[歌词] 在 [时间] 时是第几行::reporter #4d4d4f",
-        //Consoles
-        "清空控制台 :: command #808080",
-        "信息 [Information] :: command #808080",
-        "日志 [Journal] :: command #808080",
-        "警告 [Warning] :: command #808080",
-        "错误 [Error] :: command #808080",
-        "调试 [debug] :: command #808080",
-        "创建一个名为 [group]的分组 :: command #808080",
-        "创建一个名为 [group] 的折叠分组:: command #808080",
-        "退出当前分组:: command #808080",
-        "启动一个名为 [Time] 的计时器:: command #808080",
-        "打印名为[Time] 的计时器所运行的时间:: command #808080",
-        "结束名为 [Time] 的计时器并以打印从开始到结束所用的时间 :: command #808080",
-        //Encoding
-        "将 [SIPC] 以 [Base64] 编码::reporter #6495ed",
-        "将 [U0lQQw==] 以 [Base64] 解码 :: reporter #6495ed",
-        "将 [SIPC] 以MD5加密::reporter #6495ed",
-        "将字符 [A]转换为 [UNICODE]:: reporter #6495ed",
-        "[65] 对应的 [UNICODE] 字符:: reporter #6495ed",
-        "随机生成 [8] 位字符串::reporter #6495ed",
-        "使用 [1234567890]随机生成 [8] 位字符串 ::reporter #6495ed",
-    ];
-    import scratchblocks from "./assets/js/scratchblocks.min.es.js";
-    import loadTranslations from "./assets/js/translations-all-es.js";
-    loadTranslations(scratchblocks);
-    // 监听搜索框中的输入事件
-    const searchInput = document.querySelector('#search-input');
-    searchInput.addEventListener('input', () => {
-        // 获取搜索条件
-        const searchTerm = searchInput.value.toLowerCase();
-
-        // 过滤数据并呈现结果
-        const searchResults = extensionsList.filter(item =>
-            item.toLowerCase().includes(searchTerm)
-        );
-
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/Search_extensions_style.css" />
+    <script type="text/javascript" src="assets/js/extensionList.js"></script>
+    <title>搜索扩展</title>
+    <script type="module">
+        var texts = {
+            "noResults": "无结果",
+            "noInput": "输入积木关键词来搜索哦~"
+        }
         const searchResultsContainer = document.querySelector('#search-results');
-        searchResultsContainer.innerHTML = '';
-
-        searchResults.forEach(item => {
-            const preElement = document.createElement('pre');
-            preElement.classList.add('blocks');
-            preElement.textContent = item;
-            searchResultsContainer.appendChild(preElement);
+        searchResultsContainer.textContent = texts.noInput; // 若尚未搜索，则显示文本
+        import scratchblocks from "./assets/js/scratchblocks.min.es.js";
+        import loadTranslations from "./assets/js/translations-all-es.js";
+        loadTranslations(scratchblocks);
+        // 监听搜索框中的输入事件
+        const searchInput = document.querySelector('#search-input');
+        searchInput.addEventListener('input', () => {
+            // 获取搜索条件并转换为小写
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            // 过滤数据并呈现结果
+            if (searchInput.value) {    //判定输入框内是否有内容
+                const searchResults = extensionsList.filter(item =>
+                    item.toLowerCase().includes(searchTerm)
+                );
+                searchResultsContainer.innerHTML = '';
+                if (searchResults.length === 0) {
+                    searchResultsContainer.textContent = texts.noResults;
+                } else {
+                    const extensions = {};
+                    searchResults.forEach(item => {
+                        const extensionName = item.match(/^(.*?)\:/)[1].trim().toLowerCase();
+                        const extensionResult = item.replace(/^(.*?)\:/, '').trim(); // 删除扩展名
+                        if (!extensions[extensionName]) {
+                            extensions[extensionName] = [];
+                        }
+                        extensions[extensionName].push(extensionResult);
+                    });
+                    Object.keys(extensions).forEach(extensionName => {
+                        const extensionResults = extensions[extensionName];
+                        const extensionContainer = document.createElement('div');
+                        extensionContainer.classList.add('extension-container');
+                        const extensionTitle = document.createElement('h2');
+                        extensionTitle.textContent = extensionName.replace(/\b\w/g, c => c.toUpperCase()); // 自动大小写
+                        extensionContainer.appendChild(extensionTitle);
+                        extensionResults.forEach(result => {
+                            const preElement = document.createElement('pre');
+                            preElement.classList.add('blocks');
+                            preElement.textContent = result;
+                            extensionContainer.appendChild(preElement);
+                        });
+                        searchResultsContainer.appendChild(extensionContainer);
+                    });
+                    scratchblocks.renderMatching('pre.blocks', { style: 'scratch3', languages: ['en', 'zh_cn'], scale: 1 });
+                }
+            }
+            else {
+                searchResultsContainer.innerHTML = texts.noInput;//此时仍判定为尚未搜索，显示结果为空。
+            }
         });
-        scratchblocks.renderMatching('pre.blocks', { style: 'scratch3', languages: ['en', 'zh_cn'], scale: 1 });
-    });
-</script>
+        // 获取 URL 参数
+        const urlsearch = new URLSearchParams(window.location.search);
+        const search = urlsearch.get('search');
+        if (search) {
+            // 将参数填入搜索框
+            searchInput.value = search;
+            // 模拟输入事件
+            const event = new Event('input');
+            searchInput.dispatchEvent(event);
+        }
+    </script>
+</head>
+
+<body>
+    <!-- JavaScript -->
+    <div class="background">
+        <input type="text" id="search-input" placeholder="在此输入以搜索扩展...">
+        <div id="search-results"></div>
+    </div>
+</body>
+
 </html>
