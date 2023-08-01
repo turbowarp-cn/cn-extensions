@@ -1,9 +1,216 @@
-<script type="text/javascript">
-  if (navigator.appName == 'Netscape')
-  var language = navigator.language;
-  else
-  var language = navigator.browserLanguage;
-  if (language.indexOf('zh') > -1) document.location.href = 'zh-hans';
-  else if (language.indexOf('en') > -1) document.location.href = 'en';
-  document.location.href = 'zh-hans';
-</script>
+<!DOCTYPE html>
+<html lang="zh">
+
+</html>
+<link rel="icon" href="./assets/img/favicon.png">
+<html>
+
+<head>
+    <title>TurboWarp 第三方扩展</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<div id="copy-success" class="copy-success">
+    <i class="fas fa-check-circle"></i>
+    链接已复制到剪贴板！
+</div>
+
+<body>
+    <header>
+        <h1>TurboWarp 第三方扩展</h1>
+    </header>
+    <div class="card-container">
+        <h2 class="category-title">汉化</h2>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('lab/Animated-Text'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('lab/Animated-Text'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/lab/text.svg" alt="Image" class="rounded">
+            <h2>lab/Animated-Text</h2>
+            <p>一个显示和动画文本的简单方法<br>与Scratch Lab的动画文本兼容</p>
+        </div>
+        <h2 class="category-title">投稿</h2>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('-SIPC-/Encoding'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('-SIPC-/Encoding'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/-SIPC-/encoding.svg" alt="Image" class="rounded">
+            <h2>-SIPC-/Encoding</h2>
+            <p>将字符串编码或解码为 Unicode,Base64,URL</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('-SIPC-/Consoles'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('-SIPC-/Consoles'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/-SIPC-/consoles.svg" alt="Image" class="rounded">
+            <h2>-SIPC-/Consoles</h2>
+            <p>用于控制和操作浏览器内置的JavaScript控制台</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('-SIPC-/time'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('-SIPC-/time'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/-SIPC-/time.svg" alt="Image" class="rounded">
+            <h2>-SIPC-/Time</h2>
+            <p>用于与unix时间戳和其他日期字符串交互的块</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('-SIPC-/163_music'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('-SIPC-/163_music'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/-SIPC-/163_music.svg" alt="Image" class="rounded">
+            <h2>-SIPC-/163_music</h2>
+            <p>从网易云,url播放音乐</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('-SIPC-/Recording'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('-SIPC-/Recording'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/-SIPC-/Recording.svg" alt="Image" class="rounded">
+            <h2>-SIPC-/Recording</h2>
+            <p>利用用户设备上的麦克风录制音频<br>并将录制的音频文件进行下载</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('-SIPC-/Temporaryvariables'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('-SIPC-/Temporaryvariables'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/-SIPC-/Temporaryvariables.svg" alt="Image" class="rounded">
+            <h2>-SIPC-/Temporaryvariables</h2>
+            <p>在Scratch中实时创建,修改,删除变量</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('qxsck/mathandgeom'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('qxsck/mathandgeom'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/qxsck/mathandgeom.svg" alt="Image" class="rounded">
+            <h2>qxsck/mathandgeom</h2>
+            <p>提供了丰富的数学运算和图形处理功能<br>适用于编程和数据可视化等领域</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('qxsck/numeration'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('qxsck/numeration'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/qxsck/numeration.svg" alt="Image" class="rounded">
+            <h2>qxsck/numeration</h2>
+            <p>用于进行科学技术法的换算和转换</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('qxsck/strmani'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('qxsck/strmani'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/qxsck/strmani.svg" alt="Image" class="rounded">
+            <h2>qxsck/strmani</h2>
+            <p>专门用于处理和操作字符串<br>对字符串进行分割、替换、合并、格式化等操作</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('0832/rxFS'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('0832/rxFS'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/0832/rxFS2.svg" alt="Image" class="rounded">
+            <h2>0832/rxFS</h2>
+            <p>在Scratch中轻松地构建一个文件系统<br>实现管理,存储,访问数据功能</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('skyhigh173/json'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('skyhigh173/json'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/skyhigh173/json.svg" alt="Image" class="rounded">
+            <h2>skyhigh173/json</h2>
+            <p>用于对字符进行 JSON 格式的处理和转换<br>轻松地创建数组,解析JSON</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('zmh-program/ChatGPT'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('zmh-program/ChatGPT'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="./assets/img/zmh-program/ChatGPT.svg" alt="Image" class="rounded">
+            <h2>zmh-program/ChatGPT</h2>
+            <p>允许用户调用 ChatGPT 模型进行自然语言对话</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('zmh-program/Lightnotes'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('zmh-program/Lightnotes'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="https://via.placeholder.com/600x300" alt="Image" class="rounded">
+            <h2>zmh-program/Lightnotes</h2>
+            <p>Lightnotes 一款轻量级的笔记扩展<br>让用户可以方便地记录和管理自己的笔记</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('LoserFox/post-process'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('LoserFox/post-process'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="https://via.placeholder.com/600x300" alt="Image" class="rounded">
+            <h2>LoserFox/post-process</h2>
+            <p>用于对舞台进行色散、故障和其他视觉效果的操作</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('MFn/split'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('MFn/split'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="https://via.placeholder.com/600x300" alt="Image" class="rounded">
+            <h2>MFn/split</h2>
+            <p>使用指定字符对字符串进行切割</p>
+        </div>
+        <div class="card">
+            <div class="overlay">
+                <div class="button-container">
+                    <a href="#" class="copy-link" onclick="copy('qxsck/bitwiseoper'); event.preventDefault();">复制链接</a>
+                    <a href="#" class="view" onclick="view('qxsck/bitwiseoper'); event.preventDefault();">预览</a>
+                </div>
+            </div>
+            <img src="https://via.placeholder.com/600x300" alt="Image" class="rounded">
+            <h2>qxsck/bitwiseoper</h2>
+            <p>提供了多个位运算和位操作符<br>可以在编程和逻辑表达式中进行高级操作</p>
+        </div>
+
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
