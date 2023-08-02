@@ -13,6 +13,7 @@
 
   const AS_TEXT = 'text';
   const AS_DATA_URL = 'url';
+  let file_name = 'null';
 
   /**
    * @param {string} accept See MODE_ constants above
@@ -46,6 +47,7 @@
 
       const reader = new FileReader();
       reader.onload = () => {
+        file_name = file.name;
         callback(/** @type {string} */ (reader.result));
       };
       reader.onerror = () => {
@@ -272,7 +274,12 @@
               }
             }
           },
-
+          {
+            opcode: 'filename',
+            blockType: Scratch.BlockType.REPORTER,
+            text: '文件名',
+            arguments: {}
+          },
           '---',
 
           {
@@ -367,7 +374,9 @@
     showPickerExtensionsAs (args) {
       return showFilePrompt(args.extension, args.as);
     }
-
+    filename(){
+      return file_name
+    }
     download (args) {
       downloadBlob(new Blob([Scratch.Cast.toString(args.text)]), Scratch.Cast.toString(args.file));
     }
