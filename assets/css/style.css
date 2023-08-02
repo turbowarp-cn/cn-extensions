@@ -1,3 +1,6 @@
+html {
+	zoom: 0.8;
+  }
 header {
 	z-index: 1;
 	position: fixed;
@@ -13,22 +16,24 @@ header {
 .category-title {
 	text-align: center;
 	margin: 20px auto 0;
-	width: 80%; /* 根据需要调整宽度 */
+	width: 100%;
+	/* 根据需要调整宽度 */
 	font-size: 30px;
 	font-weight: bold;
 	color: #0d8bf2;
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
-  }
+}
 
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-  }
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+}
+
 
 .card {
 	width: 360px;
@@ -131,19 +136,22 @@ header {
 	padding: 10px;
 	border-radius: 5px;
 	animation: fade-in-out 3s ease;
-  }
-  
-  @keyframes fade-in-out {
+}
+
+@keyframes fade-in-out {
 	0% {
-	  opacity: 0;
+		opacity: 0;
 	}
+
 	10% {
-	  opacity: 1;
+		opacity: 1;
 	}
+
 	90% {
-	  opacity: 1;
+		opacity: 1;
 	}
+
 	100% {
-	  opacity: 0;
+		opacity: 0;
 	}
-  }
+}
