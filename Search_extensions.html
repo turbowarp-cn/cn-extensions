@@ -1,4 +1,3 @@
-<!-- HTML代码 -->
 <!DOCTYPE html>
 <html lang="zh-hans">
 
@@ -25,9 +24,14 @@
             const searchTerm = searchInput.value.trim().toLowerCase();
             // 过滤数据并呈现结果
             if (searchInput.value) {    //判定输入框内是否有内容
-                const searchResults = extensionsList.filter(item =>
-                    item.toLowerCase().includes(searchTerm)
-                );
+                const searchResults = extensionsList.filter(item => {
+                    // 将扩展名称、中括号小括号内的内容以及后面带的参数删除
+                    const regex = /(\[.*?\]|\(.*?\)|::.*?$|^\w+?:)/g;
+                    const filteredItem = item.replace(regex, '');
+                    // 将积木名称和功能描述合并为一个字符串
+                    const combinedString = filteredItem.toLowerCase().replace(/\s+/g, '');
+                    return combinedString.includes(searchTerm);
+                });
                 searchResultsContainer.innerHTML = '';
                 if (searchResults.length === 0) {
                     searchResultsContainer.textContent = texts.noResults;

@@ -184,5 +184,5 @@ const extensionsList = [
     "skyhigh173JSON:转换列表 [list v] 到数组:: reporter #3271D0",
     "skyhigh173JSON:设置列表 [list v] 为数组 [1,2] :: command #3271D0",
     //ChatGPT
-    "openai:询问 ChatGPT [你好！] :: reporter #0e0e0e ",
+    "ChatGPT:询问 ChatGPT [你好！] :: reporter #0e0e0e ",
 ];
