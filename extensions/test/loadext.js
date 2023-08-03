@@ -31,15 +31,14 @@
             }
         }
         open_cnext() {
-          if (typeof ext === 'undefined' || ext.closed) {
-            ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
-          } else {
-            ext.blur();
-            setTimeout(function() {
-              ext.focus();
-              ext.moveTo(0, 0);
-            }, 100);
-          }
+            var ext;
+            if (typeof ext === 'undefined' || ext.closed) {
+                ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
+            } else {
+                console.log('找不到呢');
+                ext.blur();
+                ext.focus();
+            }
         }
     }
     Scratch.extensions.register(new loadext());
