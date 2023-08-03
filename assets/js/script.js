@@ -1,3 +1,35 @@
+function load(title){
+  let url = `${window.location.origin}/extensions/${title}.js`
+  window.opener.postMessage({
+    type: 'add',
+    url: url
+  }, '*');
+}
+
+function copy(title) {
+  url = window.location.origin
+  text = url + "/extensions/" + `${title}` + '.js' 
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        var copySuccess = document.getElementById("copy-success");
+        copySuccess.style.display = "block";
+        setTimeout(function() {
+          copySuccess.style.display = "none";
+        }, 3000);
+      })
+      .catch(() => {
+        prompt("复制失败，请手动复制", text);
+      })
+  } else {
+    prompt("复制失败，请手动复制", text)
+  }
+}
+
+function view(title) {
+  window.open(`https://turbowarp.cn/editor.html?extension=${window.location.origin}/extensions/${title}.js`);
+}
+
 window.onload = function () {
   var urlParams = new URLSearchParams(window.location.search);
   var loadExtParam = urlParams.get('loadext');
@@ -28,35 +60,4 @@ window.onload = function () {
       viewButtons[i].style.display = 'block';
     }
   }
-}
-
-function load(title){
-  let url = `${window.location.origin}/extensions/${title}.js`
-  window.opener.postMessage({
-    type: 'add',
-    url: url
-  }, '*');
-}
-
-function copy(title) {
-  text = `${window.location.origin}/extensions/${title}.js`
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text)
-      .then(() => {
-        var copySuccess = document.getElementById("copy-success");
-        copySuccess.style.display = "block";
-        setTimeout(function () {
-          copySuccess.style.display = "none";
-        }, 3000);
-      })
-      .catch(
-        prompt("复制失败，请手动复制", text)
-      );
-  } else {
-    prompt("复制失败，请手动复制", text)
-  }
-}
-
-function view(title) {
-  window.open(`https://turbowarp.cn/editor.html?extension=${window.location.origin}/extensions/${title}.js`);
 }
