@@ -36,7 +36,11 @@
             }
         }
         open_cnext() {
-            var ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
+            if (typeof(ext) == 'undefined' || ext.closed) {
+                ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
+            } else {
+                ext.focus();
+            }
         }
     }
     Scratch.extensions.register(new loadext());
