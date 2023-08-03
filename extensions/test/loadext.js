@@ -31,13 +31,15 @@
             }
         }
         open_cnext() {
-            var ext;
-            if (typeof ext === 'undefined' || ext.closed) {
-                ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
-            } else {
-                ext.blur();
-                ext.focus();
-            }
+          if (typeof ext === 'undefined' || ext.closed) {
+            ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
+          } else {
+            ext.blur();
+            setTimeout(function() {
+              ext.focus();
+              ext.moveTo(0, 0);
+            }, 100);
+          }
         }
     }
     Scratch.extensions.register(new loadext());
