@@ -12,15 +12,15 @@
     });
     function loadExtension(TEXT) {
         vm.securityManager.canLoadExtensionFromProject(TEXT)
-          .then(function(canLoad) {
-            if (canLoad) {
-              vm.extensionManager.loadExtensionURL(TEXT);
-            }
-          })
-          .catch(function(error) {
-            console.error('Error loading extension:', error);
-          });
-      }
+            .then(function (canLoad) {
+                if (canLoad) {
+                    vm.extensionManager.loadExtensionURL(TEXT);
+                }
+            })
+            .catch(function (error) {
+                console.error('Error loading extension:', error);
+            });
+    }
     class loadext {
         getInfo() {
             return {
@@ -36,9 +36,11 @@
             }
         }
         open_cnext() {
-            if (typeof(ext) == 'undefined' || ext.closed) {
+            var ext;
+            if (typeof ext === 'undefined' || ext.closed) {
                 ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
             } else {
+                ext.blur();
                 ext.focus();
             }
         }
