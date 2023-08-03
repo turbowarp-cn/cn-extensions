@@ -1,6 +1,6 @@
 (function (Scratch) {
     const vm = Scratch.vm;
-    const url = 'http://localhost:5500';
+    const url = 'https://extensions.turbowarp.cn';
     // 监听消息
     window.addEventListener('message', function (event) {
         if (event.origin !== url) return; // 验证消息来源
