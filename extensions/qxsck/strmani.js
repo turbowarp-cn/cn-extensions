@@ -1,4 +1,10 @@
 ﻿class str_mani {
+    get strIsAvailable1() {
+        return [
+            {text:'邮箱', value:'1'},
+            {text:'网址', value:'2'}
+        ];
+    }
     getInfo() {
         return {
             id: 'strmani',
@@ -339,6 +345,7 @@
                     opcode: 'splittojson',
                     blockType: Scratch.BlockType.REPORTER,
                     text: '用 [STR2] 分割 [STR]，并返回json',
+                    hideFromPalette: true,
                     arguments: {
                         STR: {
                             type: Scratch.ArgumentType.STRING,
@@ -351,9 +358,43 @@
                     }
                 },
                 {
+                    opcode: 'split',
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: '用 [STR2] 分割 [STR]，并返回',
+                    arguments: {
+                        STR: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: 'str.ing'
+                        },
+                        STR2: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '.'
+                        }
+                    }
+                },
+                {
+                    opcode: 'splitid',
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: '用 [STR2] 分割 [STR]，并返回第 [ID] 项',
+                    arguments: {
+                        STR: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: 'str.ing'
+                        },
+                        STR2: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '.'
+                        },
+                        ID: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '1'
+                        }
+                    }
+                },
+                {
                     opcode: 'getStrNumInStr',
                     blockType: Scratch.BlockType.REPORTER,
-                    text: ' [STR2] 在 [STR] 里的次数',
+                    text: ' [STR2] 在 [STR] 里出现的次数',
                     arguments: {
                         STR: {
                             type: Scratch.ArgumentType.STRING,
@@ -365,88 +406,117 @@
                         }
                     }
                 },
-            ]
+                {
+                    opcode: 'strIsAvailable',
+                    blockType: Scratch.BlockType.BOOLEAN,
+                    text: '[STR]是有效[CLASS]？',
+                    hideFromPalette: true,
+                    arguments: {
+                        STR: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '114514@homo.com'
+                        },
+                        CLASS: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '邮箱',
+                            menu: 'strIsAvailable1',
+                        }
+                    }
+                },
+            ],
+            menus: {
+                strIsAvailable1: this.strIsAvailable1,
+            }
         };
     }
 
-   length(args){
+    length(args){
         return args.STR.length;
     }
-   reversal(args){
+    reversal(args){
         var arr=args.STR.split('');
         arr=arr.reverse().join("");
         return arr;
     }
-   strPalindrome(args){
+    strPalindrome(args){
         var arr=args.STR.split('');
         arr=arr.reverse().join("");
         return arr===args.STR;
     }
-   indexOf(args){
+    indexOf(args){
         if(args.STR.indexOf(args.STR2,Number(args.NUM)-1)!=-1) return args.STR.indexOf(args.STR2,Number(args.NUM)-1)+1;
         else return -1;
     }
-   lastIndexOf(args) {
+    lastIndexOf(args) {
         if(args.STR.lastIndexOf(args.STR2,Number(args.NUM)-1)!=-1) return args.STR.lastIndexOf(args.STR2,Number(args.NUM)-1)+1;
         else return -1;
     }
-   slicetwo(args){
+    slicetwo(args){
         return args.STR.slice(Number(args.NUM1)-1,Number(args.NUM2));
     }
-   sliceone(args){
+    sliceone(args){
         return args.STR.slice(Number(args.NUM)-1);
     }
-   substr(args){
+    substr(args){
         return args.STR.substr(Number(args.NUM1)-1,Number(args.NUM2));
     }
-   replace(args){
+    replace(args){
         return args.STR.replace(args.STR2,args.STR3);
     }
-   replaceAll(args){
+    replaceAll(args){
         return args.STR.replaceAll(args.STR2,args.STR3);
     }
-   toUpperCase(args){
+    toUpperCase(args){
         return args.STR.toUpperCase();
     }
-   toLowerCase(args){
+    toLowerCase(args){
         return args.STR.toLowerCase();
     }
-   padStart(args){
+    padStart(args){
         return args.STR.padStart(Number(args.NUM),args.STR2);
     }
-   padEnd(args){
+    padEnd(args){
         return args.STR.padEnd(Number(args.NUM),args.STR2);
     }
-   titleCase(args){
+    titleCase(args){
         var newStr=args.STR.split(" ");
         for(var i=0;i<newStr.length;i++){
             newStr[i]=newStr[i].slice(0,1).toUpperCase() + newStr[i].slice(1).toLowerCase();
         }
         return newStr.join(" ");
-   }
-   charAt(args){
+    }
+    charAt(args){
         return args.STR.charAt(Number(args.NUM)-1);
     }
-   includes(args){
+    includes(args){
         return args.STR.includes(args.STR2);
     }
-   includesNum(args) {
+    includesNum(args) {
         return args.STR.includes(args.STR2,Number(args.NUM));
     }
-   startsWith(args) {
+    startsWith(args) {
         return args.STR.startsWith(args.STR2);
     }
-   endsWith(args) {
+    endsWith(args) {
         return args.STR.endsWith(args.STR2);
     }
-   strictlyequal(args) {
-        return args.STR === args.STR2;
+    strictlyequal(args) {
+        return args.STR===args.STR2;
     }
-   splittojson(args) {
-        var str_ = args.STR.split(args.STR2);
+    splittojson(args) {
+        var str_=args.STR.split(args.STR2);
         return JSON.stringify(str_);
     }
-   getStrNumInStr(args){
+    split(args) {
+        var str_=args.STR.split(args.STR2);
+        return str_;
+    }
+    splitid(args) {
+        var str_=args.STR.split(args.STR2);
+        var id=Number(args.ID);
+        if(id<=str_.length) return str_[id-1];
+    }
+    getStrNumInStr(args){
       if(typeof(args.STR)!=="string" || typeof(args.STR2)!=="string") return 0;
       if(args.STR.length<args.STR2.length) return 0;
       let Nums=0;
@@ -464,7 +534,17 @@
          i--;
       }
       return Nums;
-   }
+    }
+    strIsAvailable(args) {
+        var str=args.STR;
+        if(args.CLASS='1'){
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(str); 
+        }else{
+            const urlRegex = /^([http,https]?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w.-]*)*\/?$/;
+            return urlRegex.test(str);
+        }
+    }
 }
 
 Scratch.extensions.register(new str_mani());
