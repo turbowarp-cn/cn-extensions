@@ -31,9 +31,8 @@
             }
         }
         open_cnext() {
-            var ext;
             if (typeof ext === 'undefined' || ext.closed) {
-                ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
+                var ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
             } else {
                 console.log('找不到呢');
                 ext.blur();
