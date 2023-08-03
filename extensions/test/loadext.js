@@ -1,6 +1,7 @@
 (function (Scratch) {
     const vm = Scratch.vm;
     const url = 'https://extensions.turbowarp.cn';
+    var ext
     // 监听消息
     window.addEventListener('message', function (event) {
         if (event.origin !== url) return; 
@@ -31,10 +32,11 @@
             }
         }
         open_cnext() {
-            var ext;
-            console.log(ext.close);
-            if (ext.closed) {
-                var ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
+            console.log(ext);
+            if (ext == undefined || ext.closed) {
+                ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
+                console.log(ext);
+                console.log(ext.closed);
             } else {
                 ext.focus();
             }
