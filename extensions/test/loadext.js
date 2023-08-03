@@ -32,11 +32,8 @@
             }
         }
         open_cnext() {
-            console.log(ext);
             if (ext == undefined || ext.closed) {
                 ext = window.open(url + '?loadext=1', '_blank', 'width=900,height=600');
-                console.log(ext);
-                console.log(ext.closed);
             } else {
                 ext.focus();
             }
