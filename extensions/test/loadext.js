@@ -3,24 +3,19 @@
     const url = 'https://extensions.turbowarp.cn';
     // 监听消息
     window.addEventListener('message', function (event) {
-        if (event.origin !== url) return; // 验证消息来源
-
-        // 如果消息类型为“callFunction”，则执行相应的函数
+        if (event.origin !== url) return; 
         if (event.data.type === 'add') {
-            loadExtension(event.data.url)
+            vm.securityManager.canLoadExtensionFromProject(event.data.url)
+                .then(function (canLoad) {
+                    if (canLoad) {
+                        vm.extensionManager.loadExtensionURL(event.data.url);
+                    }
+                })
+                .catch(function (error) {
+                    console.error('Error loading extension:', error);
+                });
         }
     });
-    function loadExtension(TEXT) {
-        vm.securityManager.canLoadExtensionFromProject(TEXT)
-            .then(function (canLoad) {
-                if (canLoad) {
-                    vm.extensionManager.loadExtensionURL(TEXT);
-                }
-            })
-            .catch(function (error) {
-                console.error('Error loading extension:', error);
-            });
-    }
     class loadext {
         getInfo() {
             return {
