@@ -1,22 +1,36 @@
 (function (Scratch) {
+    var ext
     const vm = Scratch.vm;
     const url = 'https://extensions.turbowarp.cn';
-    var ext
+    //检测运行环境
+    const result = vm.securityManager && 'TurboWarp' || 'ClipCC';
+    console.log(result);
     // 监听消息
     window.addEventListener('message', function (event) {
-        if (event.origin !== url) return; 
+        if (event.origin !== url) return;
         if (event.data.type === 'add') {
-            vm.securityManager.canLoadExtensionFromProject(event.data.url)
+            addext(event.data.url);
+        }
+    });
+
+    function addext(url) {
+        if (result === 'TurboWarp') {
+            vm.securityManager.canLoadExtensionFromProject(url)
                 .then(function (canLoad) {
                     if (canLoad) {
-                        vm.extensionManager.loadExtensionURL(event.data.url);
+                        vm.extensionManager.loadExtensionURL(url);
                     }
                 })
                 .catch(function (error) {
-                    console.error('Error loading extension:', error);
+                    console.error('无法加载扩展', error);
                 });
         }
-    });
+
+        if (result === 'ClipCC') {
+            vm.extensionManager.loadExtensionURL(url, 'scratch', 'unsandboxed');
+        }
+    }
+    
     class loadext {
         getInfo() {
             return {
