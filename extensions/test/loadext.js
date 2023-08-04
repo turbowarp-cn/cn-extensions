@@ -1,4 +1,4 @@
-(function (Scratch) {
+﻿(function (Scratch) {
     var ext
     const vm = Scratch.vm;
     const url = 'https://extensions.turbowarp.cn';

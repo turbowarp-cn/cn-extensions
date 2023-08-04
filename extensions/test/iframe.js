@@ -1,4 +1,4 @@
-//This is a port of the 'IFrame' extension from https://penguinmod.site/ .
+﻿//This is a port of the 'IFrame' extension from https://penguinmod.site/ .
 //Credits to JeremyGamer13 for the original extension and TheShovel for porting it.
 
 const EffectOptions = {
