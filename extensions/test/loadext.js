@@ -27,10 +27,10 @@
         }
 
         if (result === 'ClipCC') {
-            vm.extensionManager.loadExtensionURL(url);
+            vm.extensionManager.loadExtensionURL(url, 'scratch', 'unsandboxed');
         }
     }
-
+    
     class loadext {
         getInfo() {
             return {
