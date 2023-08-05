@@ -461,25 +461,28 @@
     }
     return 0;
   }
-  获取第几行的歌词时间(args) {
+  获取第几行的歌词时间(args){
     const lines = args.lyricsText.trim().split('\n');
-    if (args.linenumber < 1 || args.linenumber > lines.length) {
-      return '';
+    if (!lines || lines.length === 0) {
+      return '0';
     }
-    const line = lines[args.linenumber - 1];
-    // 校验格式
-    const timeRegex = /\[(\d+):(\d+\.\d+)\]/;
-    if (!timeRegex.test(line)) {
-      return '';
+    if (args.linenumber < 0 || args.linenumber >= lines.length) {
+      return '0';
     }
-    try {
-      // 获取时间    
-      const timeStr = line.match(timeRegex)[1];
-      const times = timeStr.split(':');
-      return parseFloat(times[0]) * 60 + parseFloat(times[1]);
-    } catch (err) {
-      return '';
+    const line = lines[args.linenumber];
+    if (!line) {
+      return '0';
+    }  
+    const matches = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
+    if (!matches) {
+      return '0';
     }
+    const minutes = parseFloat(matches[1]);
+    const seconds = parseFloat(matches[2]);
+    if (isNaN(minutes) || isNaN(seconds)) {
+      return '0';
+    }
+    return minutes * 60 + seconds; 
   }
 }
 
