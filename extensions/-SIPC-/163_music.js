@@ -305,7 +305,7 @@
         });
     });
   }
-  获取翻译歌词(args){
+  获取翻译歌词(args) {
     const cacheKey = `tranlates_lyrics_${args.id}`;
     const cachedLyrics = localStorage.getItem(cacheKey);
     if (cachedLyrics) {
@@ -325,7 +325,7 @@
         });
     });
   }
-  
+
   //电台部分
   获取电台曲目(args) {
     return new Promise((resolve, reject) => {
@@ -445,31 +445,33 @@
     }
     return '';
   }
-  获取第几行的歌词时间(args){
+  获取第几行的歌词时间(args) {
     const lines = args.lyricsText.trim().split('\n');
 
     let line = lines[args.linenumber]
     const matches = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
     if (matches) {
-        return parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
-      }
+      return parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
+    }
     return '';
   }
-  
-  获取当前时间歌词在第几行(args) {
-    const lines = args.lyricsText.trim().split('\n');
-    const currentTime = args.currentTime;
 
+  获取当前时间歌词在第几行(args) {
+    const timeReg = /\[(.+?)\]/g;
+    let result = 0;
+    const lines = args.lyricsText.split('\n');
     for (let i = lines.length - 1; i >= 0; i--) {
-      const matches = lines[i].match(/\[(\d+):(\d+\.\d+)\](.*)/);
-      if (matches) {
-        const time = parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
-        if (time <= currentTime) {
-          return i + 1;
-        }
+      const line = lines[i];
+      if (!line.trim()) continue;
+      const timeMatches = line.match(timeReg);
+      if (!timeMatches) continue;
+      const time = parseFloat(timeMatches[1].split(':')[0]) * 60 + parseFloat(timeMatches[1].split(':')[1]);
+      if (time <= args.currentTime) {
+        result = i + 1;
+        break;
       }
     }
-    return 0;
+    return result;
   }
 }
 
