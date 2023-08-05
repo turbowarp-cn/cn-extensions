@@ -445,33 +445,41 @@
     }
     return '';
   }
-  获取第几行的歌词时间(args) {
-    const lines = args.lyricsText.trim().split('\n');
-
-    let line = lines[args.linenumber]
-    const matches = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
-    if (matches) {
-      return parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
-    }
-    return '';
-  }
 
   获取当前时间歌词在第几行(args) {
-    const timeReg = /\[(.+?)\]/g;
-    let result = 0;
-    const lines = args.lyricsText.split('\n');
+    const lines = args.lyricsText.trim().split('\n');
+    const currentTime = args.currentTime;
+
     for (let i = lines.length - 1; i >= 0; i--) {
-      const line = lines[i];
-      if (!line.trim()) continue;
-      const timeMatches = line.match(timeReg);
-      if (!timeMatches) continue;
-      const time = parseFloat(timeMatches[1].split(':')[0]) * 60 + parseFloat(timeMatches[1].split(':')[1]);
-      if (time <= args.currentTime) {
-        result = i + 1;
-        break;
+      const matches = lines[i].match(/\[(\d+):(\d+\.\d+)\](.*)/);
+      if (matches) {
+        const time = parseFloat(matches[1]) * 60 + parseFloat(matches[2]);
+        if (time <= currentTime) {
+          return i + 1;
+        }
       }
     }
-    return result;
+    return 0;
+  }
+  获取第几行的歌词时间(args) {
+    const lines = args.lyricsText.trim().split('\n');
+    if (args.linenumber < 1 || args.linenumber > lines.length) {
+      return '';
+    }
+    const line = lines[args.linenumber - 1];
+    // 校验格式
+    const timeRegex = /\[(\d+):(\d+\.\d+)\]/;
+    if (!timeRegex.test(line)) {
+      return '';
+    }
+    try {
+      // 获取时间    
+      const timeStr = line.match(timeRegex)[1];
+      const times = timeStr.split(':');
+      return parseFloat(times[0]) * 60 + parseFloat(times[1]);
+    } catch (err) {
+      return '';
+    }
   }
 }
 
