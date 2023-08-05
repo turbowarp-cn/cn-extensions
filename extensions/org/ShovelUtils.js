@@ -1,4 +1,4 @@
-(function (Scratch) {
+﻿(function (Scratch) {
   'use strict';
   console.log("ShovelUtils v1.3");
   const vm = Scratch.vm;

@@ -1,4 +1,4 @@
-(function(Scratch) {
+﻿(function(Scratch) {
   'use strict';
   Scratch.translate.setup({
     zh: {
