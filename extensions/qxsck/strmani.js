@@ -11,415 +11,574 @@
             name: '字符串处理',
             color1: '#53aae7',
             color2: '#53aae7',
-            blockIconURI: 'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIxMzQuMzYwNjgiIGhlaWdodD0iMTM0LjAzOTMyIiB2aWV3Qm94PSIwLDAsMTM0LjM2MDY4LDEzNC4wMzkzMiI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3Mi44MTk2NiwtMTEyLjk4MDM0KSI+PGcgZGF0YS1wYXBlci1kYXRhPSJ7JnF1b3Q7aXNQYWludGluZ0xheWVyJnF1b3Q7OnRydWV9IiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBzdHlsZT0ibWl4LWJsZW5kLW1vZGU6IG5vcm1hbCI+PGcgc3Ryb2tlPSIjYjBkNWVlIiBzdHJva2Utd2lkdGg9IjEwIj48cGF0aCBkPSJNMjA4LjQ0Mjg2LDExNy45ODAzNGMwLDAgLTMyLjYxNjkyLDcuODE4MDggLTMwLjUyNjg4LDIzLjM0NDA5YzIuMDkwMDQsMTUuNTI2IDM0LjY5ODQ2LDUuNjY4NjQgMzYuODExODMsMjMuMzQ0MDhjMi4wNTk1MiwxNy4yMjUwNCAtMzAuODA2ODYsMTguNTM2MDMgLTMwLjgwNjg2LDE4LjUzNjAzYzAsMCAtMC43MTUxOCwtMC4zNzU1MSAtMS4wNjY3OSwtMC41NzkwNCIvPjxnPjxwYXRoIGQ9Ik0yMTYuNzgyNzYsMTUyLjExMDUyYzEzLjQwNjgsLTkuMjc3NTMgMzQuMTA2MDEsLTguMDQ1OCA0MS4xMDExNCw3LjQ4MTcxIiBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtvcmlnUm90JnF1b3Q7OjB9Ii8+PHBhdGggZD0iTTI1MS4xODQ3NywxOTIuODkyMzljMCwwIC0xNC4xNzQ5MywzNi45NjM0NSAtMTUuNDE4NjUsOS4yMjYxNWMtMS4yNDM3MSwtMjcuNzM3MzEgMTIuODMzMDcsLTY2Ljg4OTUzIDEyLjgzMzA3LC02Ni44ODk1MyIgZGF0YS1wYXBlci1kYXRhPSJ7JnF1b3Q7b3JpZ1JvdCZxdW90OzowfSIvPjwvZz48Zz48cGF0aCBkPSJNMjY2Ljg0NzAxLDI0Mi4wMTk2NmMwLDAgLTYuNTU1MTQsLTM2LjIzNDM5IC0zLC00OC4zMzMzM2MzLjU1NTE0LC0xMi4wOTg5NCAyMy42NjY2NywtMjIgMjMuNjY2NjcsLTIyIi8+PHBhdGggZD0iTTMwMi4xODAzNCwxOTUuMzUyOTljMCwwIC0xMS41MDQ2MiwxMC4zMjU2MyAtMTcuNjcwOTYsMTAuMTU3NDZjLTYuMDUzODEsLTAuMTY1MTEgLTE5Ljc5NTcsLTExLjc1NzQ2IC0xOS43OTU3LC0xMS43NTc0NiIvPjwvZz48L2c+PGcgc3Ryb2tlPSIjNTNhYWU3IiBzdHJva2Utd2lkdGg9IjMiPjxwYXRoIGQ9Ik0yMDguNDQyODYsMTE3Ljk4MDM0YzAsMCAtMzIuNjE2OTIsNy44MTgwOCAtMzAuNTI2ODgsMjMuMzQ0MDljMi4wOTAwNCwxNS41MjYgMzQuNjk4NDYsNS42Njg2NCAzNi44MTE4MywyMy4zNDQwOGMyLjA1OTUyLDE3LjIyNTA0IC0zMC44MDY4NiwxOC41MzYwMyAtMzAuODA2ODYsMTguNTM2MDNjMCwwIC0wLjcxNTE4LC0wLjM3NTUxIC0xLjA2Njc5LC0wLjU3OTA0Ii8+PGc+PHBhdGggZD0iTTIxNi43ODI3NiwxNTIuMTEwNTJjMTMuNDA2OCwtOS4yNzc1MyAzNC4xMDYwMSwtOC4wNDU4IDQxLjEwMTE0LDcuNDgxNzEiIGRhdGEtcGFwZXItZGF0YT0ieyZxdW90O29yaWdSb3QmcXVvdDs6MH0iLz48cGF0aCBkPSJNMjUxLjE4NDc3LDE5Mi44OTIzOWMwLDAgLTE0LjE3NDkzLDM2Ljk2MzQ1IC0xNS40MTg2NSw5LjIyNjE1Yy0xLjI0MzcxLC0yNy43MzczMSAxMi44MzMwNywtNjYuODg5NTMgMTIuODMzMDcsLTY2Ljg4OTUzIiBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtvcmlnUm90JnF1b3Q7OjB9Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0yNjYuODQ3MDEsMjQyLjAxOTY2YzAsMCAtNi41NTUxNCwtMzYuMjM0MzkgLTMsLTQ4LjMzMzMzYzMuNTU1MTQsLTEyLjA5ODk0IDIzLjY2NjY3LC0yMiAyMy42NjY2NywtMjIiLz48cGF0aCBkPSJNMzAyLjE4MDM0LDE5NS4zNTI5OWMwLDAgLTExLjUwNDYyLDEwLjMyNTYzIC0xNy42NzA5NiwxMC4xNTc0NmMtNi4wNTM4MSwtMC4xNjUxMSAtMTkuNzk1NywtMTEuNzU3NDYgLTE5Ljc5NTcsLTExLjc1NzQ2Ii8+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPjwhLS1yb3RhdGlvbkNlbnRlcjo2Ny4xODAzMzg0ODU3NDI6NjcuMDE5NjYtLT4=',
-            menuIconURI: 'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIxMzQuMzYwNjgiIGhlaWdodD0iMTM0LjAzOTMyIiB2aWV3Qm94PSIwLDAsMTM0LjM2MDY4LDEzNC4wMzkzMiI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3Mi44MTk2NiwtMTEyLjk4MDM0KSI+PGcgZGF0YS1wYXBlci1kYXRhPSJ7JnF1b3Q7aXNQYWludGluZ0xheWVyJnF1b3Q7OnRydWV9IiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBzdHlsZT0ibWl4LWJsZW5kLW1vZGU6IG5vcm1hbCI+PGcgc3Ryb2tlPSIjYjBkNWVlIiBzdHJva2Utd2lkdGg9IjEwIj48cGF0aCBkPSJNMjA4LjQ0Mjg2LDExNy45ODAzNGMwLDAgLTMyLjYxNjkyLDcuODE4MDggLTMwLjUyNjg4LDIzLjM0NDA5YzIuMDkwMDQsMTUuNTI2IDM0LjY5ODQ2LDUuNjY4NjQgMzYuODExODMsMjMuMzQ0MDhjMi4wNTk1MiwxNy4yMjUwNCAtMzAuODA2ODYsMTguNTM2MDMgLTMwLjgwNjg2LDE4LjUzNjAzYzAsMCAtMC43MTUxOCwtMC4zNzU1MSAtMS4wNjY3OSwtMC41NzkwNCIvPjxnPjxwYXRoIGQ9Ik0yMTYuNzgyNzYsMTUyLjExMDUyYzEzLjQwNjgsLTkuMjc3NTMgMzQuMTA2MDEsLTguMDQ1OCA0MS4xMDExNCw3LjQ4MTcxIiBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtvcmlnUm90JnF1b3Q7OjB9Ii8+PHBhdGggZD0iTTI1MS4xODQ3NywxOTIuODkyMzljMCwwIC0xNC4xNzQ5MywzNi45NjM0NSAtMTUuNDE4NjUsOS4yMjYxNWMtMS4yNDM3MSwtMjcuNzM3MzEgMTIuODMzMDcsLTY2Ljg4OTUzIDEyLjgzMzA3LC02Ni44ODk1MyIgZGF0YS1wYXBlci1kYXRhPSJ7JnF1b3Q7b3JpZ1JvdCZxdW90OzowfSIvPjwvZz48Zz48cGF0aCBkPSJNMjY2Ljg0NzAxLDI0Mi4wMTk2NmMwLDAgLTYuNTU1MTQsLTM2LjIzNDM5IC0zLC00OC4zMzMzM2MzLjU1NTE0LC0xMi4wOTg5NCAyMy42NjY2NywtMjIgMjMuNjY2NjcsLTIyIi8+PHBhdGggZD0iTTMwMi4xODAzNCwxOTUuMzUyOTljMCwwIC0xMS41MDQ2MiwxMC4zMjU2MyAtMTcuNjcwOTYsMTAuMTU3NDZjLTYuMDUzODEsLTAuMTY1MTEgLTE5Ljc5NTcsLTExLjc1NzQ2IC0xOS43OTU3LC0xMS43NTc0NiIvPjwvZz48L2c+PGcgc3Ryb2tlPSIjNTNhYWU3IiBzdHJva2Utd2lkdGg9IjMiPjxwYXRoIGQ9Ik0yMDguNDQyODYsMTE3Ljk4MDM0YzAsMCAtMzIuNjE2OTIsNy44MTgwOCAtMzAuNTI2ODgsMjMuMzQ0MDljMi4wOTAwNCwxNS41MjYgMzQuNjk4NDYsNS42Njg2NCAzNi44MTE4MywyMy4zNDQwOGMyLjA1OTUyLDE3LjIyNTA0IC0zMC44MDY4NiwxOC41MzYwMyAtMzAuODA2ODYsMTguNTM2MDNjMCwwIC0wLjcxNTE4LC0wLjM3NTUxIC0xLjA2Njc5LC0wLjU3OTA0Ii8+PGc+PHBhdGggZD0iTTIxNi43ODI3NiwxNTIuMTEwNTJjMTMuNDA2OCwtOS4yNzc1MyAzNC4xMDYwMSwtOC4wNDU4IDQxLjEwMTE0LDcuNDgxNzEiIGRhdGEtcGFwZXItZGF0YT0ieyZxdW90O29yaWdSb3QmcXVvdDs6MH0iLz48cGF0aCBkPSJNMjUxLjE4NDc3LDE5Mi44OTIzOWMwLDAgLTE0LjE3NDkzLDM2Ljk2MzQ1IC0xNS40MTg2NSw5LjIyNjE1Yy0xLjI0MzcxLC0yNy43MzczMSAxMi44MzMwNywtNjYuODg5NTMgMTIuODMzMDcsLTY2Ljg4OTUzIiBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtvcmlnUm90JnF1b3Q7OjB9Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0yNjYuODQ3MDEsMjQyLjAxOTY2YzAsMCAtNi41NTUxNCwtMzYuMjM0MzkgLTMsLTQ4LjMzMzMzYzMuNTU1MTQsLTEyLjA5ODk0IDIzLjY2NjY3LC0yMiAyMy42NjY2NywtMjIiLz48cGF0aCBkPSJNMzAyLjE4MDM0LDE5NS4zNTI5OWMwLDAgLTExLjUwNDYyLDEwLjMyNTYzIC0xNy42NzA5NiwxMC4xNTc0NmMtNi4wNTM4MSwtMC4xNjUxMSAtMTkuNzk1NywtMTEuNzU3NDYgLTE5Ljc5NTcsLTExLjc1NzQ2Ii8+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPjwhLS1yb3RhdGlvbkNlbnRlcjo2Ny4xODAzMzg0ODU3NDI6NjcuMDE5NjYtLT4=',
+            blockIconURI: 'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI3OS44IiBoZWlnaHQ9Ijc5LjgiIHZpZXdCb3g9IjAsMCw3OS44LDc5LjgiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDAuMSwtMTQwLjEpIj48ZyBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtpc1BhaW50aW5nTGF5ZXImcXVvdDs6dHJ1ZX0iIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBzdHlsZT0ibWl4LWJsZW5kLW1vZGU6IG5vcm1hbCI+PHBhdGggZD0iTTIwMS44NSwxODBjMCwtMjEuMDY5NjYgMTcuMDgwMzQsLTM4LjE1IDM4LjE1LC0zOC4xNWMyMS4wNjk2NiwwIDM4LjE1LDE3LjA4MDM0IDM4LjE1LDM4LjE1YzAsMjEuMDY5NjYgLTE3LjA4MDM0LDM4LjE1IC0zOC4xNSwzOC4xNWMtMjEuMDY5NjYsMCAtMzguMTUsLTE3LjA4MDM0IC0zOC4xNSwtMzguMTV6IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNiMGQ1ZWUiIHN0cm9rZS13aWR0aD0iMy41IiBzdHJva2UtbGluZWNhcD0iYnV0dCIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2IwZDVlZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxwYXRoIGQ9Ik0yMjUuOTUzNzksMTUyLjM5NDgxYzAsMCAtMTQuNTE3OTEsMy40Nzk4NiAtMTMuNTg3NjMsMTAuMzkwNTRjMC45MzAyOSw2LjkxMDY4IDE1LjQ0NDQxLDIuNTIzMTQgMTYuMzg1MDksMTAuMzkwNTRjMC45MTY3LDcuNjY2OTMgLTEzLjcxMjI1LDguMjUwNDYgLTEzLjcxMjI1LDguMjUwNDZjMCwwIC0wLjMxODM0LC0wLjE2NzE0IC0wLjQ3NDg0LC0wLjI1NzczIi8+PGc+PHBhdGggZD0iTTIyOS42NjU5MSwxNjcuNTg2MjljNS45Njc0MiwtNC4xMjk0NyAxNS4xODA3MSwtMy41ODEyMSAxOC4yOTQyNywzLjMzMDE0IiBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtvcmlnUm90JnF1b3Q7OjB9Ii8+PHBhdGggZD0iTTI0NC45NzgzOCwxODUuNzM4NDVjMCwwIC02LjMwOTMxLDE2LjQ1MjU4IC02Ljg2MjksNC4xMDY2Yy0wLjU1MzU4LC0xMi4zNDU5OCA1LjcxMjA1LC0yOS43NzI3OSA1LjcxMjA1LC0yOS43NzI3OSIgZGF0YS1wYXBlci1kYXRhPSJ7JnF1b3Q7b3JpZ1JvdCZxdW90OzowfSIvPjwvZz48Zz48cGF0aCBkPSJNMjUxLjk0OTcxLDIwNy42MDUxOWMwLDAgLTIuOTE3NzIsLTE2LjEyODA3IC0xLjMzNTMxLC0yMS41MTMzNWMxLjU4MjQxLC01LjM4NTI4IDEwLjUzNDEyLC05Ljc5MjI4IDEwLjUzNDEyLC05Ljc5MjI4Ii8+PHBhdGggZD0iTTI2Ny42NzY3MSwxODYuODMzNjdjMCwwIC01LjEyMDc1LDQuNTk1OTggLTcuODY1NDEsNC41MjExMmMtMi42OTQ1OCwtMC4wNzM0OSAtOC44MTExNCwtNS4yMzMyOSAtOC44MTExNCwtNS4yMzMyOSIvPjwvZz48L2c+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNTNhYWU3IiBzdHJva2Utd2lkdGg9IjAuNzUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIyNS45NTM3OSwxNTIuMzk0ODFjMCwwIC0xNC41MTc5MSwzLjQ3OTg2IC0xMy41ODc2MywxMC4zOTA1NGMwLjkzMDI5LDYuOTEwNjggMTUuNDQ0NDEsMi41MjMxNCAxNi4zODUwOSwxMC4zOTA1NGMwLjkxNjcsNy42NjY5MyAtMTMuNzEyMjUsOC4yNTA0NiAtMTMuNzEyMjUsOC4yNTA0NmMwLDAgLTAuMzE4MzQsLTAuMTY3MTQgLTAuNDc0ODQsLTAuMjU3NzMiLz48Zz48cGF0aCBkPSJNMjI5LjY2NTkxLDE2Ny41ODYyOWM1Ljk2NzQyLC00LjEyOTQ3IDE1LjE4MDcxLC0zLjU4MTIxIDE4LjI5NDI3LDMuMzMwMTQiIGRhdGEtcGFwZXItZGF0YT0ieyZxdW90O29yaWdSb3QmcXVvdDs6MH0iLz48cGF0aCBkPSJNMjQ0Ljk3ODM4LDE4NS43Mzg0NWMwLDAgLTYuMzA5MzEsMTYuNDUyNTggLTYuODYyOSw0LjEwNjZjLTAuNTUzNTgsLTEyLjM0NTk4IDUuNzEyMDUsLTI5Ljc3Mjc5IDUuNzEyMDUsLTI5Ljc3Mjc5IiBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtvcmlnUm90JnF1b3Q7OjB9Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0yNTEuOTQ5NzEsMjA3LjYwNTE5YzAsMCAtMi45MTc3MiwtMTYuMTI4MDcgLTEuMzM1MzEsLTIxLjUxMzM1YzEuNTgyNDEsLTUuMzg1MjggMTAuNTM0MTIsLTkuNzkyMjggMTAuNTM0MTIsLTkuNzkyMjgiLz48cGF0aCBkPSJNMjY3LjY3NjcxLDE4Ni44MzM2N2MwLDAgLTUuMTIwNzUsNC41OTU5OCAtNy44NjU0MSw0LjUyMTEyYy0yLjY5NDU4LC0wLjA3MzQ5IC04LjgxMTE0LC01LjIzMzI5IC04LjgxMTE0LC01LjIzMzI5Ii8+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPjwhLS1yb3RhdGlvbkNlbnRlcjozOS45MDAwMDAwMDAwMDAxMjozOS44OTk5OTk5OTk5OTk5OC0tPg==',
+            menuIconURI: 'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI3OS44IiBoZWlnaHQ9Ijc5LjgiIHZpZXdCb3g9IjAsMCw3OS44LDc5LjgiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDAuMSwtMTQwLjEpIj48ZyBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtpc1BhaW50aW5nTGF5ZXImcXVvdDs6dHJ1ZX0iIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBzdHlsZT0ibWl4LWJsZW5kLW1vZGU6IG5vcm1hbCI+PHBhdGggZD0iTTIwMS44NSwxODBjMCwtMjEuMDY5NjYgMTcuMDgwMzQsLTM4LjE1IDM4LjE1LC0zOC4xNWMyMS4wNjk2NiwwIDM4LjE1LDE3LjA4MDM0IDM4LjE1LDM4LjE1YzAsMjEuMDY5NjYgLTE3LjA4MDM0LDM4LjE1IC0zOC4xNSwzOC4xNWMtMjEuMDY5NjYsMCAtMzguMTUsLTE3LjA4MDM0IC0zOC4xNSwtMzguMTV6IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNiMGQ1ZWUiIHN0cm9rZS13aWR0aD0iMy41IiBzdHJva2UtbGluZWNhcD0iYnV0dCIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2IwZDVlZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxwYXRoIGQ9Ik0yMjUuOTUzNzksMTUyLjM5NDgxYzAsMCAtMTQuNTE3OTEsMy40Nzk4NiAtMTMuNTg3NjMsMTAuMzkwNTRjMC45MzAyOSw2LjkxMDY4IDE1LjQ0NDQxLDIuNTIzMTQgMTYuMzg1MDksMTAuMzkwNTRjMC45MTY3LDcuNjY2OTMgLTEzLjcxMjI1LDguMjUwNDYgLTEzLjcxMjI1LDguMjUwNDZjMCwwIC0wLjMxODM0LC0wLjE2NzE0IC0wLjQ3NDg0LC0wLjI1NzczIi8+PGc+PHBhdGggZD0iTTIyOS42NjU5MSwxNjcuNTg2MjljNS45Njc0MiwtNC4xMjk0NyAxNS4xODA3MSwtMy41ODEyMSAxOC4yOTQyNywzLjMzMDE0IiBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtvcmlnUm90JnF1b3Q7OjB9Ii8+PHBhdGggZD0iTTI0NC45NzgzOCwxODUuNzM4NDVjMCwwIC02LjMwOTMxLDE2LjQ1MjU4IC02Ljg2MjksNC4xMDY2Yy0wLjU1MzU4LC0xMi4zNDU5OCA1LjcxMjA1LC0yOS43NzI3OSA1LjcxMjA1LC0yOS43NzI3OSIgZGF0YS1wYXBlci1kYXRhPSJ7JnF1b3Q7b3JpZ1JvdCZxdW90OzowfSIvPjwvZz48Zz48cGF0aCBkPSJNMjUxLjk0OTcxLDIwNy42MDUxOWMwLDAgLTIuOTE3NzIsLTE2LjEyODA3IC0xLjMzNTMxLC0yMS41MTMzNWMxLjU4MjQxLC01LjM4NTI4IDEwLjUzNDEyLC05Ljc5MjI4IDEwLjUzNDEyLC05Ljc5MjI4Ii8+PHBhdGggZD0iTTI2Ny42NzY3MSwxODYuODMzNjdjMCwwIC01LjEyMDc1LDQuNTk1OTggLTcuODY1NDEsNC41MjExMmMtMi42OTQ1OCwtMC4wNzM0OSAtOC44MTExNCwtNS4yMzMyOSAtOC44MTExNCwtNS4yMzMyOSIvPjwvZz48L2c+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNTNhYWU3IiBzdHJva2Utd2lkdGg9IjAuNzUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTIyNS45NTM3OSwxNTIuMzk0ODFjMCwwIC0xNC41MTc5MSwzLjQ3OTg2IC0xMy41ODc2MywxMC4zOTA1NGMwLjkzMDI5LDYuOTEwNjggMTUuNDQ0NDEsMi41MjMxNCAxNi4zODUwOSwxMC4zOTA1NGMwLjkxNjcsNy42NjY5MyAtMTMuNzEyMjUsOC4yNTA0NiAtMTMuNzEyMjUsOC4yNTA0NmMwLDAgLTAuMzE4MzQsLTAuMTY3MTQgLTAuNDc0ODQsLTAuMjU3NzMiLz48Zz48cGF0aCBkPSJNMjI5LjY2NTkxLDE2Ny41ODYyOWM1Ljk2NzQyLC00LjEyOTQ3IDE1LjE4MDcxLC0zLjU4MTIxIDE4LjI5NDI3LDMuMzMwMTQiIGRhdGEtcGFwZXItZGF0YT0ieyZxdW90O29yaWdSb3QmcXVvdDs6MH0iLz48cGF0aCBkPSJNMjQ0Ljk3ODM4LDE4NS43Mzg0NWMwLDAgLTYuMzA5MzEsMTYuNDUyNTggLTYuODYyOSw0LjEwNjZjLTAuNTUzNTgsLTEyLjM0NTk4IDUuNzEyMDUsLTI5Ljc3Mjc5IDUuNzEyMDUsLTI5Ljc3Mjc5IiBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtvcmlnUm90JnF1b3Q7OjB9Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0yNTEuOTQ5NzEsMjA3LjYwNTE5YzAsMCAtMi45MTc3MiwtMTYuMTI4MDcgLTEuMzM1MzEsLTIxLjUxMzM1YzEuNTgyNDEsLTUuMzg1MjggMTAuNTM0MTIsLTkuNzkyMjggMTAuNTM0MTIsLTkuNzkyMjgiLz48cGF0aCBkPSJNMjY3LjY3NjcxLDE4Ni44MzM2N2MwLDAgLTUuMTIwNzUsNC41OTU5OCAtNy44NjU0MSw0LjUyMTEyYy0yLjY5NDU4LC0wLjA3MzQ5IC04LjgxMTE0LC01LjIzMzI5IC04LjgxMTE0LC01LjIzMzI5Ii8+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPjwhLS1yb3RhdGlvbkNlbnRlcjozOS45MDAwMDAwMDAwMDAxMjozOS44OTk5OTk5OTk5OTk5OC0tPg==',
             blocks: [
                 {
                     opcode: 'length',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '[STR] 的长度',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         }
                     }
                 },
                 {
                     opcode: 'reversal',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '反转 [STR]',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         }
                     }
                 },
                 {
                     opcode: 'strPalindrome',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: 'Boolean',
                     text: '[STR] 是回文字符串吗？',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'strrts'
                         }
                     }
                 },
                 {
                     opcode: 'indexOf',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '从 [STR] 的第 [NUM] 个字符开始找到第一个 [STR2] 出现的位置',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         },
                         NUM: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '1'
                         }
                     }
                 },
                 {
                     opcode: 'lastIndexOf',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '从 [STR] 的第 [NUM] 个字符开始找到最后一个 [STR2] 出现的位置',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         },
                         NUM: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '3'
                         }
                     }
                 },
                 {
                     opcode: 'slicetwo',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '截取 [STR] 第 [NUM1] 到 [NUM2] 个字符',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         NUM1: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '1'
                         },
                         NUM2: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '2'
                         }
                     }
                 },
                 {
                     opcode: 'sliceone',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '截取 [STR] 从 [NUM] 开始的内容',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         NUM: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '1'
                         }
                     }
                 },
                 {
                     opcode: 'substr',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '截取从 [STR] 的第 [NUM1] 个字符开始长度为 [NUM2] 的子字符串',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         NUM1: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '1'
                         },
                         NUM2: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '3'
                         }
                     }
                 },
                 {
                     opcode: 'replace',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '把 [STR] 中的第一个 [STR2] 替换成 [STR3]',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str in string'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         },
                         STR3: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'num'
                         }
                     }
                 },
                 {
                     opcode: 'replaceAll',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '把 [STR] 中的 [STR2] 都替换成 [STR3]',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str in string'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         },
                         STR3: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'num'
                         }
                     }
                 },
                 {
                     opcode: 'toUpperCase',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '将 [STR] 里的小写字母转为大写',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         }
                     }
                 },
                 {
                     opcode: 'toLowerCase',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '将 [STR] 里的小写字母转为小写',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'STRING'
                         }
                     }
                 },
                 {
                     opcode: 'padStart',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '在 [STR] 的开头填充 [STR2] 直到长度为 [NUM]',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 's'
                         },
                         NUM: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '5'
                         }
                     }
                 },
                 {
                     opcode: 'padEnd',
-                    blockType: Scratch.BlockType.REPORTER,
-                    text: '在 [STR] 的结尾填充 [STR2] 直到长度为[NUM]',
+                    blockType: 'reporter',
+                    text: '在 [STR] 的末尾填充 [STR2] 直到长度为[NUM]',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'r'
                         },
                         NUM: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '5'
                         }
                     }
                 },
                 {
                     opcode: 'titleCase',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '将 [STR] 每个单词的首字母大写',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string is good'
                         }
                     }
                 },
                 {
                     opcode: 'charAt',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '[STR] 的第 [NUM] 个字符',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         NUM: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '1'
                         }
                     }
                 },
                 {
                     opcode: 'includes',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: 'Boolean',
                     text: '[STR] 包括 [STR2] ？',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         }
                     }
                 },
                 {
                     opcode: 'includesNum',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: 'Boolean',
                     text: '从 [STR] 的第 [NUM] 个字符开始包括 [STR2] ？',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         },
                         NUM: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: 'number',
                             defaultValue: '2'
                         }
                     }
                 },
                 {
                     opcode: 'startsWith',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: 'Boolean',
                     text: '[STR] 以 [STR2] 开头？',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         }
                     }
                 },
                 {
                     opcode: 'endsWith',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: 'Boolean',
                     text: '[STR] 以 [STR2] 结尾？',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'string'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         }
                     }
                 },
                 {
                     opcode: 'strictlyequal',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: 'Boolean',
                     text: '[STR] === [STR2]',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'Str'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         }
                     }
                 },
                 {
                     opcode: 'splittojson',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '用 [STR2] 分割 [STR]，并返回json',
                     hideFromPalette: true,
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str.ing'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: '.'
                         }
                     }
                 },
                 {
                     opcode: 'split',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '用 [STR2] 分割 [STR]，并返回',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str.ing'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: '.'
                         }
                     }
                 },
                 {
                     opcode: 'splitid',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: '用 [STR2] 分割 [STR]，并返回第 [ID] 项',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str.ing'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: '.'
                         },
                         ID: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: '1'
                         }
                     }
                 },
                 {
                     opcode: 'getStrNumInStr',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: 'reporter',
                     text: ' [STR2] 在 [STR] 里出现的次数',
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str in string'
                         },
                         STR2: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: 'str'
                         }
                     }
                 },
                 {
                     opcode: 'strIsAvailable',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: 'Boolean',
                     text: '[STR]是有效[CLASS]？',
                     hideFromPalette: true,
                     arguments: {
                         STR: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: '114514@homo.com'
                         },
                         CLASS: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: 'string',
                             defaultValue: '邮箱',
                             menu: 'strIsAvailable1',
+                        }
+                    }
+                },
+                {
+                    opcode: 'fillStart',
+                    blockType: 'reporter',
+                    text: '在 [STR] 的开头填充 [NUM] 个 [STR2]',
+                    arguments: {
+                        STR: {
+                            type: 'string',
+                            defaultValue: 'str'
+                        },
+                        STR2: {
+                            type: 'string',
+                            defaultValue: 'ing'
+                        },
+                        NUM: {
+                            type: 'number',
+                            defaultValue: '2'
+                        }
+                    }
+                },
+                {
+                    opcode: 'fillEnd',
+                    blockType: 'reporter',
+                    text: '在 [STR] 的末尾填充 [NUM] 个 [STR2]',
+                    arguments: {
+                        STR: {
+                            type: 'string',
+                            defaultValue: 'str'
+                        },
+                        STR2: {
+                            type: 'string',
+                            defaultValue: 'ing'
+                        },
+                        NUM: {
+                            type: 'number',
+                            defaultValue: '2'
+                        }
+                    }
+                },
+                {
+                    opcode: 'repeatString',
+                    blockType: 'reporter',
+                    text: '重复 [STR] [NUM] 个',
+                    arguments: {
+                        STR: {
+                            type: 'string',
+                            defaultValue: 'str'
+                        },
+                        NUM: {
+                            type: 'number',
+                            defaultValue: '2'
+                        }
+                    }
+                },
+                {
+                    opcode: 'deleteSpace',
+                    blockType: 'reporter',
+                    text: '删除 [STR] 两边的空格',
+                    arguments: {
+                        STR: {
+                            type: 'string',
+                            defaultValue: '  str  '
+                        },
+                    }
+                },
+                {
+                    opcode: 'replaceIndex',
+                    blockType: 'reporter',
+                    text: '替换 [STR] 第 [NUM] 个字符为 [STR2]',
+                    arguments: {
+                        STR: {
+                            type: 'string',
+                            defaultValue: 'sar'
+                        },
+                        NUM:{
+                            type: 'string',
+                            defaultValue: '2',
+                        },
+                        STR2:{
+                            type: 'string',
+                            defaultValue: 't'
+                        }
+                    }
+                },
+                {
+                    opcode: 'replaceIndexs',
+                    blockType: 'reporter',
+                    text: '替换 [STR] 第 [NUM] 到 [NUM2] 个字符为 [STR2]',
+                    arguments: {
+                        STR: {
+                            type: 'string',
+                            defaultValue: 'sarkosr'
+                        },
+                        NUM:{
+                            type: 'string',
+                            defaultValue: '2',
+                        },
+                        NUM2:{
+                            type: 'string',
+                            defaultValue: '6',
+                        },
+                        STR2:{
+                            type: 'string',
+                            defaultValue: 't'
+                        }
+                    }
+                },
+                {
+                    opcode: 'deleteIndex',
+                    blockType: 'reporter',
+                    text: '删除 [STR] 第 [NUM] 个字符',
+                    arguments: {
+                        STR: {
+                            type: 'string',
+                            defaultValue: 'satr'
+                        },
+                        NUM:{
+                            type: 'string',
+                            defaultValue: '2',
+                        },
+                    }
+                },
+                {
+                    opcode: 'deleteIndexs',
+                    blockType: 'reporter',
+                    text: '删除 [STR] 第 [NUM] 到 [NUM2] 个字符',
+                    arguments: {
+                        STR: {
+                            type: 'string',
+                            defaultValue: 'sarkostr'
+                        },
+                        NUM:{
+                            type: 'string',
+                            defaultValue: '2',
+                        },
+                        NUM2:{
+                            type: 'string',
+                            defaultValue: '6',
+                        },
+                    }
+                },
+                {
+                    opcode: 'insertIndex',
+                    blockType: 'reporter',
+                    text: '在 [STR] 第 [NUM] 个字符前插入 [STR2]',
+                    arguments: {
+                        STR: {
+                            type: 'string',
+                            defaultValue: 'sr'
+                        },
+                        NUM:{
+                            type: 'string',
+                            defaultValue: '2',
+                        },
+                        STR2:{
+                            type: 'string',
+                            defaultValue: 't'
                         }
                     }
                 },
@@ -544,6 +703,66 @@
             const urlRegex = /^([http,https]?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w.-]*)*\/?$/;
             return urlRegex.test(str);
         }
+    }
+    fillStart(args){
+        var str=args.STR;
+        for(var i=0;i<Number(args.NUM);i++){
+            str=args.STR2+str;
+        }
+        return str;
+    }
+    fillEnd(args){
+        var str=args.STR;
+        for(var i=0;i<Number(args.NUM);i++){
+            str+=args.STR2;
+        }
+        return str;
+    }
+    repeatString(args){
+        var str="";
+        for(var i=0;i<Number(args.NUM);i++) str+=args.STR;
+        return str;
+    }
+    deleteSpace(args){
+        return args.STR.replace(/^\s+|\s+$/gm,'');
+    }
+    replaceIndex(args){
+        var str='';
+        for(var i=0;i<args.STR.length;i++){
+            if(i+1==Number(args.NUM)) str+=args.STR2;
+            else str+=args.STR[i];
+        }
+        return str;
+    }
+    replaceIndexs(args){
+        var str='';
+        for(var i=0;i<args.STR.length;i++){
+            if(i+1==Number(args.NUM)) str+=args.STR2;
+            else if(i+1<Number(args.NUM) || i+1>Number(args.NUM2)) str+=args.STR[i];
+        }
+        return str;
+    }
+    deleteIndex(args){
+        var str='';
+        for(var i=0;i<args.STR.length;i++){
+            if(i+1!=Number(args.NUM)) str+=args.STR[i];
+        }
+        return str;
+    }
+    deleteIndexs(args){
+        var str='';
+        for(var i=0;i<args.STR.length;i++){
+            if(i+1<Number(args.NUM) || i+1>Number(args.NUM2)) str+=args.STR[i];
+        }
+        return str;
+    }
+    insertIndex(args){
+        var str='';
+        for(var i=0;i<args.STR.length;i++){
+            if(i+1==Number(args.NUM)) str+=args.STR2;
+            str+=args.STR[i];
+        }
+        return str;
     }
 }
 
