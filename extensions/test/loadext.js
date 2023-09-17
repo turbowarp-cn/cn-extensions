@@ -3,8 +3,10 @@
     const vm = Scratch.vm;
     const url = 'https://extensions.turbowarp.cn';
     //检测运行环境
-    const result = vm.securityManager && 'TurboWarp' || 'ClipCC';
-    console.log(result);
+    var result = vm.securityManager && 'TurboWarp' || 'ClipCC';
+    // var result = vm.setCCWAPI && 'CCW';
+    var result = chibi.version && 'chibi';
+    console.log('load: '+ result );
     // 监听消息
     window.addEventListener('message', function (event) {
         if (event.origin !== url) return;
@@ -28,6 +30,10 @@
 
         if (result === 'ClipCC') {
             vm.extensionManager.loadExtensionURL(url, 'scratch', 'unsandboxed');
+        }
+
+        if (result === 'chibi') {
+            chibi.loader.load(url,'unsandboxed');
         }
     }
     
