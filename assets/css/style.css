@@ -26,6 +26,16 @@ header {
 	margin-bottom: 20px;
 }
 
+.link {
+    color: rgb(134, 134, 134); 
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px; 
+  }
+  .link:visited {
+    color: rgb(150, 150, 150);
+  }
+
 .card-container {
 	display: flex;
 	flex-wrap: wrap;
