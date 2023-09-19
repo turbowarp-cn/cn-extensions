@@ -3,9 +3,7 @@
     const vm = Scratch.vm;
     const url = 'https://extensions.turbowarp.cn';
     //检测运行环境
-    var result = vm.securityManager && 'TurboWarp' || 'ClipCC';
-    // var result = vm.setCCWAPI && 'CCW';
-    var result = chibi.version && 'chibi';
+    var  result = typeof chibi !== 'undefined' && 'chibi' || vm.securityManager && 'TurboWarp' || 'ClipCC';
     console.log('load: '+ result );
     // 监听消息
     window.addEventListener('message', function (event) {
@@ -36,7 +34,6 @@
             chibi.loader.load(url,'unsandboxed');
         }
     }
-    
     class loadext {
         getInfo() {
             return {
