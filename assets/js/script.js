@@ -38,7 +38,7 @@ window.onload = function () {
   var viewButtons = document.querySelectorAll('.view');
   console.log(loadExtParam);
   if (loadExtParam === '1') {
-    document.documentElement.style.zoom = '0.6';
+    document.documentElement.style.zoom = '0.7';
     for (var i = 0; i < loadExtButtons.length; i++) {
       loadExtButtons[i].style.display = 'block';
     }
