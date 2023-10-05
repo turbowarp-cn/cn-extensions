@@ -10,6 +10,30 @@
   const runtime = vm.runtime;
   const twgl = renderer.exports.twgl;
   let SBG = false;
+  Scratch.translate.setup({
+    zh: {
+      opcodeChangePostProcess: '设置屏幕特效为[Menu]',
+      opcodeChangeGlitch: '设置故障幅度为[Amplitude]%',
+      opcodeChangeDispersion: '设置色散幅度为[Amplitude]%',
+      opcodeChangeGray: '设置单色颜色为[COLOR] %',
+      opcodeChangePointillism: '设置点刻对比度为[threshold]%',
+      opcodeChangeScreensplit: '设置屏幕切片为 x:[split_x] y:[split_y]',
+      opcodeChangeCliping: '设置屏幕裁剪为 X:[x1],Y:[y1] To: X:[x2],Y:[y2] ROT[rot]',
+      opcodeRequestReDraw:'重新刷新屏幕',
+      opcodeGetPostProcess:'当前屏幕特效',
+      PostProcess: [
+        "故障",
+        "色散",
+        "单色",
+        "反色",
+        "点刻",
+        "裁剪",
+        "切片",
+        "？？？",
+        "无",
+      ],
+    }
+  });
 
   var vertexShaderCode = `
       attribute vec4 a_position;
@@ -717,7 +741,7 @@
           },
           {
             opcode: "opcodeChangeGlitch",
-            text: "Glitch Amplitude:[Amplitude]%,",
+            text: Scratch.translate({ id: 'opcodeChangeGlitch', default: "Glitch Amplitude:[Amplitude]%,"}),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               Amplitude: {
@@ -728,7 +752,7 @@
           },
           {
             opcode: "opcodeChangeDispersion",
-            text: "Dispersion Amplitude:[Amplitude]%",
+            text: Scratch.translate({ id: 'opcodeChangeDispersion', default: "Dispersion Amplitude:[Amplitude]%"}),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               Amplitude: {
@@ -739,7 +763,7 @@
           },
           {
             opcode: "opcodeChangeGray",
-            text: "Gray Color:[COLOR]",
+            text: Scratch.translate({ id: 'opcodeChangeGray', default: "Gray Color:[COLOR]"}),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               COLOR: {
@@ -750,7 +774,7 @@
           },
           {
             opcode: "opcodeChangePointillism",
-            text: "Pointillism Threshold:[threshold]%",
+            text: Scratch.translate({ id: 'opcodeChangePointillism', default: "Pointillism Threshold:[threshold]%"}),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               threshold: {
@@ -761,7 +785,7 @@
           },
           {
             opcode: "opcodeChangeScreensplit",
-            text: "Screensplit x:[split_x] y:[split_y]",
+            text: Scratch.translate({ id: 'opcodeChangeScreensplit', default: "Screensplit x:[split_x] y:[split_y]"}),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               split_x: {
@@ -776,7 +800,7 @@
           },
           {
             opcode: "opcodeChangeCliping",
-            text: "Clip Start: X:[x1],Y:[y1] To: X:[x2],Y:[y2] ROT[rot]",
+            text: Scratch.translate({ id: 'opcodeChangeCliping', default: "Clip Start: X:[x1],Y:[y1] To: X:[x2],Y:[y2] ROT[rot]"}),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               x1: {
@@ -804,13 +828,13 @@
 
           {
             opcode: "opcodeRequestReDraw",
-            text: "redraw post-process",
+            text: Scratch.translate({ id: 'opcodeRequestReDraw', default: "redraw post-process"}),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {},
           },
           {
             opcode: "opcodeGetPostProcess",
-            text: "Post-Process Mode",
+            text: Scratch.translate({ id: 'opcodeGetPostProcess', default: "Post-Process Mode"}),
             blockType: Scratch.BlockType.REPORTER,
             arguments: {},
           },
@@ -874,7 +898,7 @@
         menus: {
           PostProcess: {
             acceptReporters: true,
-            items: [
+            items: Scratch.translate({ id: 'PostProcess', default: [
               "glitch",
               "dispersion",
               "gray",
@@ -885,7 +909,8 @@
               "helleffectshader",
               "none",
             ],
-          },
+          })
+        },
           v1_uniforms: {
             acceptReporters: true,
             items: [
