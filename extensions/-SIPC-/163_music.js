@@ -111,7 +111,7 @@
         {
           opcode: '恢复音乐',
           blockType: Scratch.BlockType.COMMAND,
-          text: '▶ 播放音乐'
+          text: '▶️ 播放音乐'
         },
         {
           opcode: '暂停音乐',

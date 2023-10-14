@@ -7,7 +7,7 @@ const extensionsList = [
     "163_music:从[https://example.com/music.mp3] 播放音乐 ::command #4d4d4f",
     "163_music:获取电台节目 [350080224]::reporter #4d4d4f",
     "163_music:电台音乐ID转音乐ID [2521984465]::reporter #4d4d4f ",
-    "163_music:▶ 播放音乐::command #4d4d4f",
+    "163_music:▶️ 播放音乐::command #4d4d4f",
     "163_music:⏸ 暂停音乐::command #4d4d4f",
     "163_music:⏹ 停止音乐::command #4d4d4f",
     "163_music:跳转到时间[0] 秒 ::command #4d4d4f",

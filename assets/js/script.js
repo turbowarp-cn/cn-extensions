@@ -36,9 +36,8 @@ window.onload = function () {
   var loadExtButtons = document.querySelectorAll('.loadext');
   var copyButtons = document.querySelectorAll('.copy-link');
   var viewButtons = document.querySelectorAll('.view');
-  console.log(loadExtParam);
   if (loadExtParam === '1') {
-    document.documentElement.style.zoom = '0.7';
+    document.documentElement.style.zoom = '0.6';
     for (var i = 0; i < loadExtButtons.length; i++) {
       loadExtButtons[i].style.display = 'block';
     }
