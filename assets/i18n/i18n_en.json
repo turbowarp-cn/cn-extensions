@@ -18,7 +18,7 @@
     "ext.0832/rxFS": "Easily build a file system in Scratch<br>Manage, store, and access data!",
     "ext.0832/ScJson": "Reading project information in Scratch",
     "ext.skyhigh173/json": "Used for processing and converting characters to JSON format",
-    "ext.zmh-program/ChatGPT": "Allow users to invoke the ChatGPT model for natural language dialogue",
+    "ext.zmh-program/ChatNio": "Allow users to invoke the AI model for natural language dialogue",
     "ext.zmh-program/Lightnotes": "Lightnotes is a lightweight notes extension<br>that allows users to easily record and manage their notes",
     "ext.MFn/split": "Cuts a string using the specified characters",
     "ext.-SIPC-/WebData": "Store data in the cloud!",

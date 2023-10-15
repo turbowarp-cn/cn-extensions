@@ -18,7 +18,7 @@
     "ext.0832/rxFS": "在Scratch中轻松地构建一个文件系统<br>实现管理,存储,访问数据功能",
     "ext.0832/ScJson": "在Scratch中读取项目信息",
     "ext.skyhigh173/json": "用于对字符进行 JSON 格式的处理和转换<br>轻松地创建数组,解析JSON",
-    "ext.zmh-program/ChatGPT": "允许用户调用 ChatGPT 模型进行自然语言对话",
+    "ext.zmh-program/ChatNio": "允许用户调用 AI 模型进行自然语言对话",
     "ext.zmh-program/Lightnotes": "Lightnotes 一款轻量级的笔记扩展<br>让用户可以方便地记录和管理自己的笔记",
     "ext.MFn/split": "使用指定字符对字符串进行切割",
     "ext.-SIPC-/WebData": "将数据存储在云端！",
