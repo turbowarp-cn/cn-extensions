@@ -7,7 +7,6 @@
     "body.loadext": "加载扩展",
 
     "ext.LoserFox/post-process": "用于对舞台进行色散、故障和其他屏幕特效的扩展",
-    "ext.PROMISE/rotatable-cliping": "提供对角色的裁剪，如旋转裁剪，三角形裁剪<br>（本扩展仍处于实验阶段，谨慎使用）",
     "ext.PROMISE/custom_shader": "定制角色外观，自定义着色器",
     "ext.qxsck/mathandgeom": "提供了丰富的数学运算和图形处理功能<br>适用于编程和数据可视化等领域",
     "ext.qxsck/numeration": "用于进行科学技术法的换算和转换",

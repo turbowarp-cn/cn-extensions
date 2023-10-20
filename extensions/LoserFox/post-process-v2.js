@@ -21,17 +21,15 @@
       opcodeChangeCliping: '设置屏幕裁剪为 X:[x1],Y:[y1] To: X:[x2],Y:[y2] ROT[rot]',
       opcodeRequestReDraw:'重新刷新屏幕',
       opcodeGetPostProcess:'当前屏幕特效',
-      PostProcess: [
-        "故障",
-        "色散",
-        "单色",
-        "反色",
-        "点刻",
-        "裁剪",
-        "切片",
-        "？？？",
-        "无",
-      ],
+      PostProcess_glitch: "故障",
+      PostProcess_dispersion: "色散",
+      PostProcess_gray: "单色",
+      PostProcess_reverse: "反色",
+      PostProcess_pointillism: "点刻",
+      PostProcess_cliping: "裁剪",
+      PostProcess_screensplit: "切片",
+      PostProcess_helleffectshader: "???",
+      PostProcess_none: "无",
     }
   });
 
@@ -725,12 +723,12 @@
   class postprocessing {
     getInfo() {
       return {
-        id: "postprocessing",
-        name: "Post-Processing",
+        id: "postprocessingv2",
+        name: "Post-Processing V2",
         blocks: [
           {
             opcode: "opcodeChangePostProcess",
-            text: "change effect to [Menu]",
+            text: Scratch.translate({ id: 'opcodeChangePostProcess', default: "change effect to [Menu]"}),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               Menu: {
@@ -898,18 +896,17 @@
         menus: {
           PostProcess: {
             acceptReporters: true,
-            items: Scratch.translate({ id: 'PostProcess', default: [
-              "glitch",
-              "dispersion",
-              "gray",
-              "reverse",
-              "pointillism",
-              "cliping",
-              "screensplit",
-              "helleffectshader",
-              "none",
+            items: [
+              Scratch.translate({ id: 'PostProcess_glitch', default: "glitch"}),
+              Scratch.translate({ id: 'PostProcess_dispersion', default: "dispersion"}),
+              Scratch.translate({ id: 'PostProcess_gray', default: "gray"}),
+              Scratch.translate({ id: 'PostProcess_reverse', default: "reverse"}),
+              Scratch.translate({ id: 'PostProcess_pointillism', default: "pointillism"}),
+              Scratch.translate({ id: 'PostProcess_cliping', default: "cliping"}),
+              Scratch.translate({ id: 'PostProcess_screensplit', default: "screensplit"}),
+              Scratch.translate({ id: 'PostProcess_helleffectshader', default: "helleffectshader"}),
+              Scratch.translate({ id: 'PostProcess_none', default: "none"}),
             ],
-          })
         },
           v1_uniforms: {
             acceptReporters: true,

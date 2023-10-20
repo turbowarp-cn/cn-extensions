@@ -7,7 +7,6 @@
     "body.loadext": "Load Extensions",
 
     "ext.LoserFox/post-process": "Extension for dispersion, glitches and other postprocess on the stage",
-    "ext.PROMISE/rotatable-cliping": "Provides character cropping, such as rotate cropping, triangle cropping",
     "ext.PROMISE/custom_shader": "Customise character appearance, custom shaders",
     "ext.qxsck/mathandgeom": "Provides rich mathematical operations and graphical processing",
     "ext.qxsck/numeration": "For conversion and transformation of scientific and technical law",
