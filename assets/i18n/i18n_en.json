@@ -6,6 +6,7 @@
     "body.previews": "Previews",
     "body.loadext": "Load Extensions",
 
+    "ext.WitCat/Input": "Create input boxes in TurboWarp!",
     "ext.LoserFox/post-process": "Extension for dispersion, glitches and other postprocess on the stage",
     "ext.PROMISE/custom_shader": "Customise character appearance, custom shaders",
     "ext.qxsck/mathandgeom": "Provides rich mathematical operations and graphical processing",
