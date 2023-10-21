@@ -156,7 +156,7 @@ class WitCatInput {
 				"WitCatInput.set.2": "禁用",
 			},
 			en: {
-				"WitCatInput.name": "[beta]WitCat‘s Input",
+				"WitCatInput.name": "WitCat‘s Input",
 				"WitCatInput.createinput": "Create or modify [type]input ID[id]X[x]Y[y]width[width]height[height]content[text]color[color]prompt[texts]fontSize[size]",
 				"WitCatInput.deleteinput": "Delete input[id]",
 				"WitCatInput.getinput": "[type] of input [id]",
