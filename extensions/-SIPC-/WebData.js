@@ -107,7 +107,6 @@
                     body: JSON.stringify(obj),
                     headers: { "Content-Type": "application/json", "X-API-Key": `${apiKey}` },
                 });
-                console.log(response.status);
             }
             let key = btoa(encodeURIComponent(String(ProjectName + '_' + key_)));
             let field1 = btoa(encodeURIComponent(value));
@@ -120,7 +119,6 @@
                     method: 'DELETE',
                     headers: { 'X-API-Key': `${apiKey}` },
                 });
-                console.log(response.status);
             }
             let key1 = btoa(encodeURIComponent(String(ProjectName + '_' + key)));
             deleteData(key1)
@@ -131,8 +129,6 @@
                     headers: { 'X-API-Key': `${apiKey}` },
                 });
                 const data = await response.json();
-                console.log(data)
-                console.log(data['field1'])
                 if (data['field1'] != undefined) {
                     return decodeURIComponent(atob(data['field1']));
                 } else {
@@ -151,7 +147,6 @@
                 });
                 const data = await response.json();
                 let paging = data['paging'];
-                console.log(response.status);
                 let status = paging['size']
                 let result = status === 1
                 return (result);
