@@ -1,5 +1,59 @@
-﻿(function (Scratch) {
-  'use strict';
+﻿// Name: Animated Text
+// ID: text
+// Description: An easy way to display and animate text. Compatible with Scratch Lab's Animated Text experiment.
+
+(function (Scratch) {
+  "use strict";
+  Scratch.translate.setup({
+    zh: {
+      extname: '艺术字',
+      setText: '显示文字 [TEXT]',
+      setText_defaultValue: '欢迎来到我的项目!',
+      animateText: '[ANIMATE] 效果显示文字 [TEXT]',
+      animateText_defaultValue: '让我们开始吧!',
+      clearText: '显示角色',
+      setFont: '将字体设置为 [FONT]',
+      setColor: '将颜色设置为 [COLOR]',
+      setWidth: '将宽度设置为 [WIDTH] [ALIGN] 对齐',
+
+      disableCompatibilityMode: '启用非 Scratch Lab 功能',
+      disableCompatibilityMode_popup_1: '这将启用在 Scratch Lab 中无法使用的块和功能',
+      disableCompatibilityMode_popup_2: '你想继续吗？',
+      NewTW: '与 Scratch Lab 不兼容：',
+
+      setAlignment: '将文本 [ALIGN] 对齐',
+      setWidthValue: '将宽度设置为 [WIDTH]',
+      resetWidth: '重置文本宽度',
+      addLine: '添加行 [TEXT]',
+      addLine_defaultValue: '你好!',
+      getLines: '# 行数',
+      startAnimate: '开始 [ANIMATE] 动画',
+      animateUntilDone: '开始 [ANIMATE] 动画直到完成',
+      isAnimating: '正在显示动画？',
+      setAnimateDuration: '将 [ANIMATE] 持续时间设置为 [NUM] 秒',
+      resetAnimateDuration: '重置 [ANIMATE] 持续时间',
+      getAnimateDuration: '[ANIMATE] 持续时间',
+      setTypeDelay: '将打字延迟设置为 [NUM] 秒',
+      resetTypeDelay: '重置打字延迟',
+      getTypeDelay: '打字延迟',
+      textActive: '显示文本？',
+      getDisplayedText: '显示文本',
+      getTextAttribute: '文本 [ATTRIBUTE]',
+
+      menus_type: '打字机',
+      menus_rainbow: '彩虹',
+      menus_zoom: '放大',
+
+      menus_left: '向左',
+      menus_center: '居中',
+      menus_right: '向右',
+
+      menus_font: '字体',
+      menus_color: '颜色',
+      menus_width: '宽度',
+      menus_alignment: '对齐',
+    }
+  })
 
   // This extension was created by making projects with https://lab.scratch.mit.edu/text/
   // To determine block and argument IDs, we extracted project.json and examined the result.
@@ -8,7 +62,8 @@
   // This extension's code is not based on the source code of Scratch Lab's.
 
   // by @LilyMakesThings
-  const blockIconURI = 'data:image/svg+xml;,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22284.242%22%20height%3D%22284.242%22%3E%3Cg%20fill-rule%3D%22evenodd%22%20stroke-miterlimit%3D%2210%22%20data-paper-data%3D%22%7B%26quot%3BisPaintingLayer%26quot%3B%3Atrue%7D%22%20style%3D%22mix-blend-mode%3Anormal%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M188.894%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.48%209.888a1671.47%201671.47%200%200%200-4.174%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.83%20522.83%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.329%20157.508H225.43l-9.636-26.111h-54.08l-9.636%2026.11h-43.432l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22%2396f%22%20stroke%3D%22%237240d6%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%2229%22%20d%3D%22M188.894%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.48%209.888a1671.47%201671.47%200%200%200-4.174%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.83%20522.83%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.329%20157.508H225.43l-9.636-26.111h-54.08l-9.636%2026.11h-43.432l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M188.894%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.48%209.888a1671.47%201671.47%200%200%200-4.174%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.302%20408.302%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.329%20157.508H225.43l-9.636-26.111h-54.08l-9.636%2026.11h-43.432l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22%23ffa24d%22%20stroke%3D%22%23fff%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%229%22%20d%3D%22M188.894%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.48%209.888a1671.47%201671.47%200%200%200-4.174%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.302%20408.302%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.329%20157.508H225.43l-9.636-26.111h-54.08l-9.636%2026.11h-43.432l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M143.696%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888a1671.47%201671.47%200%200%200-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.33%20157.508h-44.312l-9.637-26.111h-54.08l-9.636%2026.11H63.448l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22%2396f%22%20stroke%3D%22%237240d6%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%2229%22%20d%3D%22M143.696%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888a1671.47%201671.47%200%200%200-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.33%20157.508h-44.312l-9.637-26.111h-54.08l-9.636%2026.11H63.448l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M143.696%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888a1671.47%201671.47%200%200%200-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.33%20157.508h-44.312l-9.637-26.111h-54.08l-9.636%2026.11H63.448l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22%23ff774d%22%20stroke%3D%22%23fff%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%229%22%20d%3D%22M143.696%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888a1671.47%201671.47%200%200%200-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.33%20157.508h-44.312l-9.637-26.111h-54.08l-9.636%2026.11H63.448l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M94.748%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888-1.27%203.442-2.66%207.263-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.885%20522.885%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.52-56.092%2062.328%20157.508h-44.311l-9.637-26.111h-54.08l-9.635%2026.11H14.5L77.269%2063.368Z%22%2F%3E%3Cpath%20fill%3D%22%2396f%22%20stroke%3D%22%237240d6%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%2229%22%20d%3D%22M94.748%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888-1.27%203.442-2.66%207.263-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.885%20522.885%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.52-56.092%2062.328%20157.508h-44.311l-9.637-26.111h-54.08l-9.635%2026.11H14.5L77.269%2063.368Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M94.748%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888-1.27%203.442-2.66%207.263-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.885%20522.885%200%200%201-4.065-11.242%20408.302%20408.302%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.52-56.092%2062.328%20157.508h-44.311l-9.637-26.111h-54.08l-9.635%2026.11H14.5L77.269%2063.368Z%22%2F%3E%3Cpath%20fill%3D%22%23ff4c4c%22%20stroke%3D%22%23fff%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%229%22%20d%3D%22M94.748%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888-1.27%203.442-2.66%207.263-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.885%20522.885%200%200%201-4.065-11.242%20408.302%20408.302%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.52-56.092%2062.328%20157.508h-44.311l-9.637-26.111h-54.08l-9.635%2026.11H14.5L77.269%2063.368Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E';
+  const blockIconURI =
+    "data:image/svg+xml;,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22284.242%22%20height%3D%22284.242%22%3E%3Cg%20fill-rule%3D%22evenodd%22%20stroke-miterlimit%3D%2210%22%20data-paper-data%3D%22%7B%26quot%3BisPaintingLayer%26quot%3B%3Atrue%7D%22%20style%3D%22mix-blend-mode%3Anormal%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M188.894%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.48%209.888a1671.47%201671.47%200%200%200-4.174%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.83%20522.83%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.329%20157.508H225.43l-9.636-26.111h-54.08l-9.636%2026.11h-43.432l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22%2396f%22%20stroke%3D%22%237240d6%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%2229%22%20d%3D%22M188.894%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.48%209.888a1671.47%201671.47%200%200%200-4.174%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.83%20522.83%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.329%20157.508H225.43l-9.636-26.111h-54.08l-9.636%2026.11h-43.432l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M188.894%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.48%209.888a1671.47%201671.47%200%200%200-4.174%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.302%20408.302%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.329%20157.508H225.43l-9.636-26.111h-54.08l-9.636%2026.11h-43.432l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22%23ffa24d%22%20stroke%3D%22%23fff%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%229%22%20d%3D%22M188.894%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.48%209.888a1671.47%201671.47%200%200%200-4.174%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.302%20408.302%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.329%20157.508H225.43l-9.636-26.111h-54.08l-9.636%2026.11h-43.432l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M143.696%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888a1671.47%201671.47%200%200%200-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.33%20157.508h-44.312l-9.637-26.111h-54.08l-9.636%2026.11H63.448l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22%2396f%22%20stroke%3D%22%237240d6%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%2229%22%20d%3D%22M143.696%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888a1671.47%201671.47%200%200%200-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.33%20157.508h-44.312l-9.637-26.111h-54.08l-9.636%2026.11H63.448l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M143.696%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888a1671.47%201671.47%200%200%200-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.33%20157.508h-44.312l-9.637-26.111h-54.08l-9.636%2026.11H63.448l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22%23ff774d%22%20stroke%3D%22%23fff%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%229%22%20d%3D%22M143.696%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888a1671.47%201671.47%200%200%200-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.827%20522.827%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.519-56.092%2062.33%20157.508h-44.312l-9.637-26.111h-54.08l-9.636%2026.11H63.448l62.768-157.507Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M94.748%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888-1.27%203.442-2.66%207.263-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.885%20522.885%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.52-56.092%2062.328%20157.508h-44.311l-9.637-26.111h-54.08l-9.635%2026.11H14.5L77.269%2063.368Z%22%2F%3E%3Cpath%20fill%3D%22%2396f%22%20stroke%3D%22%237240d6%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%2229%22%20d%3D%22M94.748%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888-1.27%203.442-2.66%207.263-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.885%20522.885%200%200%201-4.065-11.242%20408.343%20408.343%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.52-56.092%2062.328%20157.508h-44.311l-9.637-26.111h-54.08l-9.635%2026.11H14.5L77.269%2063.368Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M94.748%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888-1.27%203.442-2.66%207.263-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.885%20522.885%200%200%201-4.065-11.242%20408.302%20408.302%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.52-56.092%2062.328%20157.508h-44.311l-9.637-26.111h-54.08l-9.635%2026.11H14.5L77.269%2063.368Z%22%2F%3E%3Cpath%20fill%3D%22%23ff4c4c%22%20stroke%3D%22%23fff%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%229%22%20d%3D%22M94.748%20119.459c-.706%202.378-1.43%204.69-2.172%206.933-1.05%203.15-2.21%206.445-3.479%209.888-1.27%203.442-2.66%207.263-4.175%2011.462l-5.73%2015.528h30.833l-5.73-15.528a522.885%20522.885%200%200%201-4.065-11.242%20408.302%20408.302%200%200%201-3.37-10.108%20350.767%20350.767%200%200%201-2.112-6.933zm18.52-56.092%2062.328%20157.508h-44.311l-9.637-26.111h-54.08l-9.635%2026.11H14.5L77.269%2063.368Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
 
   const CUSTOM_STATE_KEY = Symbol();
 
@@ -22,43 +77,27 @@
 
   let compatibilityMode = true;
 
-  const NATIVE_FONTS = [
-    'Sans Serif',
-    'Serif',
-    'Handwriting',
-    'Marker',
-    'Curly',
-    'Pixel',
+  const FONTS = [
+    "Sans Serif",
+    "Serif",
+    "Handwriting",
+    "Marker",
+    "Curly",
+    "Pixel",
   ];
 
-  const COMPATIBLE_FONTS = [
-    'Scratch',
-    'Arial',
-    'Arial Black',
-    'Helvetica Neue',
-    'Calibri',
-    'Garamond',
-    'Times New Roman',
-    'Courier New',
-    'Brush Script MT',
-    'Impact',
-    'Comic Sans MS',
-    'Consolas',
-    'Lucida Console'
-  ];
-
-  const DEFAULT_COLOR = '#575e75';
-  const DEFAULT_FONT = 'Handwriting';
+  const DEFAULT_COLOR = "#575e75";
+  const DEFAULT_FONT = "Handwriting";
   const DEFAULT_WIDTH = vm.runtime.stageWidth;
   const DEFAULT_ALIGN = ALIGN_CENTER;
   const DEFAULT_FONT_SIZE = 24;
 
-  const TYPE_DELAY = 1000 / 15;
+  const DEFAULT_TYPE_DELAY = 1000 / 15;
 
   const RAINBOW_TIME_PER = 1000;
-  const RAINBOW_DURATION = 2000;
+  const DEFAULT_RAINBOW_DURATION = 2000;
 
-  const ZOOM_DURATION = 500;
+  const DEFAULT_ZOOM_DURATION = 500;
 
   let globalFrameTime = 0;
 
@@ -69,8 +108,8 @@
 
   // temporary
   if (!renderer.exports || !renderer.exports.Skin || !vm.exports) {
-    alert('VM is too old for animated text extension');
-    throw new Error('VM is too old');
+    alert("VM is too old for animated text extension");
+    throw new Error("VM is too old");
   }
 
   const Skin = renderer.exports.Skin;
@@ -82,13 +121,16 @@
    * @param {number} c
    * @returns {string}
    */
-  const formatComponent = (c) => Math.round(c).toString(16).padStart(2, '0');
+  const formatComponent = (c) => Math.round(c).toString(16).padStart(2, "0");
 
   /**
    * @param {[number, number, number]} color
    * @returns {string}
    */
-  const formatColor = (color) => `#${formatComponent(color[0])}${formatComponent(color[1])}${formatComponent(color[2])}`;
+  const formatColor = (color) =>
+    `#${formatComponent(color[0])}${formatComponent(color[1])}${formatComponent(
+      color[2]
+    )}`;
 
   /**
    * @param {number} h hue from 0-1
@@ -105,14 +147,26 @@
     var q = v * (1 - f * s);
     var t = v * (1 - (1 - f) * s);
     switch (i % 6) {
-      case 0: r = v, g = t, b = p; break;
-      case 1: r = q, g = v, b = p; break;
-      case 2: r = p, g = v, b = t; break;
-      case 3: r = p, g = q, b = v; break;
-      case 4: r = t, g = p, b = v; break;
-      case 5: r = v, g = p, b = q; break;
+      case 0:
+        (r = v), (g = t), (b = p);
+        break;
+      case 1:
+        (r = q), (g = v), (b = p);
+        break;
+      case 2:
+        (r = p), (g = v), (b = t);
+        break;
+      case 3:
+        (r = p), (g = q), (b = v);
+        break;
+      case 4:
+        (r = t), (g = p), (b = v);
+        break;
+      case 5:
+        (r = v), (g = p), (b = q);
+        break;
     }
-    return [r * 255 | 0, g * 255 | 0, b * 255 | 0];
+    return [(r * 255) | 0, (g * 255) | 0, (b * 255) | 0];
   };
 
   /**
@@ -141,12 +195,12 @@
       /** @type {number} */
       this._previousDrawableXScale = 100;
 
-      this.canvas = document.createElement('canvas');
+      this.canvas = document.createElement("canvas");
       this.canvas.width = 0;
       this.canvas.height = 0;
-      this.ctx = this.canvas.getContext('2d');
+      this.ctx = this.canvas.getContext("2d");
 
-      this.text = '';
+      this.text = "";
       this.color = DEFAULT_COLOR;
       this.textWidth = DEFAULT_WIDTH;
       this.fontFamily = DEFAULT_FONT;
@@ -174,17 +228,17 @@
 
       this.isTyping = false;
       this.typeAnimationInterval = null;
-      this.typeDelay = TYPE_DELAY;
+      this.typeDelay = DEFAULT_TYPE_DELAY;
 
       this.isRainbow = false;
       this.rainbowStartTime = 0;
       this.rainbowTimeout = null;
-      this.rainbowDuration = RAINBOW_DURATION;
+      this.rainbowDuration = DEFAULT_RAINBOW_DURATION;
 
       this.isZooming = false;
       this.zoomStartTime = 0;
       this.zoomTimeout = null;
-      this.zoomDuration = ZOOM_DURATION;
+      this.zoomDuration = DEFAULT_ZOOM_DURATION;
 
       /** @type {(() => void)|null} */
       this.resolveOngoingAnimation = null;
@@ -230,15 +284,16 @@
         const progress = Math.max(0, Math.min(1, time / this.zoomDuration));
         this.calculatedFontSize *= progress;
       }
-      this.lineHeight = this.baseFontSize * 8 / 7;
+      this.lineHeight = (this.baseFontSize * 8) / 7;
       // Always use the base size for padding. This makes the zoom animation look better.
       this.verticalPadding = this.baseFontSize / 7;
       // Only use horizontal scale for wrap width for compatibility with stretch extension.
-      this.wrapWidth = this.textWidth / (Math.abs(this.drawable.scale[0]) / 100);
+      this.wrapWidth =
+        this.textWidth / (Math.abs(this.drawable.scale[0]) / 100);
     }
 
     _getFontStyle() {
-      return `${this.calculatedFontSize}px "${this.fontFamily}", sans-serif`;
+      return `${this.calculatedFontSize}px ${this.fontFamily}, sans-serif`;
     }
 
     _reflowText() {
@@ -256,21 +311,23 @@
       const textWrapper = renderer.createTextWrapper(measurementProvider);
 
       const lines = textWrapper.wrapText(this.wrapWidth, this.text);
-      this.lines = lines.map(line => {
+      this.lines = lines.map((line) => {
         const trimmed = line.trimEnd();
         return {
           text: trimmed,
-          width: measurementProvider.measureText(trimmed)
+          width: measurementProvider.measureText(trimmed),
         };
       });
 
       this._size[0] = this.wrapWidth;
-      this._size[1] = this.lines.length * this.lineHeight + 2 * this.verticalPadding;
+      this._size[1] =
+        this.lines.length * this.lineHeight + 2 * this.verticalPadding;
 
       // Centered horizontally
       this._rotationCenter[0] = this._size[0] / 2;
       // Vertical center is roughly below the first line of text
-      this._rotationCenter[1] = this.calculatedFontSize * 0.9 + this.verticalPadding;
+      this._rotationCenter[1] =
+        this.calculatedFontSize * 0.9 + this.verticalPadding;
     }
 
     _renderAtScale(requestedScale) {
@@ -287,7 +344,9 @@
       this.canvas.height = Math.ceil(scratchHeight * requestedScale);
       this.ctx.scale(requestedScale, requestedScale);
 
-      const rainbowOffset = this.isRainbow ? (globalFrameTime - this.rainbowStartTime) / RAINBOW_TIME_PER : 0;
+      const rainbowOffset = this.isRainbow
+        ? (globalFrameTime - this.rainbowStartTime) / RAINBOW_TIME_PER
+        : 0;
       this.ctx.fillStyle = this.color;
       this.ctx.font = this._getFontStyle();
       for (let i = 0; i < this.lines.length; i++) {
@@ -305,7 +364,12 @@
         }
 
         if (this.isRainbow) {
-          const gradient = this.ctx.createLinearGradient(xOffset, 0, xOffset + lineWidth, 0);
+          const gradient = this.ctx.createLinearGradient(
+            xOffset,
+            0,
+            xOffset + lineWidth,
+            0
+          );
           addRainbowStops(gradient, rainbowOffset);
           this.ctx.fillStyle = gradient;
         }
@@ -322,7 +386,7 @@
         // @ts-expect-error - twgl not typed yet
         this._texture = twgl.createTexture(gl, {
           auto: false,
-          wrap: gl.CLAMP_TO_EDGE
+          wrap: gl.CLAMP_TO_EDGE,
         });
       }
       this._setTexture(this.canvas);
@@ -385,7 +449,7 @@
     }
 
     getWidth() {
-      return this._size[0];
+      return this.textWidth;
     }
 
     getAlign() {
@@ -394,7 +458,7 @@
 
     _oneAnimationAtATime(newCallback) {
       this.cancelAnimation();
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         this.resolveOngoingAnimation = () => {
           this.resolveOngoingAnimation = null;
           resolve();
@@ -404,7 +468,7 @@
     }
 
     startTypeAnimation() {
-      return this._oneAnimationAtATime(resolve => {
+      return this._oneAnimationAtATime((resolve) => {
         this.isTyping = true;
         const originalText = this.text;
         let i = 1;
@@ -425,8 +489,12 @@
       });
     }
 
+    setTypeDelay(delay) {
+      this.typeDelay = delay;
+    }
+
     startRainbowAnimation() {
-      return this._oneAnimationAtATime(resolve => {
+      return this._oneAnimationAtATime((resolve) => {
         this.isRainbow = true;
         this.rainbowStartTime = Date.now();
         this._invalidateTexture();
@@ -438,8 +506,12 @@
       });
     }
 
+    setRainbowDuration(duration) {
+      this.rainbowDuration = duration;
+    }
+
     startZoomAnimation() {
-      return this._oneAnimationAtATime(resolve => {
+      return this._oneAnimationAtATime((resolve) => {
         this.isZooming = true;
         this.zoomStartTime = Date.now();
         this._invalidateText();
@@ -449,6 +521,10 @@
           this._invalidateText();
         }, this.zoomDuration);
       });
+    }
+
+    setZoomDuration(duration) {
+      this.zoomDuration = duration;
     }
 
     cancelAnimation() {
@@ -479,7 +555,9 @@
     // Part of Skin API
     getTexture(scale) {
       const MAX_SCALE = 10;
-      const upperScale = scale ? Math.max(Math.abs(scale[0]), Math.abs(scale[1])) : 100;
+      const upperScale = scale
+        ? Math.max(Math.abs(scale[0]), Math.abs(scale[1]))
+        : 100;
       const calculatedScale = Math.min(MAX_SCALE, upperScale / 100);
 
       if (this._needsReflow()) {
@@ -511,12 +589,15 @@
     return skin;
   };
 
-  vm.runtime.on('BEFORE_EXECUTE', () => {
+  vm.runtime.on("BEFORE_EXECUTE", () => {
     globalFrameTime = Date.now();
 
     for (let i = 0; i < renderer._allSkins.length; i++) {
       const skin = renderer._allSkins[i];
-      if (skin instanceof TextCostumeSkin && (skin.isRainbow || skin.isZooming)) {
+      if (
+        skin instanceof TextCostumeSkin &&
+        (skin.isRainbow || skin.isZooming)
+      ) {
         skin.emitWasAltered();
       }
     }
@@ -524,11 +605,11 @@
 
   class AnimatedText {
     constructor() {
-      vm.runtime.on('PROJECT_START', () => {
+      vm.runtime.on("PROJECT_START", () => {
         this._hideAllText();
       });
 
-      vm.runtime.on('PROJECT_STOP_ALL', () => {
+      vm.runtime.on("PROJECT_STOP_ALL", () => {
         this._hideAllText();
       });
 
@@ -546,14 +627,20 @@
           newSkin.setFontFamily(originalSkin.fontFamily);
           newSkin.setWidth(originalSkin.textWidth);
           newSkin.setText(originalSkin.text);
-          if (renderer._allDrawables[this.drawableID].skin instanceof TextCostumeSkin) {
+          newSkin.setRainbowDuration(originalSkin.rainbowDuration);
+          newSkin.setZoomDuration(originalSkin.zoomDuration);
+          newSkin.setTypeDelay(originalSkin.typeDelay);
+          if (
+            renderer._allDrawables[this.drawableID].skin instanceof
+            TextCostumeSkin
+          ) {
             renderer.updateDrawableSkinId(newClone.drawableID, newSkin.id);
           }
         }
         return newClone;
       };
 
-      vm.runtime.on('targetWasRemoved', (target) => {
+      vm.runtime.on("targetWasRemoved", (target) => {
         if (this._hasState(target)) {
           const state = this._getState(target);
           renderer.destroySkin(state.skin.id);
@@ -563,324 +650,411 @@
 
     getInfo() {
       return {
-        id: 'text',
-        name: '艺术字',
-        color1: '#9966FF',
+        id: "text",
+        name: Scratch.translate({ id: 'extname', default: 'Animated Text' }),
+        color1: "#9966FF",
         blockIconURI: blockIconURI,
         blocks: [
           {
-            opcode: 'setText',
+            opcode: "setText",
             blockType: Scratch.BlockType.COMMAND,
-            text: '显示文字 [TEXT]',
+            text: Scratch.translate({ id: 'setText', default: 'show text [TEXT]' }),
             arguments: {
               TEXT: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: '欢迎来到我的项目!'
-              }
-            }
+                defaultValue: Scratch.translate({ id: 'setText_defaultValue', default: 'Welcome to my project!' }),
+              },
+            },
           },
           {
-            opcode: 'animateText',
+            opcode: "animateText",
             blockType: Scratch.BlockType.COMMAND,
-            text: '[ANIMATE] 效果显示文字 [TEXT]',
+            text: Scratch.translate({ id: 'animateText', default: '[ANIMATE] text [TEXT]' }),
             arguments: {
               ANIMATE: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'animate',
-                defaultValue: '打字机'
+                menu: "animate",
+                defaultValue: "rainbow",
               },
               TEXT: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: '让我们开始吧!'
-              }
-            }
+                defaultValue: Scratch.translate({ id: 'animateText_defaultValue', default: 'Here we go!' }),
+              },
+            },
           },
           {
-            opcode: 'clearText',
+            opcode: "clearText",
             blockType: Scratch.BlockType.COMMAND,
-            text: '显示角色'
+            text: Scratch.translate({ id: 'clearText', default: 'show sprite' }),
           },
-          '---',
+          "---",
           {
-            opcode: 'setFont',
+            opcode: "setFont",
             blockType: Scratch.BlockType.COMMAND,
-            text: '将字体设置为 [FONT]',
+            text: Scratch.translate({ id: 'setFont', default: 'set font to [FONT]' }),
             arguments: {
               FONT: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'font'
-              }
-            }
+                menu: "font",
+              },
+            },
           },
           {
-            opcode: 'setColor',
+            opcode: "setColor",
             blockType: Scratch.BlockType.COMMAND,
-            text: '将颜色设置为 [COLOR]',
+            text: Scratch.translate({ id: 'setColor', default: 'set text color to [COLOR]' }),
             arguments: {
               COLOR: {
-                type: Scratch.ArgumentType.COLOR
-              }
-            }
+                type: Scratch.ArgumentType.COLOR,
+              },
+            },
           },
           {
-            opcode: 'setWidth',
+            opcode: "setWidth",
             blockType: Scratch.BlockType.COMMAND,
-            text: '将宽度设置为 [WIDTH] 对齐方式 [ALIGN]',
+            text: Scratch.translate({ id: 'setWidth', default: 'set width to [WIDTH] aligned [ALIGN]' }),
             arguments: {
               WIDTH: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: '200'
+                defaultValue: "200",
               },
               ALIGN: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'align'
-              }
-            }
+                menu: "align",
+              },
+            },
           },
-          '---',
+          "---",
 
-          /** 
+          /**
            * Contributors:
            * - LilyMakesThings
-          */
+           */
 
           {
-            func: 'disableCompatibilityMode',
+            func: "disableCompatibilityMode",
             blockType: Scratch.BlockType.BUTTON,
-            text: '启用非 Scratch Lab 功能',
-            hideFromPalette: !compatibilityMode
+            text: Scratch.translate({ id: 'disableCompatibilityMode', default: 'Enable Non-Scratch Lab Features' }),
+            hideFromPalette: !compatibilityMode,
           },
           {
-            opcode: 'labelNewBlocks',
             blockType: Scratch.BlockType.LABEL,
-            text: '与 Scratch Lab 不兼容:',
-            hideFromPalette: compatibilityMode
+            text: Scratch.translate({ id: 'NewTW', default: 'Incompatible with Scratch Lab:' }),
+            hideFromPalette: compatibilityMode,
           },
           {
-            opcode: 'setAlignment',
+            opcode: "setAlignment",
             blockType: Scratch.BlockType.COMMAND,
-            text: '将文本对齐至 [ALIGN]',
+            text: Scratch.translate({ id: 'setAlignment', default: 'align text to [ALIGN]' }),
             hideFromPalette: compatibilityMode,
             arguments: {
               ALIGN: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'twAlign'
-              }
-            }
+                menu: "twAlign",
+              },
+            },
           },
-          { // why is the other block called "setWidth" :(
-            opcode: 'setWidthValue',
+          {
+            // why is the other block called "setWidth" :(
+            opcode: "setWidthValue",
             blockType: Scratch.BlockType.COMMAND,
-            text: '将宽度设为 [WIDTH]',
+            text: Scratch.translate({ id: 'setWidthValue', default: 'set width to [WIDTH]' }),
             hideFromPalette: compatibilityMode,
             arguments: {
               WIDTH: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: 200
-              }
-            }
+                defaultValue: 200,
+              },
+            },
           },
           {
-            opcode: 'resetWidth',
+            opcode: "resetWidth",
             blockType: Scratch.BlockType.COMMAND,
-            text: '重置文本宽度',
-            hideFromPalette: compatibilityMode
+            text: Scratch.translate({ id: 'resetWidth', default: 'reset text width' }),
+            hideFromPalette: compatibilityMode,
           },
-          '---',
+          "---",
           {
-            opcode: 'addLine',
+            opcode: "addLine",
             blockType: Scratch.BlockType.COMMAND,
-            text: '添加行 [TEXT]',
+            text: Scratch.translate({ id: 'addLine', default: 'add line [TEXT]' }),
             hideFromPalette: compatibilityMode,
             arguments: {
               TEXT: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: 'make Turbowarp great again!'
-              }
-            }
+                defaultValue: Scratch.translate({ id: 'addLine_defaultValue', default: 'Hello!' }),
+              },
+            },
           },
           {
-            opcode: 'getLines',
+            opcode: "getLines",
             blockType: Scratch.BlockType.REPORTER,
-            text: '# 行数',
-            hideFromPalette: compatibilityMode
+            text: Scratch.translate({ id: 'getLines', default: '# of lines' }),
+            hideFromPalette: compatibilityMode,
+            disableMonitor: true,
           },
-          '---',
+          "---",
           {
-            opcode: 'startAnimate',
+            opcode: "startAnimate",
             blockType: Scratch.BlockType.COMMAND,
-            text: '开始 [ANIMATE] 动画',
+            text: Scratch.translate({ id: 'startAnimate', default: 'start [ANIMATE] animation' }),
             hideFromPalette: compatibilityMode,
             arguments: {
               ANIMATE: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'twAnimate',
-                defaultValue: '彩虹'
-              }
-            }
+                menu: "twAnimate",
+                defaultValue: "rainbow",
+              },
+            },
           },
           {
-            opcode: 'animateUntilDone',
+            opcode: "animateUntilDone",
             blockType: Scratch.BlockType.COMMAND,
-            text: '开始 [ANIMATE] 动画直到完成',
+            text: Scratch.translate({ id: 'animateUntilDone', default: 'animate [ANIMATE] until done' }),
             hideFromPalette: compatibilityMode,
             arguments: {
               ANIMATE: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'twAnimate',
-                defaultValue: '彩虹'
-              }
-            }
+                menu: "twAnimate",
+                defaultValue: "rainbow",
+              },
+            },
           },
           {
-            opcode: 'isAnimating',
+            opcode: "isAnimating",
             blockType: Scratch.BlockType.BOOLEAN,
-            text: '正在显示动画？',
-            hideFromPalette: compatibilityMode
+            text: Scratch.translate({ id: 'isAnimating', default: 'is animating?' }),
+            hideFromPalette: compatibilityMode,
+            disableMonitor: true,
           },
-          '---',
+          "---",
           {
-            opcode: 'setAnimateDuration',
+            opcode: "setAnimateDuration",
             blockType: Scratch.BlockType.COMMAND,
-            text: '将 [ANIMATE] 持续时间设置为 [NUM] 秒',
+            text: Scratch.translate({ id: 'setAnimateDuration', default: 'set [ANIMATE] duration to [NUM] seconds' }),
             hideFromPalette: compatibilityMode,
             arguments: {
               ANIMATE: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'twAnimateDuration',
-                defaultValue: '彩虹'
+                menu: "twAnimateDuration",
+                defaultValue: "rainbow",
               },
               NUM: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: 3
-              }
-            }
+                defaultValue: 3,
+              },
+            },
           },
           {
-            opcode: 'resetAnimateDuration',
+            opcode: "resetAnimateDuration",
             blockType: Scratch.BlockType.COMMAND,
-            text: '重置 [ANIMATE] 持续时间',
+            text: Scratch.translate({ id: 'resetAnimateDuration', default: 'reset [ANIMATE] duration' }),
             hideFromPalette: compatibilityMode,
             arguments: {
               ANIMATE: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'twAnimateDuration',
-                defaultValue: '彩虹'
-              }
-            }
+                menu: "twAnimateDuration",
+                defaultValue: "rainbow",
+              },
+            },
           },
           {
-            opcode: 'getAnimateDuration',
+            opcode: "getAnimateDuration",
             blockType: Scratch.BlockType.REPORTER,
-            text: '[ANIMATE] 持续时间',
+            text: Scratch.translate({ id: 'getAnimateDuration', default: '[ANIMATE] duration' }),
             hideFromPalette: compatibilityMode,
             arguments: {
               ANIMATE: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'twAnimateDuration',
-                defaultValue: '彩虹'
-              }
-            }
+                menu: "twAnimateDuration",
+                defaultValue: "rainbow",
+              },
+            },
           },
-          '---',
+          "---",
           {
-            opcode: 'setTypeDelay',
+            opcode: "setTypeDelay",
             blockType: Scratch.BlockType.COMMAND,
-            text: '将打字延迟设置为 [NUM] 秒',
+            text: Scratch.translate({ id: 'setTypeDelay', default: 'set typing delay to [NUM] seconds' }),
             hideFromPalette: compatibilityMode,
             arguments: {
               NUM: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: 0.1
-              }
-            }
+                defaultValue: 0.1,
+              },
+            },
           },
           {
-            opcode: 'resetTypeDelay',
+            opcode: "resetTypeDelay",
             blockType: Scratch.BlockType.COMMAND,
-            text: '重置打字延迟',
-            hideFromPalette: compatibilityMode
+            text: Scratch.translate({ id: 'resetTypeDelay', default: 'reset typing delay' }),
+            hideFromPalette: compatibilityMode,
           },
           {
-            opcode: 'getTypeDelay',
+            opcode: "getTypeDelay",
             blockType: Scratch.BlockType.REPORTER,
-            text: '打字延迟',
-            hideFromPalette: compatibilityMode
+            text: Scratch.translate({ id: 'getTypeDelay', default: 'typing delay' }),
+            hideFromPalette: compatibilityMode,
+            disableMonitor: true,
           },
-          '---',
+          "---",
           {
-            opcode: 'textActive',
+            opcode: "textActive",
             blockType: Scratch.BlockType.BOOLEAN,
-            text: '显示文本？',
-            hideFromPalette: compatibilityMode
+            text: Scratch.translate({ id: 'textActive', default: 'is showing text?' }),
+            hideFromPalette: compatibilityMode,
+            disableMonitor: true,
           },
           {
-            opcode: 'getDisplayedText',
+            opcode: "getDisplayedText",
             blockType: Scratch.BlockType.REPORTER,
-            text: '显示文本',
-            hideFromPalette: compatibilityMode
+            text: Scratch.translate({ id: 'getDisplayedText', default: 'displayed text' }),
+            hideFromPalette: compatibilityMode,
+            disableMonitor: true,
           },
           {
-            opcode: 'getTextAttribute',
+            opcode: "getTextAttribute",
             blockType: Scratch.BlockType.REPORTER,
-            text: '文本 [ATTRIBUTE]',
+            text: Scratch.translate({ id: 'getTextAttribute', default: 'text [ATTRIBUTE]' }),
             arguments: {
               ATTRIBUTE: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'attribute'
-              }
+                menu: "attribute",
+              },
             },
             disableMonitor: true,
-            hideFromPalette: compatibilityMode
-          }
+            hideFromPalette: compatibilityMode,
+          },
         ],
         menus: {
           // These all need acceptReporters: false for parity with the Scratch Labs version.
           animate: {
             acceptReporters: false,
-            items: ['打字机', '彩虹', '放大']
+            items: [
+              {
+                text: Scratch.translate({ id: 'menus_type', default: 'type' }),
+                value: "type",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_rainbow', default: 'rainbow' }),
+                value: "rainbow",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_zoom', default: 'zoom' }),
+                value: "zoom",
+              }
+            ],
           },
           font: {
             acceptReporters: false,
-            items: this._compatibleFonts()
+            items: "getFonts",
           },
           align: {
             acceptReporters: false,
             items: [
-              '向左',
-              '居中',
-              '向右',
-              '对齐',
-            ]
+              {
+                text: Scratch.translate({ id: 'menus_left', default: 'left' }),
+                value: "left",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_center', default: 'center' }),
+                value: "center",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_right', default: 'right' }),
+                value: "right",
+              }
+            ],
           },
           attribute: {
             acceptReporters: false,
             items: [
-              '字体',
-              '颜色',
-              '宽度',
-              '对齐'
-            ]
+              {
+                text: Scratch.translate({ id: 'menus_font', default: 'font' }),
+                value: "font",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_color', default: 'color' }),
+                value: "color",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_width', default: 'width' }),
+                value: "width",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_alignment', default: 'alignment' }),
+                value: "alignment",
+              },
+            ],
           },
           // TurboWarp menus (acceptReporters: true)
           twAnimate: {
             acceptReporters: true,
-            items: ['打字机', '彩虹', '放大']
+            items: [
+              {
+                text: Scratch.translate({ id: 'menus_type', default: 'type' }),
+                value: "type",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_rainbow', default: 'rainbow' }),
+                value: "rainbow",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_zoom', default: 'zoom' }),
+                value: "zoom",
+              }
+            ],
           },
           twAnimateDuration: {
             acceptReporters: true,
-            items: ['彩虹', '放大']
+            items: [
+              {
+                text: Scratch.translate({ id: 'menus_rainbow', default: 'rainbow' }),
+                value: "rainbow",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_zoom', default: 'zoom' }),
+                value: "zoom",
+              }
+            ],
           },
           twAlign: {
             acceptReporters: true,
             items: [
-              '向左',
-              '居中',
-              '向右'
-            ]
-          }
-        }
+              {
+                text: Scratch.translate({ id: 'menus_left', default: 'left' }),
+                value: "left",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_center', default: 'center' }),
+                value: "center",
+              },
+              {
+                text: Scratch.translate({ id: 'menus_right', default: 'right' }),
+                value: "right",
+              }
+            ],
+          },
+        },
       };
+    }
+
+    getFonts() {
+      const customFonts = Scratch.vm.runtime.fontManager
+        ? Scratch.vm.runtime.fontManager.getFonts().map((i) => ({
+            text: i.name,
+            value: i.family,
+          }))
+        : [];
+
+      return [
+        ...FONTS,
+        ...customFonts,
+        {
+          text: "random font",
+          value: "Random",
+        },
+      ];
     }
 
     /**
@@ -892,7 +1066,7 @@
       if (!state) {
         /** @type {TextState} */
         const newState = {
-          skin: createTextCostumeSkin(target)
+          skin: createTextCostumeSkin(target),
         };
         target[CUSTOM_STATE_KEY] = newState;
         return newState;
@@ -934,27 +1108,6 @@
       target.setCostume(target.currentCostume);
     }
 
-    _compatibleFonts() {
-      if (compatibilityMode) {
-        return [
-          ...NATIVE_FONTS,
-          {
-            text: 'random font',
-            value: 'Random'
-          }
-        ];
-      } else {
-        return [
-          ...NATIVE_FONTS,
-          ...COMPATIBLE_FONTS,
-          {
-            text: 'random font',
-            value: 'Random'
-          }
-        ];
-      }
-    }
-
     setText({ TEXT }, util) {
       const state = this._getState(util.target);
       this._renderText(util.target, state);
@@ -970,11 +1123,11 @@
       state.skin.setText(Scratch.Cast.toString(TEXT));
       state.skin.cancelAnimation();
 
-      if (ANIMATE === '打字机') {
+      if (ANIMATE === "type") {
         return state.skin.startTypeAnimation();
-      } else if (ANIMATE === '彩虹') {
+      } else if (ANIMATE === "rainbow") {
         return state.skin.startRainbowAnimation();
-      } else if (ANIMATE === '放大') {
+      } else if (ANIMATE === "zoom") {
         return state.skin.startZoomAnimation();
       } else {
         // Scratch does nothing here
@@ -992,10 +1145,12 @@
 
     setFont({ FONT }, util) {
       const state = this._getState(util.target);
-      if (FONT === 'Random') {
+      if (FONT === "Random") {
         // Random font always switches to a new font, never the same one
-        const possibleFonts = this._compatibleFonts().filter(i => i !== state.skin.fontFamily);
-        state.skin.setFontFamily(possibleFonts[Math.floor(Math.random() * possibleFonts.length)]);
+        const possibleFonts = FONTS.filter((i) => i !== state.skin.fontFamily);
+        state.skin.setFontFamily(
+          possibleFonts[Math.floor(Math.random() * possibleFonts.length)]
+        );
       } else {
         state.skin.setFontFamily(Scratch.Cast.toString(FONT));
       }
@@ -1009,9 +1164,9 @@
     setWidth({ WIDTH, ALIGN }, util) {
       const state = this._getState(util.target);
 
-      if (ALIGN === '居中') {
+      if (ALIGN === "center") {
         state.skin.setAlign(ALIGN_CENTER);
-      } else if (ALIGN === '向右') {
+      } else if (ALIGN === "right") {
         state.skin.setAlign(ALIGN_RIGHT);
       } else {
         // Scratch treats unknown values as left alignment.
@@ -1021,28 +1176,29 @@
       state.skin.setWidth(Scratch.Cast.toNumber(WIDTH));
     }
 
-    // TurboWarp blocks
+    /*
+     * Extra blocks, not compatible with Scratch:
+     */
 
     disableCompatibilityMode() {
       let popup = [
-        '启用该功能将允许使用新字体和新块'
-        + '\n' +
-        '这些块和功能与 Scratch Lab 不兼容'
-        + '\n' + '\n' +
-        '您想继续吗？'];
-      if (confirm(popup.join())) compatibilityMode = false;
-      Scratch.vm.extensionManager.refreshBlocks();
+        Scratch.translate({ id: 'disableCompatibilityMode_popup_1', default: 'This will enable new blocks and features that WILL NOT WORK in the offical Scratch Lab.' }),
+        Scratch.translate({ id: 'disableCompatibilityMode_popup_2', default: 'Do you wish to continue?' }),
+      ];
+      if (confirm(popup.join("\n\n"))) {
+        compatibilityMode = false;
+        Scratch.vm.extensionManager.refreshBlocks();
+      }
     }
 
     setAlignment(args, util) {
+      // see setWidth
       const state = this._getState(util.target);
-
-      if (args.ALIGN === '居中') {
+      if (args.ALIGN === "center") {
         state.skin.setAlign(ALIGN_CENTER);
-      } else if (args.ALIGN === '向右') {
+      } else if (args.ALIGN === "right") {
         state.skin.setAlign(ALIGN_RIGHT);
       } else {
-        // Scratch treats unknown values as left alignment.
         state.skin.setAlign(ALIGN_LEFT);
       }
     }
@@ -1058,14 +1214,14 @@
     }
 
     addLine(args, util) {
-      const drawableID = util.target.drawableID;
-      const skin = renderer._allDrawables[drawableID].skin;
-      if (!(skin instanceof TextCostumeSkin)) return;
-
       const state = this._getState(util.target);
+      this._renderText(util.target, state);
+
       const originalText = state.skin.text;
-      state.skin.setText(originalText + '\n' + Scratch.Cast.toString(args.TEXT));
-      // Scratch forces 1 frame delay by returning promise. I think that's silly.
+      const addingText = Scratch.Cast.toString(args.TEXT);
+      state.skin.setText(
+        originalText ? `${originalText}\n${addingText}` : addingText
+      );
       util.runtime.requestRedraw();
     }
 
@@ -1076,7 +1232,7 @@
 
       const state = this._getState(util.target);
       const text = state.skin.text;
-      return text.split('\n').length;
+      return text.split("\n").length;
     }
 
     startAnimate(args, util) {
@@ -1088,11 +1244,11 @@
       state.skin.cancelAnimation();
 
       // Don't return the promise
-      if (args.ANIMATE === '打字机') {
+      if (args.ANIMATE === "type") {
         state.skin.startTypeAnimation();
-      } else if (args.ANIMATE === '彩虹') {
+      } else if (args.ANIMATE === "rainbow") {
         state.skin.startRainbowAnimation();
-      } else if (args.ANIMATE === '放大') {
+      } else if (args.ANIMATE === "zoom") {
         state.skin.startZoomAnimation();
       } else {
         // Scratch does nothing here
@@ -1107,11 +1263,11 @@
       const state = this._getState(util.target);
       state.skin.cancelAnimation();
 
-      if (args.ANIMATE === '打字机') {
+      if (args.ANIMATE === "type") {
         return state.skin.startTypeAnimation();
-      } else if (args.ANIMATE === '彩虹') {
+      } else if (args.ANIMATE === "rainbow") {
         return state.skin.startRainbowAnimation();
-      } else if (args.ANIMATE === '放大') {
+      } else if (args.ANIMATE === "zoom") {
         return state.skin.startZoomAnimation();
       } else {
         // Scratch does nothing here
@@ -1120,59 +1276,56 @@
 
     isAnimating(args, util) {
       const skin = this._getState(util.target).skin;
-      return (skin.isTyping || skin.isRainbow || skin.isZooming);
+      return skin.isTyping || skin.isRainbow || skin.isZooming;
     }
 
     setAnimateDuration(args, util) {
       const state = this._getState(util.target);
-      const anim = args.ANIMATE;
-      if (anim === '彩虹') {
-        state.skin.rainbowDuration = args.NUM * 1000;
-      } else if (anim === '放大') {
-        state.skin.zoomDuration = args.NUM * 1000;
-      } else {
-        //
+      const animation = args.ANIMATE;
+      const milliseconds = Scratch.Cast.toNumber(args.NUM) * 1000;
+      if (animation === "rainbow") {
+        state.skin.setRainbowDuration(milliseconds);
+      } else if (animation === "zoom") {
+        state.skin.setZoomDuration(milliseconds);
       }
     }
 
     resetAnimateDuration(args, util) {
       const state = this._getState(util.target);
-      const anim = args.ANIMATE;
-      if (anim === '彩虹') {
-        state.skin.rainbowDuration = RAINBOW_DURATION;
-      } else if (anim === '放大') {
-        state.skin.zoomDuration = ZOOM_DURATION;
-      } else {
-        //
+      const animation = args.ANIMATE;
+      if (animation === "rainbow") {
+        state.skin.setRainbowDuration(DEFAULT_RAINBOW_DURATION);
+      } else if (animation === "zoom") {
+        state.skin.setZoomDuration(DEFAULT_ZOOM_DURATION);
       }
     }
 
     getAnimateDuration(args, util) {
       const state = this._getState(util.target);
-      const anim = args.ANIMATE;
-      if (anim === '彩虹') {
+      const animation = args.ANIMATE;
+      if (animation === "rainbow") {
         return state.skin.rainbowDuration / 1000;
-      } else if (anim === '放大') {
+      } else if (animation === "zoom") {
         return state.skin.zoomDuration / 1000;
       } else {
         // should never happen
-        return '';
+        return "";
       }
     }
 
     setTypeDelay(args, util) {
       const state = this._getState(util.target);
-      state.skin.typeDelay = args.NUM * 1000;
+      state.skin.setTypeDelay(Scratch.Cast.toNumber(args.NUM) * 1000);
     }
 
     resetTypeDelay(args, util) {
       const state = this._getState(util.target);
-      state.skin.typeDelay = TYPE_DELAY;
+      state.skin.setTypeDelay(DEFAULT_TYPE_DELAY);
     }
 
     getTypeDelay(args, util) {
       const state = this._getState(util.target);
-      // Note for maintainers: Should we round this?
+      // TODO: Should we round this?
       return state.skin.typeDelay / 1000;
     }
 
@@ -1190,21 +1343,24 @@
     getTextAttribute(args, util) {
       const state = this._getState(util.target);
       const attrib = args.ATTRIBUTE;
-      if (attrib === '字体') {
+      if (attrib === "font") {
         return state.skin.getFontFamily();
-      } else if (attrib === '颜色') {
+      } else if (attrib === "color") {
         return state.skin.getColor();
-      } else if (attrib === '宽度') {
+      } else if (attrib === "width") {
         return state.skin.getWidth();
-      } else if (attrib === '对齐') {
+      } else if (attrib === "alignment") {
         switch (state.skin.getAlign()) {
-          case (0): return '左';
-          case (1): return '右';
-          case (2): return '居中';
+          case ALIGN_LEFT:
+            return "left";
+          case ALIGN_RIGHT:
+            return "right";
+          case ALIGN_CENTER:
+            return "center";
         }
       } else {
         // should never happen
-        return '';
+        return "";
       }
     }
   }
