@@ -96,6 +96,7 @@
           opcode: '网页ID转音乐ID',
           blockType: Scratch.BlockType.REPORTER,
           text: '电台音乐ID转音乐ID [id]',
+          hideFromPalette: true,
           arguments: {
             id: {
               type: Scratch.ArgumentType.STRING,
