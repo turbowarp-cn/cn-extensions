@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Original non-functional proof of concept by LilyMakesThings
  */
 

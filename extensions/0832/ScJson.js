@@ -1,4 +1,4 @@
-(function (Scratch) {
+﻿(function (Scratch) {
     'use strict';
     const vm = Scratch.vm;
     Scratch.translate.setup({

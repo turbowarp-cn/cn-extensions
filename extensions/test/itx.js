@@ -1,4 +1,4 @@
-(function (Scratch) {
+﻿(function (Scratch) {
     const vm = Scratch.vm;
     const projectjson = vm.toJSON()
     console.log(projectjson);

@@ -1,4 +1,4 @@
-// Name: ScratchGL
+﻿// Name: ScratchGL
 // ID: scratchopengl
 // Description: Impliments OpenGL into scratch
 // By: AnthMP4

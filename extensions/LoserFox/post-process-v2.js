@@ -1,4 +1,4 @@
-(function (Scratch) {
+﻿(function (Scratch) {
   "use strict";
   if (!Scratch.extensions.unsandboxed) {
     throw new Error("PostProcessing must run unsandboxed");
