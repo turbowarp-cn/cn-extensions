@@ -231,9 +231,9 @@ class WitCatInput {
 			color2: "#459c9c",
 			blocks: [
 				{
+					func: "docs",
 					blockType: "button",
 					text: Scratch.translate({id:"WitCatInput.docs"}),
-					onClick: this.docs,
 				},
                 {
                     blockType: Scratch.BlockType.LABEL,
