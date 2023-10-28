@@ -822,11 +822,7 @@ class WitCatInput {
 	 * @returns {void}
 	 */
 	docs() {
-		const a = document.createElement("a");
-		a.href = "https://www.ccw.site/post/6153a7a6-05fb-462e-b785-b97700b12bc2";
-		a.rel = "noopener noreferrer";
-		a.target = "_blank";
-		a.click();
+		window.open('https://www.ccw.site/post/6153a7a6-05fb-462e-b785-b97700b12bc2', '_blank');
 	}
 
 	/**
