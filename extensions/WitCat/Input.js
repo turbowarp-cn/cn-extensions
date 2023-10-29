@@ -904,7 +904,7 @@ class WitCatInput {
 			search.className = "WitCatInput";
 			search.name = String(args.type);
 			search.placeholder = String(args.texts);
-			this.inputParent().appendChild(search);
+			this.inputParent().insertBefore(search, this.canvas());
 		}
 
 		// 现在直接通过style的属性修改样式表，不需要担心“分号注入”问题了
@@ -1550,4 +1550,4 @@ function string_colorHex(color) {
 	}
 	return String(color);
 }
-Scratch.extensions.register(new WitCatInput(vm.runtime))
+Scratch.extensions.register(new WitCatInput(Scratch.vm.runtime))
