@@ -6,7 +6,8 @@
     "body.previews": "预览",
     "body.loadext": "加载扩展",
 
-    "ext.0823/Function": "优雅地使用Javascript",
+    "ext.0832/3D": "这是一个 Scratcher 们梦寐以求的扩展",
+    "ext.0832/Function": "优雅地使用Javascript",
     "ext.WitCat/Input": "在 TurboWarp 中创建输入框！",
     "ext.LoserFox/post-process": "用于对舞台进行色散、故障和其他屏幕特效的扩展",
     "ext.PROMISE/custom_shader": "定制角色外观，自定义着色器",
