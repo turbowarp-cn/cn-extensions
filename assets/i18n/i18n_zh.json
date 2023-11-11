@@ -18,6 +18,7 @@
     "ext.qxsck/var-and-list": "更多与变量和列表相关的块",
     "ext.qxsck/bitwiseoper": "提供了多个位运算和位操作符<br>可以在编程和逻辑表达式中进行高级操作",
     "ext.0832/rxFS": "在Scratch中轻松地构建一个文件系统<br>实现管理,存储,访问数据功能",
+    "ext.0832/rxFS3": "重构的rxFS，它更强大！",
     "ext.0832/ScJson": "在Scratch中读取项目信息",
     "ext.skyhigh173/json": "用于对字符进行 JSON 格式的处理和转换<br>轻松地创建数组,解析JSON",
     "ext.zmh-program/ChatNio": "允许用户调用 AI 模型进行自然语言对话",
