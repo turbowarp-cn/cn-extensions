@@ -6,6 +6,7 @@
     "body.previews": "Previews",
     "body.loadext": "Load Extensions",
 
+    "ext.NOname/Operation": "More Operators, including: math, string, bitwise, graphic 2D, etc",
     "ext.0832/3D": "This is a scratcher's dream extension",
     "ext.0832/Function": "Use Javascript elegantly",
     "ext.WitCat/Input": "Create input boxes in TurboWarp!",
@@ -30,5 +31,5 @@
     "ext.-SIPC-/Time": "Blocks for interacting with unix timestamps and other date strings",
     "ext.-SIPC-/163_music": "Play music from NeteaseCloud,URL",
     "ext.-SIPC-/Recording": "Record audio using the microphone on the user's device and download the recorded audio files",
-    "ext.-SIPC-/Temporaryvariables": "Creating, modifying and deleting variables in real time in Scratch."
+    "ext.-SIPC-/Temporaryvariables": "Creating, modifying and deleting variables in real time in Scratch"
 }
