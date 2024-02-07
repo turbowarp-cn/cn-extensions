@@ -6,6 +6,7 @@
     "body.previews": "Previews",
     "body.loadext": "Load Extensions",
 
+    "ext.NOname/debuger": "Console window, where you can input and output content, useful for debugging programs",
     "ext.NOname/Operation": "More Operators, including: math, string, bitwise, graphic 2D, etc",
     "ext.0832/3D": "This is a scratcher's dream extension",
     "ext.0832/Function": "Use Javascript elegantly",

@@ -27,7 +27,7 @@ function copy(title) {
 }
 
 function view(title) {
-  window.open(`https://editor.turbowarp.cn/editor.html?extension=${window.location.origin}/extensions/${title}.js`);
+  window.open(`https://turbowarp.cn/editor.html?extension=${window.location.origin}/extensions/${title}.js`);
 }
 
 window.onload = function () {
