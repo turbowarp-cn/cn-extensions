@@ -6,6 +6,7 @@
     "body.previews": "预览",
     "body.loadext": "加载扩展",
 
+    "ext.NOname/hanzi": "一些汉字的处理工具",
     "ext.NOname/debuger": "控制台窗口，可以输入输出内容，方便调试程序",
     "ext.NOname/Operation": "高级运算，包含了数学、字符串、<br>位运算、二维图形运算等",
     "ext.0832/3D": "这是一个 Scratcher 们梦寐以求的扩展",
