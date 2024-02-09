@@ -111,15 +111,27 @@
 
     // 创建标题栏
     let titleBar = document.createElement('div');
-    titleBar.style.padding = '10px';
+    titleBar.style.height = '40px';
+    titleBar.style.lineHeight = '40px';
+    titleBar.style.paddingLeft = '12px';
     titleBar.style.cursor = 'move';
-    titleBar.style.marginBottom = "10px";
     titleBar.style.fontSize = '16px';
     titleBar.innerText = lang('debugger.windowText', 'console');
     titleBar.style.position = 'sticky';
     titleBar.style.top = '0px';
     consoleWindow.appendChild(titleBar);
-
+    
+    // 创建内容区域
+    let content = document.createElement('div');
+	content.style.position = 'absolute';
+    content.style.width = '100%';
+    content.style.height = '360px';
+	// content.style.backgroundColor = '#FF0000';
+	content.style.bottom = '0';
+	content.style.overflow = 'auto';
+	content.style.paddingTop = '5px';
+	consoleWindow.appendChild(content);
+	
     // 创建关闭按钮
     let closeButton = document.createElement('img');
     closeButton.src = closeIcon;
@@ -166,7 +178,7 @@
     // 创建输入内容的窗口
     let inputWindow = document.createElement('div');
     inputWindow.style.position = 'absolute';
-    inputWindow.style.top = `calc(${consoleWindow.style.top} + 223px)`;
+    inputWindow.style.top = `calc(${consoleWindow.style.top} + 228px)`;
     inputWindow.style.transform = 'translate(-50%, -50%)';
     inputWindow.style.width = '400px';
     inputWindow.style.height = '30px';
@@ -251,7 +263,7 @@
             consoleWindow.style.top = newY + 'px';
 
             // 更新输入窗口的位置
-            inputWindow.style.top = `calc(${consoleWindow.style.top} + 223px)`;
+            inputWindow.style.top = `calc(${consoleWindow.style.top} + 228px)`;
             inputWindow.style.left = !isRTL ? `calc(${getComputedStyle(consoleWindow).left} - 100px)` : 'auto';
             inputWindow.style.right = isRTL ? `calc(${getComputedStyle(consoleWindow).right} + 100px)` : 'auto';
         }
@@ -262,9 +274,7 @@
     }
 
     function clearConsoleText() {
-        while (consoleWindow.children.length > 1) {
-            consoleWindow.removeChild(consoleWindow.children[1]);
-        }
+		content.innerHTML = '';
     }
 
     function addText({ message, color, bullet = '' }) {
@@ -274,7 +284,11 @@
         logElement.style.paddingLeft = '10px';
         logElement.style.paddingRight = '10px';
         logElement.innerText = `${bullet}\t${message}`;
-        consoleWindow.appendChild(logElement);
+        content.appendChild(logElement);
+        
+        if (content.children.length > maxMessage) {
+            content.removeChild(content.children[0])
+        }
     }
 
     function addImg(base64ImageData) {
@@ -283,9 +297,13 @@
         imageElement.style.borderRadius = '10px';
         imageElement.style.width = '150px';
         imageElement.style.margin = '10px';
-        consoleWindow.appendChild(imageElement);
+        content.appendChild(imageElement);
 
-        consoleWindow.appendChild(document.createElement('br'));
+        content.appendChild(document.createElement('br'));
+        
+        if (content.children.length > maxMessage) {
+            content.removeChild(content.children[1])
+        }
     }
 
     const consoleBlockColor = {
@@ -293,6 +311,8 @@
         color2: '#737373',
         color3: '#666666'
     }
+    
+    let maxMessage = 100;
 
     class ExtensionBlocks {
         getInfo() {
@@ -477,7 +497,7 @@
             consoleWindow.style.display = 'block';
             consoleWindow.style.left = '50%'
             consoleWindow.style.top = '50%';
-            inputWindow.style.top = `calc(${consoleWindow.style.top} + 223px)`;
+            inputWindow.style.top = `calc(${consoleWindow.style.top} + 228px)`;
             inputWindow.style.left = `calc(${consoleWindow.style.left} - 100px)`;
             inputWindow.style.left = !isRTL ? `calc(${getComputedStyle(consoleWindow).left} - 100px)` : 'auto';
             inputWindow.style.right = isRTL ? `calc(${getComputedStyle(consoleWindow).right} + 100px)` : 'auto';
@@ -520,7 +540,7 @@
                 closeButton.style.filter = 'none';
                 clearButton.style.filter = 'none';
                 inputButton.style.filter = 'none';
-                inputWindow.style.backgroundColor = '#252932';
+                inputWindow.style.backgroundColor = '#111111';
                 inputWindow.style.color = '#FFF';
                 inputWindowIcon.style.filter = 'none';
             }
