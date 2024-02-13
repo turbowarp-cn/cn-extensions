@@ -6,6 +6,7 @@
     "body.previews": "Previews",
     "body.loadext": "Load Extensions",
 
+    "ext.NOname/control": "More control blocks",
     "ext.NOname/Motion": "Some extensions of sports building blocks",
     "ext.NOname/hanzi": "Some Chinese character processing tools",
     "ext.NOname/debuger": "Console window, where you can input and output content, useful for debugging programs",

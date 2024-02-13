@@ -6,6 +6,7 @@
     "body.previews": "预览",
     "body.loadext": "加载扩展",
 
+    "ext.NOname/control": "更多的控制类积木",
     "ext.NOname/Motion": "一些运动的扩展积木",
     "ext.NOname/hanzi": "一些汉字的处理工具",
     "ext.NOname/debuger": "控制台窗口，可以输入输出内容，方便调试程序",
