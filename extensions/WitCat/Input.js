@@ -94,7 +94,7 @@ class WitCatInput {
 		Scratch.translate.setup({
 			"zh": {
 				"WitCatInput.name": "白猫的输入框",
-				"WitCatInput.createinput": "创建或修改[type]文本框并命名为[id]，X[x]Y[y]宽[width]高[height]内容[text]颜色[color]提示[texts]字体大小[size]",
+				"WitCatInput.createinput": "创建或修改[type]文本框并命名为[id],X[x]Y[y]宽[width]高[height]内容[text]颜色[color]提示[texts]字体大小[size]",
 				"WitCatInput.deleteinput": "删除文本框[id]",
 				"WitCatInput.getinput": "获得文本框[id]的[type]",
 				"WitCatInput.isinput": "焦点是否在文本框[id]上",
@@ -244,13 +244,13 @@ class WitCatInput {
 					blockType: "command",
 					text: Scratch.translate({id:"WitCatInput.createinput"}),
 					arguments: {
-						id: {
-							type: "string",
-							defaultValue: "i",
-						},
 						type: {
 							type: "string",
 							menu: "type",
+						},
+						id: {
+							type: "string",
+							defaultValue: "i",
 						},
 						x: {
 							type: "number",
