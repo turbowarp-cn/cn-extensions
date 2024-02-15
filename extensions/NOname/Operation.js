@@ -46,7 +46,8 @@
             "OPERATION.BOOLEAN_TO_NUMBER": "转换 [BOOLEAN] 为二进制数字",
             "OPERATION.NUMBER_NOT": "二进制取反 [NUM]",
             "OPERATION.PERCENT_OF": "[NUM2] 的 [NUM1] %",
-            "OPERATION.IS_TRUE": "[OPERAND] 为真？",
+            "OPERATION.IS_TRUE": "[OPERAND] 成立？",
+            "OPERATION.IS_FALSE": "[OPERAND] 不成立？",
             "OPERATION.CHECK_TYPE": "[INPUT] 是 [MODE] ？",
             "OPERATION.IS_BETWEEN": "[NUM] 在 [START] 到 [END] 之间？",
             "OPERATION.TEXT": "文本 [STRING]",
@@ -84,8 +85,8 @@
             "OPERATION.IS_ANGLE_IN_RANGE": "角 [ANGLE1] 在角 [ANGLE2] 到角 [ANGLE3] 的 [MODE] 之间？",
             "OPERATION.CALCULATE_ANGLE_DIFFERENCE": "角度 [ANGLE1] 到 [ANGLE2] 的 [MODE]",
             "OPERATION.GET_CONSTANT": "常量 [OPTION]",
-            "OPERATION.TRUE": "真",
-            "OPERATION.FALSE": "假",
+            "OPERATION.TRUE": "成立",
+            "OPERATION.FALSE": "不成立",
             "OPERATION.RANDOM": "随机",
             "OPERATION.TYPE_NUMBER": "数字",
             "OPERATION.TYPE_POSITIVE_NUMBER": "正数",
@@ -170,7 +171,8 @@
             "OPERATION.BOOLEAN_TO_NUMBER": "將布林值 [BOOLEAN] 轉換為數字",
             "OPERATION.NUMBER_NOT": "二進制取反 [NUM]",
             "OPERATION.PERCENT_OF": "[NUM2] 的 [NUM1] %",
-            "OPERATION.IS_TRUE": "[OPERAND] 是真？",
+            "OPERATION.IS_TRUE": "[OPERAND] 成立？",
+            "OPERATION.IS_FALSE": "[OPERAND] 不成立？",
             "OPERATION.CHECK_TYPE": "[INPUT] 是 [MODE] ？",
             "OPERATION.IS_BETWEEN": "[NUM] 在 [START] 到 [END] 之間？",
             "OPERATION.TEXT": "文字 [STRING]",
@@ -208,8 +210,8 @@
             "OPERATION.IS_ANGLE_IN_RANGE": "∠ [ANGLE1] 在 ∠ [ANGLE2] 和 ∠ [ANGLE3] 之間的 [MODE]？",
             "OPERATION.CALCULATE_ANGLE_DIFFERENCE": "從 ∠ [ANGLE1] 到 ∠ [ANGLE2] 的 [MODE]",
             "OPERATION.GET_CONSTANT": "常數 [OPTION]",
-            "OPERATION.TRUE": "真",
-            "OPERATION.FALSE": "假",
+            "OPERATION.TRUE": "成立",
+            "OPERATION.FALSE": "不成立",
             "OPERATION.RANDOM": "隨機",
             "OPERATION.TYPE_NUMBER": "數字",
             "OPERATION.TYPE_POSITIVE_NUMBER": "正數",
@@ -253,98 +255,9 @@
             "OPERATION.ARG_MANGO": "mango"
         },
         "ar": {
-            "OPERATION_EXT_NAME": "العمليات",
-            "OPERATION_SETTING": "الإعدادات",
-            "OPERATION.BOOLEAN_LABEL": "بوليان",
-            "OPERATION.STRING_LABEL": "سلسلة",
-            "OPERATION.GRAPH_LABEL": "رسم بياني",
-            "OPERATION.BASE_LABEL": "القاعدة",
-            "OPERATION.CONSTANT_LABEL": "ثابتة",
-            "OPERATION.SHOW_MATH_BLOCK": "عرض كتلة العمليات الرياضية",
-            "OPERATION.HIDE_MATH_BLOCK": "إخفاء كتلة العمليات الرياضية",
-            "OPERATION.SHOW_BOOLEAN_BLOCK": "عرض كتلة بوليان",
-            "OPERATION.HIDE_BOOLEAN_BLOCK": "إخفاء كتلة بوليان",
-            "OPERATION.SHOW_STRING_BLOCK": "عرض كتلة السلسلة",
-            "OPERATION.HIDE_STRING_BLOCK": "إخفاء كتلة السلسلة",
-            "OPERATION.SHOW_RARD": "عرض الكتل غير الشائعة",
-            "OPERATION.HIDE_RARD": "إخفاء الكتل غير الشائعة",
-            "OPERATION.SHOW_GRAPH_BLOCK": "عرض كتلة الرسم البياني",
-            "OPERATION.HIDE_GRAPH_BLOCK": "إخفاء كتلة الرسم البياني",
-            "OPERATION.SHOW_BASE_BLOCK": "عرض كتلة القاعدة",
-            "OPERATION.HIDE_BASE_BLOCK": "إخفاء كتلة القاعدة",
             "OPERATION.ROOT": "[NUM1] [RTL_ROOT] [NUM2]",
-            "OPERATION.CONSTRAIN": "تقييد [NUM] بين [LOW] و [HIGH]",
-            "OPERATION.LOOP_NUMBER": "دع [NUM] يتحرك في النطاق من [START] إلى [END]",
-            "OPERATION.ROUND": "تقريب [NUM1] إلى [NUM2] خانات عشرية",
-            "OPERATION.MAP_OFF": "تعيين [NUM] من [START1] ~ [END1] إلى [START2] ~ [END2]",
-            "OPERATION.BASE": "تحويل [NUM] من النظام [INTO1] إلى النظام [INTO2]",
-            "OPERATION.CALCULATE": "حساب [TEXT]",
-            "OPERATION.FIND_PARTITION": "تقسيم النطاق من [RANGE_START] إلى [RANGE_END] إلى [NUM_PARTITIONS] أقسام و احصل على القسم [VALUE]",
-            "OPERATION.BOOLEAN_TO_NUMBER": "تحويل [BOOLEAN] إلى رقم ثنائي",
-            "OPERATION.NUMBER_NOT": "العملية الثنائية NOT [NUM]",
-            "OPERATION.CUBE_ROOT": "؆[NUM]",
-            "OPERATION.TO_PERCENT": "[NUM] ٪",
-            "OPERATION.PERCENT_OF": "[NUM1] ٪ من [NUM2]",
-            "OPERATION.IS_TRUE": "هل [OPERAND] صحيح؟",
-            "OPERATION.CHECK_TYPE": "هل [INPUT] هو [MODE] ؟",
-            "OPERATION.TEXT": "نص [STRING]",
-            "OPERATION.TEST": "إذا كانت [BOOLEAN] صحيحة ، فهي [STRING1] ، وإلا فهي [STRING2]",
-            "OPERATION.REPEAT": "كرر [STRING] [NUMBER] مرات",
-            "OPERATION.TRIM": "إزالة المسافات البيضاء من طرفي [STRING]",
-            "OPERATION.INTERCEPT": "قم بقطع [STRING] من [START] إلى [END]",
-            "OPERATION.REPLACE": "استبدل [STRING2] بـ [STRING3] في [STRING1]",
-            "OPERATION.REPLACE_INDEX": "استبدل في [STRING] ما بين الفهرسين [START] و [END] بـ [REPLACEMENT]",
-            "OPERATION.SPLIT": "افصل [STRING] حسب [SYMBOL] وخذ العنصر [NUM]",
-            "OPERATION.TOGGLE_CASE": "[STRING1] في [STRING2] [MODE]",
-            "OPERATION.CONVERT": "تحويل [STRING] إلى [MODE]",
-            "OPERATION.GET_TO_UNICODE": "الأونيكود الخاص ب [STRING]",
-            "OPERATION.UNICODE_TO_STRING": "حرف الأونيكود لـ [STRING]",
-            "OPERATION.CALCULATE_LINE_LENGTH": "المسافة من ([X1],[Y1]) إلى ([X2],[Y2])",
-            "OPERATION.CALCULATE_LINE_DIRECTION": "الزاوية من ([X1],[Y1]) إلى ([X2],[Y2])",
-            "OPERATION.CALCULATE_INTERSECTION": "حساب نقطة التقاطع بين القطعة ([X1],[Y1]) إلى ([X2],[Y2]) و القطعة ([X3],[Y3]) إلى ([X4],[Y4])",
-            "OPERATION.TRIANGLE": " [MODE] المثلث ([X1],[Y1]) ([X2],[Y2]) ([X3],[Y3])",
-            "OPERATION.TRIANGLE_AREA": "مساحة المثلث [S1] [S2] [S3]",
-            "OPERATION.RECTANGLE": "[MODE] المربع ([X1],[Y1]) ([X2],[Y2]) ([X3],[Y3]) ([X4],[Y4])",
-            "OPERATION.GRAPH": "[MODE] المضلع [GRAPH]",
-            "OPERATION.CIRCLE": "دائرة: [UNITS] بعول [LENGTH] [MODE]",
-            "OPERATION.CALCULATE_ANGLE_DIFFERENCE": "[MODE] الفرق بين الزاوية [ANGLE1] و [ANGLE2]",
-            "OPERATION.GET_CONSTANT": "الثابت [OPTION]",
-            "OPERATION.TRUE": "صحيح",
-            "OPERATION.FALSE": "خاطئ",
-            "OPERATION.RANDOM": "عشوائي",
-            "OPERATION.TYPE_NUMBER": "رقم",
-            "OPERATION.TYPE_POSITIVE_NUMBER": "رقم موجب",
-            "OPERATION.TYPE_NEGATIVE_NUMBER": "رقم سالب",
-            "OPERATION.TYPE_EVEN_NUMBER": "رقم زوجي",
-            "OPERATION.TYPE_ODD_NUMBER": "رقم فردي",
-            "OPERATION.TYPE_INTEGER_NUMBER": "رقم صحيح",
-            "OPERATION.TYPE_DECIMAL_NUMBER": "رقم عشري",
-            "OPERATION.TYPE_PRIME_NUMBER": "رقم أولي",
-            "OPERATION.TYPE_COMPOSITE_NUMBER": "رقم مركب",
-            "OPERATION.TYPE_TEXT": "نص",
-            "OPERATION.TYPE_BOOLEAN": "قيمة بولينية",
-            "OPERATION.NAND": "NAND",
-            "OPERATION.NOR": "NOR",
-            "OPERATION.XOR": "XOR",
-            "OPERATION.XNOR": "XNOR",
-            "OPERATION.FIRST_OCCURRENCE": "موضع الظهور الأول",
-            "OPERATION.LAST_OCCURRENCE": "موضع الظهور الأخير",
-            "OPERATION.NUMBER_OF": "عدد مرات الظهور",
-            "OPERATION.UPPERCASE": "أحرف كبيرة",
-            "OPERATION.LOWERCASE": "أحرف صغيرة",
-            "OPERATION.CAPITALIZE": "أحرف ذات حروف أولى كبيرة",
-            "OPERATION.REVERSE": "عكس",
-            "OPERATION.AREA": "المساحة",
-            "OPERATION.CIRCUMFERENCE": "المحيط",
-            "OPERATION.RADIUS": "نصف القطر",
-            "OPERATION.DIAMETER": "القطر",
-            "OPERATION.INTERIOR_ANGLE": "الزاوية الداخلية",
-            "OPERATION.EXTERIOR_ANGLE": "زاوية خارجية",
-            "OPERATION.CLOCKWISE": "باتجاه عقارب الساعة",
-            "OPERATION.COUNTER_CLOCKWISE": "عكس اتجاه عقارب الساعة",
-            "OPERATION.SQRT2": "جذر ٢",
-            "OPERATION.ARG_APPLE": "تفاحة",
-            "OPERATION.ARG_BANANA": "موز"
+            "OPERATION.CUBE_ROOT": "؆ [NUM]",
+            "OPERATION.TO_PERCENT": "[NUM] ٪"
         }
     });
     const formatMessage = Scratch.translate;
@@ -1159,7 +1072,7 @@
             {
                 opcode: 'exponent',
                 blockType: BlockType.REPORTER,
-                text: '[NUM1] 🠕 [NUM2]',
+                text: '[NUM1] ↑ [NUM2]',
                 arguments: {
                     NUM1: {
                         type: ArgumentType.NUMBER,
@@ -1255,6 +1168,7 @@
                 },
                 hideFromPalette: HideBlockType.math
             },
+
             {
                 opcode: 'round',
                 blockType: BlockType.REPORTER,
@@ -1272,8 +1186,28 @@
                         defaultValue: '1'
                     },
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正整数输入框 (math_whole_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'round'}">
+                        <value name="NUM1">
+                            <shadow type="math_number">
+                                <field name="NUM">3.14</field>
+                            </shadow>
+                        </value>
+                        <value name="NUM2">
+                            <shadow type="math_whole_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.math
             },
+
             {
                 opcode: 'mapOff',
                 blockType: BlockType.REPORTER,
@@ -1325,10 +1259,11 @@
                 },
                 hideFromPalette: rareHideAndSow('math')
             },
+
             {
                 opcode: 'logWithBase',
                 blockType: BlockType.REPORTER,
-                text: '𝑳𝒐𝒈 🠗 [BASE] : [NUM]',
+                text: '𝑳𝒐𝒈 ↓ [BASE] : [NUM]',
                 arguments: {
                     NUM: {
                         type: ArgumentType.NUMBER,
@@ -1339,8 +1274,28 @@
                         defaultValue: '10'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正数输入框 (math_positive_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'logWithBase'}">
+                        <value name="NUM">
+                            <shadow type="math_number">
+                                <field name="NUM"></field>
+                            </shadow>
+                        </value>
+                        <value name="BASE">
+                            <shadow type="math_positive_number">
+                                <field name="NUM">10</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: rareHideAndSow('math')
             },
+
             {
                 opcode: 'factorial',
                 blockType: BlockType.REPORTER,
@@ -1354,8 +1309,23 @@
                         defaultValue: ''
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正整数输入框 (math_whole_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'factorial'}">
+                        <value name="NUM">
+                            <shadow type="math_whole_number">
+                                <field name="NUM" />
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: rareHideAndSow('math')
             },
+
             ...sep(rareHideAndSow('math')),
             {
                 opcode: 'cubeRoot',
@@ -1423,6 +1393,7 @@
                 hideFromPalette: rareHideAndSow('math')
             },
             ...sep(rareHideAndSow('math')),
+
             {
                 opcode: 'findPartition',
                 blockType: BlockType.REPORTER,
@@ -1448,8 +1419,38 @@
                         defaultValue: 10
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正整数输入框 (math_whole_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'findPartition'}">
+                        <value name="VALUE">
+                            <shadow type="math_number">
+                                <field name="NUM">10</field>
+                            </shadow>
+                        </value>
+                        <value name="RANGE_START">
+                            <shadow type="math_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                        <value name="RANGE_END">
+                            <shadow type="math_number">
+                                <field name="NUM">20</field>
+                            </shadow>
+                        </value>
+                        <value name="NUM_PARTITIONS">
+                            <shadow type="math_whole_number">
+                                <field name="NUM">10</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: rareHideAndSow('math')
             },
+
             {
                 blockType: BlockType.LABEL,
                 text: formatMessage({
@@ -1471,6 +1472,7 @@
                 },
                 hideFromPalette: HideBlockType.bool
             },
+
             {
                 opcode: 'probability',
                 blockType: BlockType.BOOLEAN,
@@ -1484,8 +1486,23 @@
                         defaultValue: '50'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正数输入框 (math_positive_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'probability'}">
+                        <value name="NUM">
+                            <shadow type="math_positive_number">
+                                <field name="NUM">50</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.bool
             },
+
             ...sep(HideBlockType.bool),
             {
                 opcode: 'isTrue',
@@ -1501,6 +1518,21 @@
                     }
                 },
                 hideFromPalette: HideBlockType.bool
+            },
+            {
+                opcode: 'isFalse',
+                blockType: BlockType.BOOLEAN,
+                text: formatMessage({
+                    id: 'OPERATION.IS_FALSE',
+                    default: '[OPERAND] is false?'
+                }),
+                arguments: {
+                    OPERAND: {
+                        type: ArgumentType.STRING,
+                        defaultValue: ''
+                    }
+                },
+                hideFromPalette: rareHideAndSow('bool')
             },
             {
                 opcode: 'checkType',
@@ -1687,6 +1719,7 @@
                 hideFromPalette: HideBlockType.string
             },
             ...sep(HideBlockType.string),
+
             {
                 opcode: 'repeat',
                 blockType: BlockType.REPORTER,
@@ -1707,8 +1740,28 @@
                         defaultValue: '3'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正整数输入框 (math_whole_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'repeat'}">
+                        <value name="STRING">
+                            <shadow type="text">
+                                <field name="TEXT">${formatMessage({ id: 'OPERATION.ARG_APPLE', default: 'apple' }) + ' '}</field>
+                            </shadow>
+                        </value>
+                        <value name="NUMBER">
+                            <shadow type="math_whole_number">
+                                <field name="NUM">3</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.string
             },
+
             {
                 opcode: 'trim',
                 blockType: BlockType.REPORTER,
@@ -1727,6 +1780,7 @@
                 },
                 hideFromPalette: HideBlockType.string
             },
+
             {
                 opcode: 'letters',
                 blockType: BlockType.REPORTER,
@@ -1748,8 +1802,33 @@
                         defaultValue: 'abcdefg'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出整数输入框 (math_integer)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'letters'}">
+                        <value name="START">
+                            <shadow type="math_integer">
+                                <field name="NUM">3</field>
+                            </shadow>
+                        </value>
+                        <value name="END">
+                            <shadow type="math_integer">
+                                <field name="NUM">5</field>
+                            </shadow>
+                        </value>
+                        <value name="STRING">
+                            <shadow type="text">
+                                <field name="TEXT">abcdefg</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.string
             },
+
             {
                 opcode: 'remove',
                 blockType: BlockType.REPORTER,
@@ -1771,8 +1850,33 @@
                         defaultValue: 'abcdefg'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出整数输入框 (math_integer)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'remove'}">
+                        <value name="START">
+                            <shadow type="math_integer">
+                                <field name="NUM">3</field>
+                            </shadow>
+                        </value>
+                        <value name="END">
+                            <shadow type="math_integer">
+                                <field name="NUM">5</field>
+                            </shadow>
+                        </value>
+                        <value name="STRING">
+                            <shadow type="text">
+                                <field name="TEXT">abcdefg</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.string
             },
+
             {
                 opcode: 'insert',
                 blockType: BlockType.REPORTER,
@@ -1794,8 +1898,33 @@
                         defaultValue: '2'
                     },
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出整数输入框 (math_integer)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'insert'}">
+                        <value name="STRING">
+                            <shadow type="text">
+                                <field name="TEXT">ac</field>
+                            </shadow>
+                        </value>
+                        <value name="INSERT_STR">
+                            <shadow type="text">
+                                <field name="TEXT">b</field>
+                            </shadow>
+                        </value>
+                        <value name="INDEX">
+                            <shadow type="math_integer">
+                                <field name="NUM">2</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.string
             },
+
             {
                 opcode: 'replace',
                 blockType: BlockType.REPORTER,
@@ -1819,6 +1948,7 @@
                 },
                 hideFromPalette: HideBlockType.string
             },
+
             {
                 opcode: 'replaceIndex',
                 blockType: BlockType.REPORTER,
@@ -1844,9 +1974,39 @@
                         defaultValue: 'Scratch'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出整数输入框 (math_integer)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'replaceIndex'}">
+                        <value name="START">
+                            <shadow type="math_integer">
+                                <field name="NUM">7</field>
+                            </shadow>
+                        </value>
+                        <value name="END">
+                            <shadow type="math_integer">
+                                <field name="NUM">11</field>
+                            </shadow>
+                        </value>
+                        <value name="STRING">
+                            <shadow type="text">
+                                <field name="TEXT">Hello world!</field>
+                            </shadow>
+                        </value>
+                        <value name="REPLACEMENT">
+                            <shadow type="text">
+                                <field name="TEXT">Scratch</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.string
             },
-            HideBlockType.split ? ({
+
+            {
                 opcode: 'split',
                 blockType: BlockType.REPORTER,
                 text: formatMessage({
@@ -1876,8 +2036,155 @@
                         defaultValue: '2'
                     }
                 },
-                hideFromPalette: HideBlockType.string
-            }) : '',
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出整数输入框 (math_integer)
+                blockType: BlockType.XML,
+                xml: (() => {
+                    const argStr = formatMessage({
+                        id: 'OPERATION.ARG_APPLE',
+                        default: 'apple'
+                    }) + '/' + formatMessage({
+                        id: 'OPERATION.ARG_BANANA',
+                        default: 'banana'
+                    }) + '/' + formatMessage({
+                        id: 'OPERATION.ARG_PEACH',
+                        default: 'peach'
+                    });
+                    return `
+                        <block type="${'OPERATION_' + 'split'}">
+                            <value name="STRING">
+                                <shadow type="text">
+                                    <field name="TEXT">${argStr}</field>
+                                </shadow>
+                            </value>
+                            <value name="SYMBOL">
+                                <shadow type="text">
+                                    <field name="TEXT">/</field>
+                                </shadow>
+                            </value>
+                            <value name="NUM">
+                                <shadow type="math_integer">
+                                    <field name="NUM">2</field>
+                                </shadow>
+                            </value>
+                        </block>
+                    `;
+                })(),
+                hideFromPalette: HideBlockType.string || !HideBlockType.split
+            },
+
+            {
+                opcode: 'splitAndRemove',
+                blockType: BlockType.REPORTER,
+                text: formatMessage({
+                    id: 'OPERATION.SPLIT_REMOVE',
+                    default: 'split [STRING] by [SYMBOL], remove # [NUM]'
+                }),
+                arguments: {
+                    STRING: {
+                        type: ArgumentType.STRING,
+                        defaultValue: formatMessage({
+                            id: 'OPERATION.ARG_APPLE',
+                            default: 'apple'
+                        }) + '/' + formatMessage({
+                            id: 'OPERATION.ARG_BANANA',
+                            default: 'banana'
+                        }) + '/' + formatMessage({
+                            id: 'OPERATION.ARG_PEACH',
+                            default: 'peach'
+                        })
+                    },
+                    SYMBOL: {
+                        type: ArgumentType.STRING,
+                        defaultValue: '/'
+                    },
+                    NUM: {
+                        type: ArgumentType.NUMBER,
+                        defaultValue: '2'
+                    }
+                },
+                hideFromPalette: true
+            },
+            {
+                opcode: 'splitAndInsert',
+                blockType: BlockType.REPORTER,
+                text: formatMessage({
+                    id: 'OPERATION.SPLIT_INSERT',
+                    default: 'split [STRING] by [SYMBOL], insert # [INDEX] of [INSERT_STR]'
+                }),
+                arguments: {
+                    STRING: {
+                        type: ArgumentType.STRING,
+                        defaultValue: formatMessage({
+                            id: 'OPERATION.ARG_APPLE',
+                            default: 'apple'
+                        }) + '/' + formatMessage({
+                            id: 'OPERATION.ARG_BANANA',
+                            default: 'banana'
+                        }) + '/' + formatMessage({
+                            id: 'OPERATION.ARG_PEACH',
+                            default: 'peach'
+                        })
+                    },
+                    SYMBOL: {
+                        type: ArgumentType.STRING,
+                        defaultValue: '/'
+                    },
+                    INSERT_STR: {
+                        type: ArgumentType.STRING,
+                        defaultValue: formatMessage({
+                            id: 'OPERATION.ARG_MANGO',
+                            default: 'mango'
+                        })
+                    },
+                    INDEX: {
+                        type: ArgumentType.NUMBER,
+                        defaultValue: '2'
+                    }
+                },
+                hideFromPalette: true
+            },
+            {
+                opcode: 'splitAndReplace',
+                blockType: BlockType.REPORTER,
+                text: formatMessage({
+                    id: 'OPERATION.SPLIT_REPLACE',
+                    default: 'split [STRING] by [SYMBOL], replace # [INDEX] to [REPLACE_STR]'
+                }),
+                arguments: {
+                    STRING: {
+                        type: ArgumentType.STRING,
+                        defaultValue: formatMessage({
+                            id: 'OPERATION.ARG_APPLE',
+                            default: 'apple'
+                        }) + '/' + formatMessage({
+                            id: 'OPERATION.ARG_BANANA',
+                            default: 'banana'
+                        }) + '/' + formatMessage({
+                            id: 'OPERATION.ARG_PEACH',
+                            default: 'peach'
+                        })
+                    },
+                    SYMBOL: {
+                        type: ArgumentType.STRING,
+                        defaultValue: '/'
+                    },
+                    REPLACE_STR: {
+                        type: ArgumentType.STRING,
+                        defaultValue: formatMessage({
+                            id: 'OPERATION.ARG_MANGO',
+                            default: 'mango'
+                        })
+                    },
+                    INDEX: {
+                        type: ArgumentType.NUMBER,
+                        defaultValue: '2'
+                    }
+                },
+                hideFromPalette: true
+            },
             {
                 opcode: 'toggleCase',
                 blockType: BlockType.REPORTER,
@@ -1965,6 +2272,7 @@
                 },
                 hideFromPalette: rareHideAndSow('string')
             },
+
             {
                 opcode: 'unicodeToString',
                 blockType: BlockType.REPORTER,
@@ -1978,6 +2286,20 @@
                         defaultValue: '97'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正整数输入框 (math_whole_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'unicodeToString'}">
+                        <value name="STRING">
+                            <shadow type="math_whole_number">
+                                <field name="NUM">97</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: rareHideAndSow('string')
             },
             ...sep(rareHideAndSow('string')),
@@ -2023,6 +2345,7 @@
                 },
                 hideFromPalette: rareHideAndSow('string')
             },
+
             {
                 opcode: 'padString',
                 blockType: BlockType.REPORTER,
@@ -2048,8 +2371,33 @@
                         menu: 'POSITION'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正整数输入框 (math_whole_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'padString'}">
+                        <value name="ORIGINAL_STR">
+                            <shadow type="text">
+                                <field name="TEXT">123</field>
+                            </shadow>
+                        </value>
+                        <value name="REQUIRED_LENGTH">
+                            <shadow type="math_whole_number">
+                                <field name="NUM">5</field>
+                            </shadow>
+                        </value>
+                        <value name="CHAR_TO_ADD">
+                            <shadow type="text">
+                                <field name="TEXT">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: rareHideAndSow('string')
             },
+
             {
                 blockType: BlockType.LABEL,
                 text: formatMessage({
@@ -2059,145 +2407,103 @@
                 hideFromPalette: HideBlockType.split
             },
             {
-                opcode: 'split',
-                blockType: BlockType.REPORTER,
-                text: formatMessage({
-                    id: 'OPERATION.SPLIT',
-                    default: 'split [STRING] by [SYMBOL], get # [NUM]'
-                }),
-                arguments: {
-                    STRING: {
-                        type: ArgumentType.STRING,
-                        defaultValue: formatMessage({
-                            id: 'OPERATION.ARG_APPLE',
-                            default: 'apple'
-                        }) + '/' + formatMessage({
-                            id: 'OPERATION.ARG_BANANA',
-                            default: 'banana'
-                        }) + '/' + formatMessage({
-                            id: 'OPERATION.ARG_PEACH',
-                            default: 'peach'
-                        })
-                    },
-                    SYMBOL: {
-                        type: ArgumentType.STRING,
-                        defaultValue: '/'
-                    },
-                    NUM: {
-                        type: ArgumentType.NUMBER,
-                        defaultValue: '2'
-                    }
-                },
-                hideFromPalette: HideBlockType.split
-            },
-            {
-                opcode: 'splitAndRemove',
-                blockType: BlockType.REPORTER,
-                text: formatMessage({
-                    id: 'OPERATION.SPLIT_REMOVE',
-                    default: 'split [STRING] by [SYMBOL], remove # [NUM]'
-                }),
-                arguments: {
-                    STRING: {
-                        type: ArgumentType.STRING,
-                        defaultValue: formatMessage({
-                            id: 'OPERATION.ARG_APPLE',
-                            default: 'apple'
-                        }) + '/' + formatMessage({
-                            id: 'OPERATION.ARG_BANANA',
-                            default: 'banana'
-                        }) + '/' + formatMessage({
-                            id: 'OPERATION.ARG_PEACH',
-                            default: 'peach'
-                        })
-                    },
-                    SYMBOL: {
-                        type: ArgumentType.STRING,
-                        defaultValue: '/'
-                    },
-                    NUM: {
-                        type: ArgumentType.NUMBER,
-                        defaultValue: '2'
-                    }
-                },
-                hideFromPalette: HideBlockType.split
-            },
-            {
-                opcode: 'splitAndInsert',
-                blockType: BlockType.REPORTER,
-                text: formatMessage({
-                    id: 'OPERATION.SPLIT_INSERT',
-                    default: 'split [STRING] by [SYMBOL], insert # [INDEX] of [INSERT_STR]'
-                }),
-                arguments: {
-                    STRING: {
-                        type: ArgumentType.STRING,
-                        defaultValue: formatMessage({
-                            id: 'OPERATION.ARG_APPLE',
-                            default: 'apple'
-                        }) + '/' + formatMessage({
-                            id: 'OPERATION.ARG_BANANA',
-                            default: 'banana'
-                        }) + '/' + formatMessage({
-                            id: 'OPERATION.ARG_PEACH',
-                            default: 'peach'
-                        })
-                    },
-                    SYMBOL: {
-                        type: ArgumentType.STRING,
-                        defaultValue: '/'
-                    },
-                    INSERT_STR: {
-                        type: ArgumentType.STRING,
-                        defaultValue: formatMessage({
-                            id: 'OPERATION.ARG_MANGO',
-                            default: 'mango'
-                        })
-                    },
-                    INDEX: {
-                        type: ArgumentType.NUMBER,
-                        defaultValue: '2'
-                    }
-                },
-                hideFromPalette: HideBlockType.split
-            },
-            {
-                opcode: 'splitAndReplace',
-                blockType: BlockType.REPORTER,
-                text: formatMessage({
-                    id: 'OPERATION.SPLIT_REPLACE',
-                    default: 'split [STRING] by [SYMBOL], replace # [INDEX] to [REPLACE_STR]'
-                }),
-                arguments: {
-                    STRING: {
-                        type: ArgumentType.STRING,
-                        defaultValue: formatMessage({
-                            id: 'OPERATION.ARG_APPLE',
-                            default: 'apple'
-                        }) + '/' + formatMessage({
-                            id: 'OPERATION.ARG_BANANA',
-                            default: 'banana'
-                        }) + '/' + formatMessage({
-                            id: 'OPERATION.ARG_PEACH',
-                            default: 'peach'
-                        })
-                    },
-                    SYMBOL: {
-                        type: ArgumentType.STRING,
-                        defaultValue: '/'
-                    },
-                    REPLACE_STR: {
-                        type: ArgumentType.STRING,
-                        defaultValue: formatMessage({
-                            id: 'OPERATION.ARG_MANGO',
-                            default: 'mango'
-                        })
-                    },
-                    INDEX: {
-                        type: ArgumentType.NUMBER,
-                        defaultValue: '2'
-                    }
-                },
+                // 这个是为了做出整数输入框 (math_integer)
+                blockType: BlockType.XML,
+                xml: (() => {
+                    const argStr = formatMessage({
+                        id: 'OPERATION.ARG_APPLE',
+                        default: 'apple'
+                    }) + '/' + formatMessage({
+                        id: 'OPERATION.ARG_BANANA',
+                        default: 'banana'
+                    }) + '/' + formatMessage({
+                        id: 'OPERATION.ARG_PEACH',
+                        default: 'peach'
+                    });
+                    return `
+                        <block type="${'OPERATION_' + 'split'}">
+                            <value name="STRING">
+                                <shadow type="text">
+                                    <field name="TEXT">${argStr}</field>
+                                </shadow>
+                            </value>
+                            <value name="SYMBOL">
+                                <shadow type="text">
+                                    <field name="TEXT">/</field>
+                                </shadow>
+                            </value>
+                            <value name="NUM">
+                                <shadow type="math_integer">
+                                    <field name="NUM">2</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        
+                        <block type="${'OPERATION_' + 'splitAndRemove'}">
+                            <value name="STRING">
+                                <shadow type="text">
+                                    <field name="TEXT">${argStr}</field>
+                                </shadow>
+                            </value>
+                            <value name="SYMBOL">
+                                <shadow type="text">
+                                    <field name="TEXT">/</field>
+                                </shadow>
+                            </value>
+                            <value name="NUM">
+                                <shadow type="math_integer">
+                                    <field name="NUM">2</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        
+                        <block type="${'OPERATION_' + 'splitAndInsert'}">
+                            <value name="STRING">
+                                <shadow type="text">
+                                    <field name="TEXT">${argStr}</field>
+                                </shadow>
+                            </value>
+                            <value name="SYMBOL">
+                                <shadow type="text">
+                                    <field name="TEXT">/</field>
+                                </shadow>
+                            </value>
+                            <value name="INDEX">
+                                <shadow type="math_integer">
+                                    <field name="NUM">2</field>
+                                </shadow>
+                            </value>
+                            <value name="INSERT_STR">
+                                <shadow type="text">
+                                    <field name="TEXT">${formatMessage({ id: 'OPERATION.ARG_MANGO', default: 'mango' })}</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        
+                        <block type="${'OPERATION_' + 'splitAndReplace'}">
+                            <value name="STRING">
+                                <shadow type="text">
+                                    <field name="TEXT">${argStr}</field>
+                                </shadow>
+                            </value>
+                            <value name="SYMBOL">
+                                <shadow type="text">
+                                    <field name="TEXT">/</field>
+                                </shadow>
+                            </value>
+                            <value name="REPLACE_STR">
+                                <shadow type="text">
+                                    <field name="TEXT">${formatMessage({ id: 'OPERATION.ARG_MANGO', default: 'mango' })}</field>
+                                </shadow>
+                            </value>
+                            <value name="INDEX">
+                                <shadow type="math_integer">
+                                    <field name="NUM">2</field>
+                                </shadow>
+                            </value>
+                        </block>
+                    `;
+                })(),
                 hideFromPalette: HideBlockType.split
             },
             {
@@ -2396,6 +2702,7 @@
                 },
                 hideFromPalette: HideBlockType.graph
             },
+
             {
                 opcode: 'triangleArea',
                 blockType: BlockType.REPORTER,
@@ -2417,8 +2724,33 @@
                         defaultValue: '5'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正数输入框 (math_positive_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'triangleArea'}">
+                        <value name="S1">
+                            <shadow type="math_positive_number">
+                                <field name="NUM">3</field>
+                            </shadow>
+                        </value>
+                        <value name="S2">
+                            <shadow type="math_positive_number">
+                                <field name="NUM">4</field>
+                            </shadow>
+                        </value>
+                        <value name="S3">
+                            <shadow type="math_positive_number">
+                                <field name="NUM">5</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.graph
             },
+
             {
                 opcode: 'rectangle',
                 blockType: BlockType.REPORTER,
@@ -2486,6 +2818,7 @@
                 hideFromPalette: rareHideAndSow('graph')
             },
             ...sep(HideBlockType.graph),
+
             {
                 opcode: 'circle',
                 blockType: BlockType.REPORTER,
@@ -2507,8 +2840,23 @@
                         menu: 'GRAPH_MODE'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正数输入框 (math_positive_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'circle'}">
+                        <value name="LENGTH">
+                            <shadow type="math_positive_number">
+                                <field name="NUM">10</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.graph
             },
+
             ...sep(HideBlockType.graph),
             {
                 opcode: 'isAngleInRange',
@@ -2568,6 +2916,7 @@
                 }),
                 hideFromPalette: HideBlockType.base
             },
+
             {
                 opcode: 'base',
                 blockType: BlockType.REPORTER,
@@ -2589,8 +2938,33 @@
                         defaultValue: '2'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正整数输入框 (math_whole_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'base'}">
+                        <value name="NUM">
+                            <shadow type="text">
+                                <field name="TEXT">10</field>
+                            </shadow>
+                        </value>
+                        <value name="INTO1">
+                            <shadow type="math_whole_number">
+                                <field name="NUM">10</field>
+                            </shadow>
+                        </value>
+                        <value name="INTO2">
+                            <shadow type="math_whole_number">
+                                <field name="NUM">2</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.base
             },
+
             {
                 opcode: 'toBin',
                 blockType: BlockType.REPORTER,
@@ -2622,6 +2996,7 @@
                 hideFromPalette: rareHideAndSow('base')
             },
             ...sep(HideBlockType.base),
+
             {
                 opcode: 'isBase',
                 blockType: BlockType.BOOLEAN,
@@ -2639,8 +3014,28 @@
                         defaultValue: '16'
                     }
                 },
+                hideFromPalette: true
+            },
+            {
+                // 这个是为了做出正整数输入框 (math_whole_number)
+                blockType: BlockType.XML,
+                xml: `
+                    <block type="${'OPERATION_' + 'isBase'}">
+                        <value name="NUM">
+                            <shadow type="text">
+                                <field name="TEXT">FF</field>
+                            </shadow>
+                        </value>
+                        <value name="BASE">
+                            <shadow type="math_whole_number">
+                                <field name="NUM">16</field>
+                            </shadow>
+                        </value>
+                    </block>
+                `,
                 hideFromPalette: HideBlockType.base
             },
+
             ...sep(HideBlockType.base),
             {
                 opcode: 'booleanToNumber',
@@ -3243,7 +3638,10 @@
         }
 
         round({ NUM1, NUM2 }) {
-            return Cast.toNumber(NUM1).toFixed(Cast.toNumber(NUM2));
+            let num1 = Cast.toNumber(NUM1);
+            let num2 = Cast.toNumber(NUM2);
+            if (num2 <= 0) return num1;
+            return num1.toFixed(num2);
         }
 
         mapOff({ NUM, START1, END1, START2, END2 }) {
@@ -3519,6 +3917,10 @@
             return Cast.toBoolean(OPERAND);
         }
 
+        isFalse({ OPERAND }) {
+            return !Cast.toBoolean(OPERAND);
+        }
+
         _isPrime = (number) => {
             if (number <= 1) return false;
             if (number <= 3) return true;
@@ -3586,10 +3988,12 @@
         }
 
         approximatelyEqual({ OPERAND1, OPERAND2, NUM }) {
-            OPERAND1 = Cast.toNumber(OPERAND1);
-            OPERAND2 = Cast.toNumber(OPERAND2);
-            NUM = Cast.toNumber(NUM);
-            return Math.abs(OPERAND1 - OPERAND2) <= NUM;
+            const operand1 = Cast.toNumber(OPERAND1);
+            const operand2 = Cast.toNumber(OPERAND2);
+            let num = Math.abs(
+                Cast.toNumber(NUM)
+            );
+            return Math.abs(operand1 - operand2) <= num;
         }
 
         isBetween({ NUM, START, END }) {
@@ -3679,20 +4083,29 @@
             return String(STRING).trim();
         }
 
+        _negLoop = (num, iterable) => {
+            if (num >= 0) return num;
+            return iterable.length + num + 1;
+        };
+
         letters({ START, END, STRING }) {
-            const start = Math.min(Cast.toNumber(START), Cast.toNumber(END));
-            const end = Math.max(Cast.toNumber(START), Cast.toNumber(END));
-            return String(STRING).slice(
+            const str = String(STRING)
+            let start = this._negLoop(Cast.toNumber(START), str);
+            let end = this._negLoop(Cast.toNumber(END), str);
+            [start, end] = start < end ? [start, end] : [end, start];
+            return str.slice(
                 Cast.toNumber(start) - 1, Cast.toNumber(end)
             );
         }
 
         remove({ START, END, STRING }) {
-            const start = Math.min(Cast.toNumber(START), Cast.toNumber(END));
-            const end = Math.max(Cast.toNumber(START), Cast.toNumber(END));
-            return String(STRING).substring(
+            const str = String(STRING)
+            let start = this._negLoop(Cast.toNumber(START), str);
+            let end = this._negLoop(Cast.toNumber(END), str);
+            [start, end] = start < end ? [start, end] : [end, start];
+            return str.substring(
                 0, Cast.toNumber(start) - 1
-            ) + String(STRING).substring(
+            ) + str.substring(
                 Cast.toNumber(end)
             );
         }
@@ -3700,7 +4113,7 @@
         insert({ STRING, INSERT_STR, INDEX }) {
             const str = String(STRING);
             const insStr = String(INSERT_STR);
-            const index = Cast.toNumber(INDEX);
+            const index = this._negLoop(Cast.toNumber(INDEX), str);
 
             if (index > 0 && index <= str.length + 1) {
                 return str.slice(0, index - 1) + insStr + str.slice(index - 1);
@@ -3717,10 +4130,11 @@
         }
 
         replaceIndex({ STRING, START, END, REPLACEMENT }) {
-            let start = Math.min(Cast.toNumber(START), Cast.toNumber(END));
-            let end = Math.max(Cast.toNumber(START), Cast.toNumber(END));
             let str = String(STRING);
             let rep = String(REPLACEMENT);
+            let start = this._negLoop(Cast.toNumber(START), str);
+            let end = this._negLoop(Cast.toNumber(END), str);
+            [start, end] = start < end ? [start, end] : [end, start];
             start = start - 1;
             start = Math.max(0, start);
             end = Math.min(str.length, end);
@@ -3751,27 +4165,28 @@
         split({ STRING, SYMBOL, NUM }) {
             const str = String(STRING);
             const symbol = String(SYMBOL);
-            const num = Cast.toNumber(NUM);
+            const splitted = str.split(symbol);
+            const num = this._negLoop(Cast.toNumber(NUM), splitted);
             if (!Number.isInteger(num)) return '';
-            return (str.split(symbol)[(num - 1)]) ?? '';
+            return (splitted[(num - 1)]) ?? '';
         }
 
         splitAndRemove({ STRING, SYMBOL, NUM }) {
             const str = String(STRING);
             const symbol = String(SYMBOL);
-            const num = Cast.toNumber(NUM);
-            const arr = str.split(symbol);
-            if (NUM < 1 || !Number.isInteger(num)) return str;
-            arr.splice(num - 1, 1);
-            return arr.join(symbol);
+            const splitted = str.split(symbol);
+            const num = this._negLoop(Cast.toNumber(NUM), splitted);
+            if (num < 1 || !Number.isInteger(num)) return str;
+            splitted.splice(num - 1, 1);
+            return splitted.join(symbol);
         }
 
         splitAndInsert({ STRING, SYMBOL, INSERT_STR, INDEX }) {
             const str = String(STRING);
             const symbol = String(SYMBOL);
             const insStr = String(INSERT_STR);
-            const index = Cast.toNumber(INDEX);
             let splitted = str.split(symbol);
+            const index = this._negLoop(Cast.toNumber(INDEX), splitted);
             if (index < 1 || index > splitted.length || !Number.isInteger(index)) {
                 return str;
             }
@@ -3783,8 +4198,8 @@
             const str = String(STRING);
             const symbol = String(SYMBOL);
             const repStr = String(REPLACE_STR);
-            const index = Cast.toNumber(INDEX);
             let splitted = str.split(symbol);
+            const index = this._negLoop(Cast.toNumber(INDEX), splitted);
             if (index < 1 || index > splitted.length || !Number.isInteger(index)) {
                 return str;
             }
@@ -4145,13 +4560,19 @@
         base({ NUM, INTO1, INTO2 }) {
             const into1 = Cast.toNumber(INTO1);
             const into2 = Cast.toNumber(INTO2);
+            let num = Cast.toNumber(NUM);
             if (!Number.isInteger(into1) || !Number.isInteger(into2)) {
                 return '';
             }
-            if (!this.isBase({ NUM: NUM, BASE: INTO1 })) return '';
+            let isNeg = false;
+            if (num < 0) {
+                isNeg = true;
+                num = Math.abs(num);
+            }
+            if (!this.isBase({ NUM: num, BASE: INTO1 })) return '';
             if (into1 > 1 && into1 < 37 && into2 > 1 && into2 < 37) {
                 let dec = 0;
-                let num = NUM.toString().split('.');
+                num = num.toString().split('.');
                 if (num.length > 1) {
                     // 处理小数部分
                     let fractional = 0;
@@ -4165,7 +4586,7 @@
                     dec = parseInt(num[0], into1);
                 }
                 const result = dec.toString(into2);
-                return result;
+                return (isNeg ? '-' : '') + result;
             } else {
                 return '';
             }
@@ -4178,7 +4599,13 @@
 
         toDec({ NUM }) {
             if (!this.isBase({ NUM: NUM, BASE: 2 })) return 0;
-            let num = NUM.toString().split('.');
+            let num = NUM.toString();
+            let isNeg = false;
+            if (num[0] === '-') {
+                isNeg = true;
+                num = num.slice(1);
+            }
+            num = num.split('.');
             if (num.length > 1) {
                 // 处理小数部分
                 let dec = parseInt(num[1], 2) / (2 ** num[1].length);
@@ -4186,7 +4613,7 @@
             } else {
                 num = parseInt(num[0], 2);
             }
-            return num;
+            return (isNeg ? '-' : '') + num;
         }
 
         _char0toZ = () => '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -4199,7 +4626,7 @@
             if (base > 1 && base < 37) {
                 const chars = this._char0toZ().substring(0, base);
                 return new RegExp(
-                    `^[${chars}\\.]+(?:e[+-]?[${chars}]+)?$`, 'i'
+                    `^[${chars}\\.-]+(?:e[+-]?[${chars}]+)?$`, 'i'
                 ).test(Cast.toString(NUM));
             }
             return false;
