@@ -904,7 +904,7 @@ class WitCatInput {
 			search.className = "WitCatInput";
 			search.name = String(args.type);
 			search.placeholder = String(args.texts);
-			this.inputParent().insertBefore(search, this.canvas());
+			this.inputParent().appendChild(search);
 		}
 
 		// 现在直接通过style的属性修改样式表，不需要担心“分号注入”问题了
