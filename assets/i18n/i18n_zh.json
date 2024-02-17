@@ -9,7 +9,7 @@
     "ext.NOname/control": "更多的控制类积木",
     "ext.NOname/Motion": "一些运动的扩展积木",
     "ext.NOname/hanzi": "一些汉字的处理工具",
-    "ext.NOname/debuger": "控制台窗口，可以输入输出内容，方便调试程序",
+    "ext.NOname/debuger": "断点与控制台窗口，可以输入输出内容，方便调试程序",
     "ext.NOname/Operation": "高级运算，包含了数学、字符串、<br>位运算、二维图形运算等",
     "ext.0832/3D": "这是一个 Scratcher 们梦寐以求的扩展",
     "ext.0832/Function": "优雅地使用Javascript",

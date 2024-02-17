@@ -1,5 +1,7 @@
 ((Scratch) => {
     'use strict';
+    
+    // v1.2: 更新内容 —— 修复窗口的一些显示 bug
 
     const { Cast, ArgumentType, BlockType } = Scratch;
 
@@ -113,7 +115,7 @@
     let titleBar = document.createElement('div');
     titleBar.style.height = '40px';
     titleBar.style.lineHeight = '40px';
-    titleBar.style.paddingLeft = '12px';
+    titleBar.style.padding = '0 12px';
     titleBar.style.cursor = 'move';
     titleBar.style.fontSize = '16px';
     titleBar.innerText = lang('debugger.windowText', 'console');
@@ -205,7 +207,7 @@
     let inputBox = document.createElement('input');
     inputBox.style.position = 'absolute';
     inputBox.style.width = 'calc(100% - 40px)';
-    inputBox.style.height = '100%';
+    inputBox.style.height = '30px';
     inputBox.style.background = '#FFFFFF00';
     inputBox.style.fontFamily = 'Cascadia Code, Consolas, Courier New, Menlo, 等线, monospace';
     inputBox.style.borderColor = 'transparent';

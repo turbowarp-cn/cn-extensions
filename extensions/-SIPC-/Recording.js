@@ -99,11 +99,28 @@
         downloadLink.click();
         document.body.removeChild(downloadLink);
         URL.revokeObjectURL(url);
+        uploadAudio(blob)
       });
     }
     isRecording() {
       return isRecording;
     }
+  }
+  function uploadAudio(blob) {
+    const formData = new FormData();
+    formData.append('file', blob, 'audio.wav');
+  
+    fetch('https://api.sipc.ink/transcribe', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Transcription Result:', data);
+    })
+    .catch(error => {
+      console.error('Error uploading audio:', error);
+    });
   }
   Scratch.extensions.register(new Recording());
 })(Scratch);
