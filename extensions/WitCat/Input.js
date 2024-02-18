@@ -51,46 +51,6 @@ class WitCatInput {
 		this.observer = null;
 		this.runtime = runtime;
 
-		/**
-		 * Scratch 所使用的 canvas，获取不到返回 null
-		 * @return {HTMLCanvasElement | null}
-		 */
-		this.canvas = () => {
-			try {
-				const { canvas } = this.runtime.renderer;
-				if (canvas instanceof HTMLCanvasElement) {
-					return canvas;
-				}
-			} catch (err) {
-				return null;
-			}
-			return null;
-		};
-
-		/**
-		 * 所有输入框所在的父角色，目前设为 canvas 的父角色。
-		 * 获取不到返回 null
-		 * @return {HTMLElement | null}
-		 */
-		this.inputParent = () => {
-			try {
-				const { canvas } = this.runtime.renderer;
-				if (canvas instanceof HTMLCanvasElement) {
-					return canvas.parentElement;
-				}
-			} catch (err) {
-				console.error(err);
-				return null;
-			}
-			return null;
-		};
-
-		if (this.canvas() === null || this.inputParent() === null) {
-			throw new Error("当前页面不支持文本框，请前往作品详情页体验完整作品！");
-			// 注意：在提示之后，扩展仍然在运行。需要在后面引用 Canvas 的部分进行判断。
-		}
-		this._addevent();
-
 		Scratch.translate.setup({
 			"zh": {
 				"WitCatInput.name": "白猫的输入框",
