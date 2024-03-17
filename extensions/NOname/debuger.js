@@ -1,7 +1,7 @@
 ((Scratch) => {
     'use strict';
     
-    // v1.2: 更新内容 —— 修复窗口的一些显示 bug
+    const version = '0.1.0';
 
     const { Cast, ArgumentType, BlockType } = Scratch;
 
@@ -73,6 +73,17 @@
     const formatMessage = Scratch.translate;
     const lang = (id, defaultValue) => Scratch.translate({ id: id, default: defaultValue });
 
+    const SymbolsNerdFont = `data:font/ttf;base64,`
+        + `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`;
+    let SymbolsNerdFontStyle = document.createElement('style');
+    SymbolsNerdFontStyle.appendChild(document.createTextNode(`
+        @font-face {
+            font-family: 'SymbolsNerdFontStyle';
+            src: url('${SymbolsNerdFont}');
+        }
+    `));
+    document.head.appendChild(SymbolsNerdFontStyle);
+
     const inputIcon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iMjIiCiAgIGhlaWdodD0iMjIiCiAgIHZpZXdCb3g9IjAgMCA1LjgyMDgzMzMgNS44MjA4MzM0IgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxIgogICB4bWw6c3BhY2U9InByZXNlcnZlIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjMuMSAoOTFiNjZiMDc4MywgMjAyMy0xMS0xNikiCiAgIHNvZGlwb2RpOmRvY25hbWU9Iue7mOWbvi5zdmciCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJuYW1lZHZpZXcxIgogICAgIHBhZ2Vjb2xvcj0iIzUwNTA1MCIKICAgICBib3JkZXJjb2xvcj0iI2VlZWVlZSIKICAgICBib3JkZXJvcGFjaXR5PSIxIgogICAgIGlua3NjYXBlOnNob3dwYWdlc2hhZG93PSIwIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZGVza2NvbG9yPSIjNTA1MDUwIgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJtbSIKICAgICBpbmtzY2FwZTp6b29tPSIzNy43NzI3MjciCiAgICAgaW5rc2NhcGU6Y3g9IjkuMjI2MjMzNSIKICAgICBpbmtzY2FwZTpjeT0iMTEuNjYxODUzIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDI3IgogICAgIGlua3NjYXBlOndpbmRvdy14PSIxOTEyIgogICAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzEiIC8+PGRlZnMKICAgICBpZD0iZGVmczEiIC8+PHBhdGgKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxIgogICAgIGQ9Ik0gMS4yMjQ5MDY1LDQuOTc5ODQ5NyBDIDEuMTUzMjY5NCw0Ljk2NTQxMjkgMS4xMDg3OTU2LDQuOTIyNzM0NCAxLjA4MTM3MzgsNC44NDIxMTEgMS4wNTYzNjA2LDQuNzY4NTY5MiAxLjA1MzY3ODYsNC43Mzc1NjIyIDEuMDUzNjc4Niw0LjUyMTkyNTEgYyAwLC0wLjE3NDk3ODcgMC4wMDEzNiwtMC4yMDkzNDc5IDAuMDEwMTE4LC0wLjI1NjAwODkgQyAxLjA5NjU2OTQsNC4wOTEzNDg4IDEuMTY2MDg5NCw0LjAwMTgyOTEgMS4zNTgxNDgyLDMuODg2ODg0OSAxLjM5MjI2MzIsMy44NjY0Njc3IDEuNTE3MTg5NCwzLjc5Njk0MDcgMS42MzU3NjE5LDMuNzMyMzgwNiAyLjQ0NjYwNiwzLjI5MDg5NDIgMi42OTg2MjE1LDMuMTUyNzMwMSAyLjc0NTc2MjcsMy4xMjM4Mzc4IDIuODU0MDAwNywzLjA1NzQ5OTkgMi45MTIwMDE4LDIuOTgzMDM2OSAyLjkxMjAwMTgsMi45MTA0MTY2IGMgMCwtMC4wNzI2MiAtMC4wNTgwMDEsLTAuMTQ3MDgzMyAtMC4xNjYyMzkxLC0wLjIxMzQyMTIgQyAyLjY5ODYyMTUsMi42NjgxMDMxIDIuNDQ2NjA2LDIuNTI5OTM5IDEuNjM1NzYxOSwyLjA4ODQ1MjYgMS41MTcxODk0LDIuMDIzODkyNSAxLjM5MjI2MzIsMS45NTQzNjU1IDEuMzU4MTQ4MiwxLjkzMzk0ODMgMS4xNjYwODk0LDEuODE5MDA0MSAxLjA5NjU2OTQsMS43Mjk0ODQ0IDEuMDYzNzk2OSwxLjU1NDkxNyAxLjA1NTAzNywxLjUwODI1NiAxLjA1MzY3ODYsMS40NzM4ODY4IDEuMDUzNjc4NiwxLjI5ODkwODIgYyAwLC0wLjIxNTYzNzIgMC4wMDI2OCwtMC4yNDY2NDQyIDAuMDI3Njk1LC0wLjMyMDE4NjAyIDAuMDMzMzk1LC0wLjA5ODE4NTkgMC4wODk4NywtMC4xMzk5MzcyOSAwLjE4ODM5MSwtMC4xMzkyNzYxOCAwLjA4NjU5Miw1LjgxMDZlLTQgMC4xMjQ2MjI1LDAuMDE2OTM1MyAwLjQ0Mzg1MSwwLjE5MDg2NzIgMC4xNTI4MjUsMC4wODMyNjcgMC4zMTkwOTQ2LDAuMTczODE2IDAuMzY5NDg3OSwwLjIwMTIyMDUgMC4wNTAzOTMsMC4wMjc0MDQgMC40MDIwNjg3LDAuMjE5MDE5OSAwLjc4MTUwMDgsMC40MjU4MTIgMC4zNzk0MzIxLDAuMjA2NzkyMiAwLjc3NDc2MzcsMC40MjIxNjY4IDAuODc4NTE0NiwwLjQ3ODYxMDIgMC45MjM4MTE5LDAuNTAyNTc5MyAxLjAwMjI0MzEsMC41NDYwOSAxLjA1NjM3MzUsMC41ODYwMzY3IDAuMTYyNzI3MiwwLjEyMDA4ODIgMC4xNjI3MjcyLDAuMjU2NzU5OSAwLDAuMzc2ODQ4IEMgNC43NDUzNjIyLDMuMTM4Nzg3MyA0LjY2NjkzMSwzLjE4MjI5OCAzLjc0MzExOTEsMy42ODQ4NzczIDMuNjM5MzY4MiwzLjc0MTMyMDcgMy4yNDQwMzY2LDMuOTU2Njk1MyAyLjg2NDYwNDUsNC4xNjM0ODc1IDIuNDg1MTcyNCw0LjM3MDI3OTYgMi4xMzM0OTcxLDQuNTYxODk1MSAyLjA4MzEwMzcsNC41ODkyOTk1IDIuMDMyNzEwNCw0LjYxNjcwNCAxLjg2NjQ0MDgsNC43MDcyNTMyIDEuNzEzNjE1OCw0Ljc5MDUyIDEuNDkyMjAzMyw0LjkxMTE1NjggMS40MjQzMTUsNC45NDU2Nzc0IDEuMzc5NDU2OCw0Ljk2MDQzNyAxLjMxOTExNzUsNC45ODAyOTAzIDEuMjYyNDI3LDQuOTg3NDExIDEuMjI0OTA2NSw0Ljk3OTg0OTcgWiIKICAgICBpZD0icGF0aDEiIC8+PC9zdmc+Cg==';
     const closeIcon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5jbG9zZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJjbG9zZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTE1LjQ2NDkzNSwxNS40NjcyOTcgQzE0Ljc2NDQwNTksMTYuMTc3NzcwNSAxMy42MTg1ODc3LDE2LjE3Nzc3MDUgMTIuOTA4MTE0MiwxNS40NjcyOTcgTDkuOTk4ODE4OTksMTIuNTU4MDAxOCBMNy4wODg0MTg4NSwxNS40NjcyOTcgQzYuMzgyMzY1MDYsMTYuMTczMzUwOCA1LjIzNzY1MTg3LDE2LjE3MzM1MDggNC41MzE1OTgwNywxNS40NjcyOTcgQzQuMTc5MTIzNjQsMTUuMTE0ODIyNiA0LjAwMDEyNDA5LDE0LjY0ODUzOTggNC4wMDAxMjQwOSwxNC4xODg4ODY2IEM0LjAwMDEyNDA5LDEzLjcyODEyODUgNC4xNzkxMjM2NCwxMy4yNjI5NTA2IDQuNTMxNTk4MDcsMTIuOTEwNDc2MiBMNy40NDA4OTMyOCwxMC4wMDExODEgTDQuNTI3MTc4MzMsNy4wODYzNjExMiBDNC4xNzM1OTg5Nyw2LjczMjc4MTc2IDMuOTk0NTk5NDEsNi4yNjc2MDM5MSA0LjAwMDEyNDA5LDUuODAyNDI2MDYgQzQuMDAwMTI0MDksNS4zNDE2Njc5NSA0LjE3MzU5ODk3LDQuODgyMDE0NzcgNC41MjcxNzgzMyw0LjUyOTU0MDM0IEM1LjIzMjEyNzE5LDMuODIzNDg2NTUgNi4zNzY4NDAzOCwzLjgyMzQ4NjU1IDcuMDgzOTk5MTEsNC41Mjk1NDAzNCBMOS45OTg4MTg5OSw3LjQ0MzI1NTI5IEwxMi45MTI1MzM5LDQuNTI5NTQwMzQgQzEzLjYxODU4NzcsMy44MjM0ODY1NSAxNC43NjQ0MDU5LDMuODIzNDg2NTUgMTUuNDcwNDU5Nyw0LjUyOTU0MDM0IEMxNi4xNzY1MTM0LDUuMjM0NDg5MiAxNi4xNzY1MTM0LDYuMzgwMzA3MzMgMTUuNDcwNDU5Nyw3LjA4NjM2MTEyIEwxMi41NTQ1MzQ4LDEwLjAwMTE4MSBMMTUuNDcwNDU5NywxMi45MTQ4OTYgQzE2LjE3NjUxMzQsMTMuNjIwOTQ5NyAxNi4xNzY1MTM0LDE0Ljc1NTcxODUgMTUuNDY0OTM1LDE1LjQ2NzI5NyIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgogICAgPC9nPgo8L3N2Zz4=';
     const clearIcon = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxwYXRoIGQ9Ik00LjU0OCA3aDEwLjkwNGEuNS41IDAgMCAxIC40OTguNTQ1bC0uNzg1IDguNjM1QTIgMiAwIDAgMSAxMy4xNzQgMThINi44MjdhMiAyIDAgMCAxLTEuOTkyLTEuODJMNC4wNSA3LjU0NkEuNS41IDAgMCAxIDQuNTQ4IDd6bTIuNzg1LTMgLjU1My0xLjY1OEEuNS41IDAgMCAxIDguMzYgMmgzLjI4YS41LjUgMCAwIDEgLjQ3NC4zNDJMMTIuNjY3IDRIMTYuNWEuNS41IDAgMCAxIC41LjV2MWEuNS41IDAgMCAxLS41LjVoLTEzYS41LjUgMCAwIDEtLjUtLjV2LTFhLjUuNSAwIDAgMSAuNS0uNWgzLjgzM3ptMS4wNTQgMGgzLjIyNmwtLjMzNC0xSDguNzIxbC0uMzM0IDF6TTEwIDExLjcybDEuNTk1LTEuNTk1YS41LjUgMCAwIDEgLjcwNyAwbC4wNzMuMDczYS41LjUgMCAwIDEgMCAuNzA3TDEwLjc4IDEyLjVsMS41OTUgMS41OTVhLjUuNSAwIDAgMSAwIC43MDdsLS4wNzMuMDczYS41LjUgMCAwIDEtLjcwNyAwTDEwIDEzLjI4bC0xLjU5NSAxLjU5NWEuNS41IDAgMCAxLS43MDcgMGwtLjA3My0uMDczYS41LjUgMCAwIDEgMC0uNzA3TDkuMjIgMTIuNWwtMS41OTUtMS41OTVhLjUuNSAwIDAgMSAwLS43MDdsLjA3My0uMDczYS41LjUgMCAwIDEgLjcwNyAwTDEwIDExLjcyeiIgaWQ9ImEiLz48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48bWFzayBpZD0iYiIgZmlsbD0iI2ZmZiI+PHVzZSB4bGluazpocmVmPSIjYSIvPjwvbWFzaz48ZyBtYXNrPSJ1cmwoI2IpIiBmaWxsPSIjRkZGIj48cGF0aCBkPSJNMCAwaDIwdjIwSDB6Ii8+PC9nPjwvZz48L3N2Zz4=';
@@ -102,7 +113,7 @@
     consoleWindow.style.borderRadius = '10px';
     consoleWindow.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
     consoleWindow.style.display = 'none';
-    consoleWindow.style.fontFamily = 'Cascadia Code, Consolas, Courier New, Menlo, 等线, monospace';
+    consoleWindow.style.fontFamily = 'Cascadia Code, Consolas, Courier New, Menlo, 等线, monospace, SymbolsNerdFontStyle';
     consoleWindow.style.paddingBottom = '5px';
     consoleWindow.style.overflowX = 'hidden';
     consoleWindow.style.zIndex = 999;
@@ -115,25 +126,26 @@
     let titleBar = document.createElement('div');
     titleBar.style.height = '40px';
     titleBar.style.lineHeight = '40px';
-    titleBar.style.padding = '0 12px';
+    titleBar.style.paddingLeft = '12px';
+    titleBar.style.paddingRight = '12px';
     titleBar.style.cursor = 'move';
     titleBar.style.fontSize = '16px';
-    titleBar.innerText = lang('debugger.windowText', 'console');
+    titleBar.innerText = ' ' + lang('debugger.windowText', 'console');
     titleBar.style.position = 'sticky';
     titleBar.style.top = '0px';
     consoleWindow.appendChild(titleBar);
-    
+
     // 创建内容区域
     let content = document.createElement('div');
-	content.style.position = 'absolute';
+    content.style.position = 'absolute';
     content.style.width = '100%';
     content.style.height = '360px';
-	// content.style.backgroundColor = '#FF0000';
-	content.style.bottom = '0';
-	content.style.overflow = 'auto';
-	content.style.paddingTop = '5px';
-	consoleWindow.appendChild(content);
-	
+    // content.style.backgroundColor = '#FF0000';
+    content.style.bottom = '0';
+    content.style.overflow = 'auto';
+    content.style.paddingTop = '5px';
+    consoleWindow.appendChild(content);
+
     // 创建关闭按钮
     let closeButton = document.createElement('img');
     closeButton.src = closeIcon;
@@ -220,12 +232,15 @@
             event.preventDefault();  // 阻止默认的行为
 
             let messageText = inputBox.value;
-
-            addText({ message: messageText, bullet: '>' });  // 添加
-
             inputBox.value = '';
-            lastInput = messageText;
-            vm.runtime.startHats('debugger_whenInput');
+
+            if (messageText.toLowerCase() !== 'ext -v') {
+                addText({ message: messageText, bullet: '' });
+
+                lastInput = messageText;
+                vm.runtime.startHats('debugger_whenInput');
+            }
+            else addText({ message: `v${version}`, bullet: '' });
         }
     });
 
@@ -271,12 +286,92 @@
         }
     }
 
+    let lastTheme = localStorage.getItem('tw:theme');
+    let lastLanguage = localStorage.getItem('tw:language');
+
+    function checkLocalStorageChange() {
+        const currentTheme = localStorage.getItem('tw:theme');
+        const currentLanguage = localStorage.getItem('tw:language');
+
+        if (currentTheme !== lastTheme || currentLanguage !== lastLanguage) {
+            changeWindowColor();
+            lastTheme = currentTheme;
+            lastLanguage = currentLanguage;
+        }
+    }
+
+    setInterval(checkLocalStorageChange, 500);
+
+    function changeWindowColor() {
+        isDark = getDarkMode();
+        isRTL = rtlLang.includes(localStorage.getItem('tw:language'));
+        inputWindow.style.top = `calc(${consoleWindow.style.top} + 228px)`;
+        inputWindow.style.left = `calc(${consoleWindow.style.left} - 100px)`;
+        inputWindow.style.left = !isRTL ? `calc(${getComputedStyle(consoleWindow).left} - 100px)` : 'auto';
+        inputWindow.style.right = isRTL ? `calc(${getComputedStyle(consoleWindow).right} + 100px)` : 'auto';
+        if (isRTL) {
+            consoleWindow.style.direction = 'rtl';
+            inputWindow.style.direction = 'rtl';
+            inputWindowIcon.style.transform = 'scaleX(-1)';
+            closeButton.style.left = '12px';
+            closeButton.style.right = 'auto';
+            clearButton.style.left = '60px';
+            clearButton.style.right = 'auto';
+            inputButton.style.left = '108px';
+            inputButton.style.right = 'auto';
+            inputButton.style.transform = 'scaleX(-1)';
+            inputBox.style.left = 'auto';
+            inputBox.style.right = '40px';
+            inputWindowIcon.style.left = 'auto';
+            inputWindowIcon.style.right = '12px';
+        } else {
+            consoleWindow.style.direction = 'ltr';
+            inputWindow.style.direction = 'ltr';
+            inputWindowIcon.style.transform = 'scaleX(1)';
+            closeButton.style.left = 'auto';
+            closeButton.style.right = '12px';
+            clearButton.style.left = 'auto';
+            clearButton.style.right = '60px';
+            inputButton.style.left = 'auto';
+            inputButton.style.right = '108px';
+            inputButton.style.transform = 'scaleX(1)';
+            inputBox.style.left = '40px';
+            inputBox.style.right = 'auto';
+            inputWindowIcon.style.left = '12px';
+            inputWindowIcon.style.right = 'auto';
+        }
+        if (isDark) {
+            consoleWindow.style.backgroundColor = '#111111';
+            consoleWindow.style.color = '#FFF';
+            titleBar.style.backgroundColor = '#1E1E1E';
+            titleBar.style.color = '#FFF';
+            closeButton.style.filter = 'none';
+            clearButton.style.filter = 'none';
+            inputButton.style.filter = 'none';
+            inputWindow.style.backgroundColor = '#111111';
+            inputWindow.style.color = '#FFF';
+            inputWindowIcon.style.filter = 'none';
+        }
+        else {
+            consoleWindow.style.backgroundColor = '#FAFAFA';
+            consoleWindow.style.color = '#474747';
+            titleBar.style.backgroundColor = '#CDCDCD';
+            titleBar.style.color = '#000';
+            closeButton.style.filter = 'invert(1)';
+            clearButton.style.filter = 'invert(1)';
+            inputButton.style.filter = 'invert(1)';
+            inputWindow.style.backgroundColor = '#FAFAFA';
+            inputWindow.style.color = '#474747';
+            inputWindowIcon.style.filter = 'invert(1)';
+        }
+    }
+
     function handleMouseUp() {
         isDragging = false;
     }
 
     function clearConsoleText() {
-		content.innerHTML = '';
+        content.innerHTML = '';
     }
 
     function addText({ message, color, bullet = '' }) {
@@ -285,9 +380,9 @@
         logElement.style.fontSize = '16px';
         logElement.style.paddingLeft = '10px';
         logElement.style.paddingRight = '10px';
-        logElement.innerText = `${bullet}\t${message}`;
+        logElement.innerText = `${bullet} ${message}`;
         content.appendChild(logElement);
-        
+
         if (content.children.length > maxMessage) {
             content.removeChild(content.children[0])
         }
@@ -302,7 +397,7 @@
         content.appendChild(imageElement);
 
         content.appendChild(document.createElement('br'));
-        
+
         if (content.children.length > maxMessage) {
             content.removeChild(content.children[1])
         }
@@ -313,7 +408,7 @@
         color2: '#737373',
         color3: '#666666'
     }
-    
+
     let maxMessage = 100;
 
     class ExtensionBlocks {
@@ -494,70 +589,10 @@
         }
 
         showConsole() {
-            isDark = getDarkMode();
-            isRTL = rtlLang.includes(localStorage.getItem('tw:language'));
-            consoleWindow.style.display = 'block';
             consoleWindow.style.left = '50%'
             consoleWindow.style.top = '50%';
-            inputWindow.style.top = `calc(${consoleWindow.style.top} + 228px)`;
-            inputWindow.style.left = `calc(${consoleWindow.style.left} - 100px)`;
-            inputWindow.style.left = !isRTL ? `calc(${getComputedStyle(consoleWindow).left} - 100px)` : 'auto';
-            inputWindow.style.right = isRTL ? `calc(${getComputedStyle(consoleWindow).right} + 100px)` : 'auto';
-            if (isRTL) {
-                consoleWindow.style.direction = 'rtl';
-                inputWindow.style.direction = 'rtl';
-                inputWindowIcon.style.transform = 'scaleX(-1)';
-                closeButton.style.left = '12px';
-                closeButton.style.right = 'auto';
-                clearButton.style.left = '60px';
-                clearButton.style.right = 'auto';
-                inputButton.style.left = '108px';
-                inputButton.style.right = 'auto';
-                inputButton.style.transform = 'scaleX(-1)';
-                inputBox.style.left = 'auto';
-                inputBox.style.right = '40px';
-                inputWindowIcon.style.left = 'auto';
-                inputWindowIcon.style.right = '12px';
-            } else {
-                consoleWindow.style.direction = 'ltr';
-                inputWindow.style.direction = 'ltr';
-                inputWindowIcon.style.transform = 'scaleX(1)';
-                closeButton.style.left = 'auto';
-                closeButton.style.right = '12px';
-                clearButton.style.left = 'auto';
-                clearButton.style.right = '60px';
-                inputButton.style.left = 'auto';
-                inputButton.style.right = '108px';
-                inputButton.style.transform = 'scaleX(1)';
-                inputBox.style.left = '40px';
-                inputBox.style.right = 'auto';
-                inputWindowIcon.style.left = '12px';
-                inputWindowIcon.style.right = 'auto';
-            }
-            if (isDark) {
-                consoleWindow.style.backgroundColor = '#111111';
-                consoleWindow.style.color = '#FFF';
-                titleBar.style.backgroundColor = '#1E1E1E';
-                titleBar.style.color = '#FFF';
-                closeButton.style.filter = 'none';
-                clearButton.style.filter = 'none';
-                inputButton.style.filter = 'none';
-                inputWindow.style.backgroundColor = '#111111';
-                inputWindow.style.color = '#FFF';
-                inputWindowIcon.style.filter = 'none';
-            }
-            else {
-                consoleWindow.style.backgroundColor = '#FAFAFA';
-                consoleWindow.style.color = '#474747';
-                titleBar.style.backgroundColor = '#CDCDCD';
-                titleBar.style.color = '#000';
-                closeButton.style.filter = 'invert(1)';
-                clearButton.style.filter = 'invert(1)';
-                inputButton.style.filter = 'invert(1)';
-                inputWindow.style.backgroundColor = '#FAFAFA';
-                inputWindow.style.color = '#474747';
-                inputWindowIcon.style.filter = 'invert(1)';
-            }
+            consoleWindow.style.display = 'block';
+            changeWindowColor();
         }
 
         breakpoint() {
@@ -582,7 +617,11 @@
         ifFalseBreakpointAndLog({ boolean, message }) {
             boolean = Cast.toBoolean(boolean);
             if (!boolean) {
-                this.output({ type: 'log', message: message });
+                addText({
+                    bullet: '',
+                    message: message,
+                    color: '#E06C75'
+                });
                 this.breakpoint();
             }
         }
@@ -593,17 +632,21 @@
 
         output({ type, message }) {
             if (type === 'log') {
-                addText({ message: message });
+                addText({ bullet: '', message: message });
                 return;
             }
-            const OutputColor = {
-                log: '#FFFFFF',
+            const outputColor = {
                 warn: '#E5C07B',
                 error: '#E06C75'
             };
+            const bullet = {
+                warn: '',
+                error: ''
+            };
             addText({
+                bullet: bullet[type],
                 message: message,
-                color: OutputColor[type]
+                color: outputColor[type]
             });
         }
 
@@ -614,6 +657,7 @@
         test({ boolean, message }) {
             if (!Cast.toBoolean(boolean)) {
                 addText({
+                    bullet: '',
                     message: message,
                     color: '#E06C75'
                 });
