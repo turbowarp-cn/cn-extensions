@@ -1,7 +1,7 @@
 ((Scratch) => {
     'use strict';
-    
-    const version = '0.1.0';
+
+    const version = '0.2.0';
 
     const { Cast, ArgumentType, BlockType } = Scratch;
 
@@ -16,16 +16,26 @@
             "debugger.breakpointAndLog": "断点并记录 [message]",
             "debugger.ifFalseBreakpoint": "如果 [boolean] 不成立就断点",
             "debugger.ifFalseBreakpointAndLog": "如果 [boolean] 不成立就断点并记录 [message]",
+            "debugger.testBreakpoint": "如果 [boolean] [type] 就断点",
+            "debugger.testBreakpointAndLog": "如果 [boolean] [type] 就断点并记录 [message]",
             "debugger.clearConsole": "清除控制台",
             "debugger.output": "控制台 [type] [message]",
             "debugger.log": "记录",
             "debugger.warn": "警告",
             "debugger.error": "错误",
             "debugger.outputWithColor": "输出 [color] 色的 [message]",
-            "debugger.test": "测试 [boolean] 如果假： [message]",
+            "debugger.test": "测试 [boolean] 如果 [type] 记录 [message]",
+            "debugger.testTip": "测试：[message]",
+            "debugger.true": "成立",
+            "debugger.false": "不成立",
+            "debugger.trueOrFalse": "成立或不成立",
+            "debugger.pass": "",
+            "debugger.fail": "",
             "debugger.logStage": "记录舞台图片",
             "debugger.whenInput": "当输入",
-            "debugger.getLastInput": "最后一次输入"
+            "debugger.getLastInput": "最后一次输入",
+            "debugger.tipForHelp": "输入 \"help\" 获取  帮助。",
+            "help": "帮助：<br><br>　　断点：暂停程序进行调试，要继续执行请按下「继续」键。<br>　　控制台：一个可以进行输入输入与输出的窗口。<br>　　输出：可以在关键点打印文字或变量来调试程序的运行。<br>　　输入：点击上面的「>」按钮进行输入，<br>　　　　　输入可以被「当输入」与「最后一次输入」检测到。"
         },
         "zh-tw": {
             "debugger.extName": "偵錯器",
@@ -37,52 +47,102 @@
             "debugger.breakpointAndLog": "中斷併記錄 [message]",
             "debugger.ifFalseBreakpoint": "如果 [boolean] 不成立就中斷",
             "debugger.ifFalseBreakpointAndLog": "如果 [boolean] 不成立就中斷併記錄 [message]",
+            "debugger.testBreakpoint": "如果 [boolean] [type] 就中斷",
+            "debugger.testBreakpointAndLog": "如果 [boolean] [type] 就中斷併記錄 [message]",
             "debugger.clearConsole": "清除主控台",
             "debugger.output": "主控台 [type] [message]",
             "debugger.log": "記錄",
             "debugger.warn": "警告",
             "debugger.error": "錯誤",
             "debugger.outputWithColor": "輸出 [color] 顔色的 [message]",
-            "debugger.test": "測驗 [boolean] 如果假： [message]",
+            "debugger.test": "測驗 [boolean] 如果 [type] 記錄 [message]",
+            "debugger.testTip": "測驗：[message]",
+            "debugger.true": "成立",
+            "debugger.false": "不成立",
+            "debugger.trueOrFalse": "成立或不成立",
+            "debugger.pass": "",
+            "debugger.fail": "",
             "debugger.logStage": "記錄舞台圖像",
             "debugger.whenInput": "當輸入",
             "debugger.getLastInput": "最後一次輸入",
+            "debugger.tipForHelp": "輸入 \"help\" 察看  幫助。",
+            "help": "幫助：<br><br>　　中斷點：暫停程式進行調試，要繼續執行請按下「繼續」鍵。<br>　　主控台：一個可以進行輸入輸出的視窗。<br>　　輸出：可以在關鍵點列印文字或變數來調試程式的運行。<br>　　輸入：點擊上面的「>」按鈕進行輸入，<br>　　　　　輸入可以被「當輸入」與「最後一次輸入」檢測到。"
+        },
+        "ja": {
+            "debugger.extName": "デバッガー",
+            "debugger.windowText": "コンソール",
+            "debugger.console": "コンソール",
+            "debugger.inputTip": "入力：",
+            "debugger.showConsole": "コンソールを開く",
+            "debugger.breakpoint": "ブレークポイント",
+            "debugger.breakpointAndLog": "ブレークポイントと記録 [message]",
+            "debugger.ifFalseBreakpoint": "もし [boolean] が偽ならブレークポイント",
+            "debugger.ifFalseBreakpointAndLog": "もし [boolean] が偽ならブレークポイントと記録 [message]",
+            "debugger.testBreakpoint": "もし [boolean] が [type] ならブレークポイント",
+            "debugger.testBreakpointAndLog": "もし [boolean] が [type] ならブレークポイントと記録 [message]",
+            "debugger.clearConsole": "コンソールをクリア",
+            "debugger.output": "コンソール [type] [message]",
+            "debugger.log": "記録",
+            "debugger.warn": "警告",
+            "debugger.error": "エラー",
+            "debugger.outputWithColor": "出力 [color] 色の [message]",
+            "debugger.test": "テスト：もし [boolean] が [type] なら記録 [message]",
+            "debugger.testTip": "テスト：[message]",
+            "debugger.true": "真",
+            "debugger.false": "偽",
+            "debugger.trueOrFalse": "真または偽",
+            "debugger.pass": "",
+            "debugger.fail": "",
+            "debugger.logStage": "ステージ画像を記録",
+            "debugger.whenInput": "入力時",
+            "debugger.getLastInput": "最後の入力を取得",
+            "debugger.tipForHelp": "\"help\" を入力して  ヘルプを表示。",
+            "help": "ヘルプ：<br><br>　　ブレークポイント：プログラムをデバッグするために一時停止します。<br>　　　　　「続行」キーを押して実行を続けてください。<br>　　コンソール：入出力を行うウィンドウです。<br>　　出力：デバッグ中にキーポイントでテキストや変数を印刷します。<br>　　入力：上の「＞」ボタンをクリックして入力します。<br>　　　　　入力は「入力時」と「最後の入力を取得」で検出されます。"
         },
         "he": {
-            "debugger.extName": "מפתח בדיקות",
-            "debugger.windowText": "מסוף",
-            "debugger.console": "מסוף",
+            "debugger.extName": "מנפה שגיאות",
+            "debugger.windowText": "קונסולה",
+            "debugger.console": "קונסולה",
             "debugger.inputTip": "קלט:",
-            "debugger.showConsole": "פתיחת מסוף",
+            "debugger.showConsole": "פתיחת קונסולה",
             "debugger.breakpoint": "נקודת עצירה",
             "debugger.breakpointAndLog": "נקודת עצירה ורישום [message]",
             "debugger.ifFalseBreakpoint": "אם [boolean] שקר, תצורף נקודת עצירה",
             "debugger.ifFalseBreakpointAndLog": "אם [boolean] שקר, תצורף נקודת עצירה ורישום [message]",
-            "debugger.clearConsole": "ניקוי מסוף",
-            "debugger.output": "מסוף [type] [message]",
+            "debugger.testBreakpoint": "אם [boolean] הוא [type] אז נקודת עצירה",
+            "debugger.testBreakpointAndLog": "אם [boolean] הוא [type] אז נקודת עצירה ורישום [message]",
+            "debugger.clearConsole": "ניקוי קונסולה",
+            "debugger.output": "קונסולה [type] [message]",
             "debugger.log": "רישום",
             "debugger.warn": "אזהרה",
             "debugger.error": "שגיאה",
             "debugger.outputWithColor": "פלט בצבע [color] [message]",
-            "debugger.test": "בדיקה [boolean] אם שקר: [message]",
+            "debugger.test": "בדיקה [boolean] אם [type] רשום [message]",
+            "debugger.testTip": "בדיקה: [message]",
+            "debugger.true": "נכון",
+            "debugger.false": "לא נכון",
+            "debugger.trueOrFalse": "נכון או לא נכון",
+            "debugger.pass": "",
+            "debugger.fail": "",
             "debugger.logStage": "רישום תמונת הבמה",
             "debugger.whenInput": "כאשר קלט",
-            "debugger.getLastInput": "קבלת קלט אחרון"
+            "debugger.getLastInput": "קבלת קלט אחרון",
+            "debugger.tipForHelp": "הקלד \"עזרה\" כדי להציג עזרה של ",
+            "help": "עזרה:<br><br>נקודת עצירה:<br>השהה את התכנית לצורך ניפוי באגים, לחץ על \"המשך\"כדי לחדש <br>את הביצוע.<br><br>קונסולה:<br>חלון עבור קלט ופלט.<br><br>פלט:<br>הדפס טקסט או משתנים בנקודות מפתח לצורך ניפוי באגים.<br><br>קלט:<br>לחץ על הכפתור \">\" למעלה כדי להזין, ניתן לזהות את הקלט כ<br>\"כאשר קלט\" או \"קבלת קלט אחרון\"."
         }
     });
     const formatMessage = Scratch.translate;
     const lang = (id, defaultValue) => Scratch.translate({ id: id, default: defaultValue });
 
-    const SymbolsNerdFont = `data:font/ttf;base64,`
-        + `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`;
-    let SymbolsNerdFontStyle = document.createElement('style');
-    SymbolsNerdFontStyle.appendChild(document.createTextNode(`
+    const SymbolsNerdFont = 'data:font/ttf;base64,' + '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';
+    let IconFont = document.createElement('style');
+    IconFont.appendChild(document.createTextNode(`
         @font-face {
-            font-family: 'SymbolsNerdFontStyle';
+            font-family: 'IconFont';
             src: url('${SymbolsNerdFont}');
         }
     `));
-    document.head.appendChild(SymbolsNerdFontStyle);
+    document.head.appendChild(IconFont);
 
     const inputIcon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iMjIiCiAgIGhlaWdodD0iMjIiCiAgIHZpZXdCb3g9IjAgMCA1LjgyMDgzMzMgNS44MjA4MzM0IgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxIgogICB4bWw6c3BhY2U9InByZXNlcnZlIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjMuMSAoOTFiNjZiMDc4MywgMjAyMy0xMS0xNikiCiAgIHNvZGlwb2RpOmRvY25hbWU9Iue7mOWbvi5zdmciCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJuYW1lZHZpZXcxIgogICAgIHBhZ2Vjb2xvcj0iIzUwNTA1MCIKICAgICBib3JkZXJjb2xvcj0iI2VlZWVlZSIKICAgICBib3JkZXJvcGFjaXR5PSIxIgogICAgIGlua3NjYXBlOnNob3dwYWdlc2hhZG93PSIwIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZGVza2NvbG9yPSIjNTA1MDUwIgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJtbSIKICAgICBpbmtzY2FwZTp6b29tPSIzNy43NzI3MjciCiAgICAgaW5rc2NhcGU6Y3g9IjkuMjI2MjMzNSIKICAgICBpbmtzY2FwZTpjeT0iMTEuNjYxODUzIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDI3IgogICAgIGlua3NjYXBlOndpbmRvdy14PSIxOTEyIgogICAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzEiIC8+PGRlZnMKICAgICBpZD0iZGVmczEiIC8+PHBhdGgKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxIgogICAgIGQ9Ik0gMS4yMjQ5MDY1LDQuOTc5ODQ5NyBDIDEuMTUzMjY5NCw0Ljk2NTQxMjkgMS4xMDg3OTU2LDQuOTIyNzM0NCAxLjA4MTM3MzgsNC44NDIxMTEgMS4wNTYzNjA2LDQuNzY4NTY5MiAxLjA1MzY3ODYsNC43Mzc1NjIyIDEuMDUzNjc4Niw0LjUyMTkyNTEgYyAwLC0wLjE3NDk3ODcgMC4wMDEzNiwtMC4yMDkzNDc5IDAuMDEwMTE4LC0wLjI1NjAwODkgQyAxLjA5NjU2OTQsNC4wOTEzNDg4IDEuMTY2MDg5NCw0LjAwMTgyOTEgMS4zNTgxNDgyLDMuODg2ODg0OSAxLjM5MjI2MzIsMy44NjY0Njc3IDEuNTE3MTg5NCwzLjc5Njk0MDcgMS42MzU3NjE5LDMuNzMyMzgwNiAyLjQ0NjYwNiwzLjI5MDg5NDIgMi42OTg2MjE1LDMuMTUyNzMwMSAyLjc0NTc2MjcsMy4xMjM4Mzc4IDIuODU0MDAwNywzLjA1NzQ5OTkgMi45MTIwMDE4LDIuOTgzMDM2OSAyLjkxMjAwMTgsMi45MTA0MTY2IGMgMCwtMC4wNzI2MiAtMC4wNTgwMDEsLTAuMTQ3MDgzMyAtMC4xNjYyMzkxLC0wLjIxMzQyMTIgQyAyLjY5ODYyMTUsMi42NjgxMDMxIDIuNDQ2NjA2LDIuNTI5OTM5IDEuNjM1NzYxOSwyLjA4ODQ1MjYgMS41MTcxODk0LDIuMDIzODkyNSAxLjM5MjI2MzIsMS45NTQzNjU1IDEuMzU4MTQ4MiwxLjkzMzk0ODMgMS4xNjYwODk0LDEuODE5MDA0MSAxLjA5NjU2OTQsMS43Mjk0ODQ0IDEuMDYzNzk2OSwxLjU1NDkxNyAxLjA1NTAzNywxLjUwODI1NiAxLjA1MzY3ODYsMS40NzM4ODY4IDEuMDUzNjc4NiwxLjI5ODkwODIgYyAwLC0wLjIxNTYzNzIgMC4wMDI2OCwtMC4yNDY2NDQyIDAuMDI3Njk1LC0wLjMyMDE4NjAyIDAuMDMzMzk1LC0wLjA5ODE4NTkgMC4wODk4NywtMC4xMzk5MzcyOSAwLjE4ODM5MSwtMC4xMzkyNzYxOCAwLjA4NjU5Miw1LjgxMDZlLTQgMC4xMjQ2MjI1LDAuMDE2OTM1MyAwLjQ0Mzg1MSwwLjE5MDg2NzIgMC4xNTI4MjUsMC4wODMyNjcgMC4zMTkwOTQ2LDAuMTczODE2IDAuMzY5NDg3OSwwLjIwMTIyMDUgMC4wNTAzOTMsMC4wMjc0MDQgMC40MDIwNjg3LDAuMjE5MDE5OSAwLjc4MTUwMDgsMC40MjU4MTIgMC4zNzk0MzIxLDAuMjA2NzkyMiAwLjc3NDc2MzcsMC40MjIxNjY4IDAuODc4NTE0NiwwLjQ3ODYxMDIgMC45MjM4MTE5LDAuNTAyNTc5MyAxLjAwMjI0MzEsMC41NDYwOSAxLjA1NjM3MzUsMC41ODYwMzY3IDAuMTYyNzI3MiwwLjEyMDA4ODIgMC4xNjI3MjcyLDAuMjU2NzU5OSAwLDAuMzc2ODQ4IEMgNC43NDUzNjIyLDMuMTM4Nzg3MyA0LjY2NjkzMSwzLjE4MjI5OCAzLjc0MzExOTEsMy42ODQ4NzczIDMuNjM5MzY4MiwzLjc0MTMyMDcgMy4yNDQwMzY2LDMuOTU2Njk1MyAyLjg2NDYwNDUsNC4xNjM0ODc1IDIuNDg1MTcyNCw0LjM3MDI3OTYgMi4xMzM0OTcxLDQuNTYxODk1MSAyLjA4MzEwMzcsNC41ODkyOTk1IDIuMDMyNzEwNCw0LjYxNjcwNCAxLjg2NjQ0MDgsNC43MDcyNTMyIDEuNzEzNjE1OCw0Ljc5MDUyIDEuNDkyMjAzMyw0LjkxMTE1NjggMS40MjQzMTUsNC45NDU2Nzc0IDEuMzc5NDU2OCw0Ljk2MDQzNyAxLjMxOTExNzUsNC45ODAyOTAzIDEuMjYyNDI3LDQuOTg3NDExIDEuMjI0OTA2NSw0Ljk3OTg0OTcgWiIKICAgICBpZD0icGF0aDEiIC8+PC9zdmc+Cg==';
     const closeIcon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5jbG9zZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJjbG9zZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTE1LjQ2NDkzNSwxNS40NjcyOTcgQzE0Ljc2NDQwNTksMTYuMTc3NzcwNSAxMy42MTg1ODc3LDE2LjE3Nzc3MDUgMTIuOTA4MTE0MiwxNS40NjcyOTcgTDkuOTk4ODE4OTksMTIuNTU4MDAxOCBMNy4wODg0MTg4NSwxNS40NjcyOTcgQzYuMzgyMzY1MDYsMTYuMTczMzUwOCA1LjIzNzY1MTg3LDE2LjE3MzM1MDggNC41MzE1OTgwNywxNS40NjcyOTcgQzQuMTc5MTIzNjQsMTUuMTE0ODIyNiA0LjAwMDEyNDA5LDE0LjY0ODUzOTggNC4wMDAxMjQwOSwxNC4xODg4ODY2IEM0LjAwMDEyNDA5LDEzLjcyODEyODUgNC4xNzkxMjM2NCwxMy4yNjI5NTA2IDQuNTMxNTk4MDcsMTIuOTEwNDc2MiBMNy40NDA4OTMyOCwxMC4wMDExODEgTDQuNTI3MTc4MzMsNy4wODYzNjExMiBDNC4xNzM1OTg5Nyw2LjczMjc4MTc2IDMuOTk0NTk5NDEsNi4yNjc2MDM5MSA0LjAwMDEyNDA5LDUuODAyNDI2MDYgQzQuMDAwMTI0MDksNS4zNDE2Njc5NSA0LjE3MzU5ODk3LDQuODgyMDE0NzcgNC41MjcxNzgzMyw0LjUyOTU0MDM0IEM1LjIzMjEyNzE5LDMuODIzNDg2NTUgNi4zNzY4NDAzOCwzLjgyMzQ4NjU1IDcuMDgzOTk5MTEsNC41Mjk1NDAzNCBMOS45OTg4MTg5OSw3LjQ0MzI1NTI5IEwxMi45MTI1MzM5LDQuNTI5NTQwMzQgQzEzLjYxODU4NzcsMy44MjM0ODY1NSAxNC43NjQ0MDU5LDMuODIzNDg2NTUgMTUuNDcwNDU5Nyw0LjUyOTU0MDM0IEMxNi4xNzY1MTM0LDUuMjM0NDg5MiAxNi4xNzY1MTM0LDYuMzgwMzA3MzMgMTUuNDcwNDU5Nyw3LjA4NjM2MTEyIEwxMi41NTQ1MzQ4LDEwLjAwMTE4MSBMMTUuNDcwNDU5NywxMi45MTQ4OTYgQzE2LjE3NjUxMzQsMTMuNjIwOTQ5NyAxNi4xNzY1MTM0LDE0Ljc1NTcxODUgMTUuNDY0OTM1LDE1LjQ2NzI5NyIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgogICAgPC9nPgo8L3N2Zz4=';
@@ -113,7 +173,7 @@
     consoleWindow.style.borderRadius = '10px';
     consoleWindow.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
     consoleWindow.style.display = 'none';
-    consoleWindow.style.fontFamily = 'Cascadia Code, Consolas, Courier New, Menlo, 等线, monospace, SymbolsNerdFontStyle';
+    consoleWindow.style.fontFamily = 'IconFont, Cascadia Code, Consolas, Courier New, Menlo, 等线, monospace';
     consoleWindow.style.paddingBottom = '5px';
     consoleWindow.style.overflowX = 'hidden';
     consoleWindow.style.zIndex = 999;
@@ -234,13 +294,28 @@
             let messageText = inputBox.value;
             inputBox.value = '';
 
-            if (messageText.toLowerCase() !== 'ext -v') {
-                addText({ message: messageText, bullet: '' });
+            switch (messageText.toLowerCase()) {
+                case 'ext -v': {
+                    addText({ message: `v${version}`, bullet: '' });
+                    break;
+                }
+                case 'help': {
+                    addText({
+                        message: ' ' + lang(
+                            'help',
+                            'Help:<br><br>   Breakpoint: Pause the program for debugging, press<br>               "Continue" to resume execution.<br>   Console: A window for input and output.<br>   Output: Print text or variables at key points to debug.<br>   Input: Click the ">" button above to input,<br>          input can be detected as<br>          "when input" or "get last input".'
+                        ).replace(/ /g, '&nbsp;') + '<br>&nbsp;',
+                        innerHTML: true
+                    });
+                    break;
+                }
+                default: {
+                    addText({ message: messageText, bullet: `$ ` });
 
-                lastInput = messageText;
-                vm.runtime.startHats('debugger_whenInput');
+                    lastInput = messageText;
+                    vm.runtime.startHats('debugger_whenInput');
+                }
             }
-            else addText({ message: `v${version}`, bullet: '' });
         }
     });
 
@@ -290,13 +365,15 @@
     let lastLanguage = localStorage.getItem('tw:language');
 
     function checkLocalStorageChange() {
-        const currentTheme = localStorage.getItem('tw:theme');
-        const currentLanguage = localStorage.getItem('tw:language');
+        if (consoleWindow.style.display == 'block') {
+            const currentTheme = localStorage.getItem('tw:theme');
+            const currentLanguage = localStorage.getItem('tw:language');
 
-        if (currentTheme !== lastTheme || currentLanguage !== lastLanguage) {
-            changeWindowColor();
-            lastTheme = currentTheme;
-            lastLanguage = currentLanguage;
+            if (currentTheme !== lastTheme || currentLanguage !== lastLanguage) {
+                changeWindowColor();
+                lastTheme = currentTheme;
+                lastLanguage = currentLanguage;
+            }
         }
     }
 
@@ -374,16 +451,28 @@
         content.innerHTML = '';
     }
 
-    function addText({ message, color, bullet = '' }) {
+    function addText({ message, color, bullet = '', innerHTML = false }) {
         const logElement = document.createElement('div');
         logElement.style.color = color;
         logElement.style.fontSize = '16px';
         logElement.style.paddingLeft = '10px';
         logElement.style.paddingRight = '10px';
-        logElement.innerText = `${bullet} ${message}`;
+        if (innerHTML) logElement.innerHTML = message;
+        let inner = isRTL ? `
+            <div style="display: flex; justify-content: space-between; direction: rtl;">
+                ${bullet === '' ? '' : `<span>${bullet}</span><span>&nbsp</span>`}
+                <span style="flex-grow: 1; text-align: right;">${message}</span>
+            </div>
+        ` : `
+            <div style="display: flex; justify-content: space-between; direction: ltr;">
+                ${bullet === '' ? '' : `<span>${bullet}</span><span>&nbsp</span>`}
+                <span style="flex-grow: 1; text-align: left;">${message}</span>
+            </div>
+        `;
+        logElement.innerHTML = inner
         content.appendChild(logElement);
 
-        if (content.children.length > maxMessage) {
+        while (content.children.length > maxMessage) {
             content.removeChild(content.children[0])
         }
     }
@@ -398,8 +487,8 @@
 
         content.appendChild(document.createElement('br'));
 
-        if (content.children.length > maxMessage) {
-            content.removeChild(content.children[1])
+        while (content.children.length > maxMessage) {
+            content.removeChild(content.children[0])
         }
     }
 
@@ -409,7 +498,12 @@
         color3: '#666666'
     }
 
-    let maxMessage = 100;
+    let maxMessage = 50;
+
+    addText({
+        color: '#808080',
+        message: lang('debugger.tipForHelp', 'Type "help" to view  help.'),
+    });
 
     class ExtensionBlocks {
         getInfo() {
@@ -442,22 +536,56 @@
                         }
                     },
                     {
-                        opcode: 'ifFalseBreakpoint',
+                        opcode: 'ifFalseBreakpoint', // 旧块
                         blockType: BlockType.COMMAND,
                         text: lang('debugger.ifFalseBreakpoint', 'if [boolean] is false, then breakpoint'),
                         arguments: {
                             boolean: {
                                 type: ArgumentType.BOOLEAN
                             }
-                        }
+                        },
+                        hideFromPalette: true
                     },
                     {
-                        opcode: 'ifFalseBreakpointAndLog',
+                        opcode: 'ifFalseBreakpointAndLog', // 旧块
                         blockType: BlockType.COMMAND,
                         text: lang('debugger.ifFalseBreakpointAndLog', 'if [boolean] is false, then breakpoint and log [message]'),
                         arguments: {
                             boolean: {
                                 type: ArgumentType.BOOLEAN
+                            },
+                            message: {
+                                type: ArgumentType.STRING,
+                                defaultValue: ''
+                            }
+                        },
+                        hideFromPalette: true
+                    },
+                    {
+                        opcode: 'testBreakpoint',
+                        blockType: BlockType.COMMAND,
+                        text: lang('debugger.testBreakpoint', 'if [boolean] is [type], then breakpoint'),
+                        arguments: {
+                            boolean: {
+                                type: ArgumentType.BOOLEAN
+                            },
+                            type: {
+                                type: ArgumentType.STRING,
+                                menu: 'testType'
+                            }
+                        }
+                    },
+                    {
+                        opcode: 'testBreakpointAndLog',
+                        blockType: BlockType.COMMAND,
+                        text: lang('debugger.testBreakpointAndLog', 'if [boolean] is [type], then breakpoint and log [message]'),
+                        arguments: {
+                            boolean: {
+                                type: ArgumentType.BOOLEAN
+                            },
+                            type: {
+                                type: ArgumentType.STRING,
+                                menu: 'testType'
                             },
                             message: {
                                 type: ArgumentType.STRING,
@@ -511,10 +639,14 @@
                         opcode: 'test',
                         ...consoleBlockColor,
                         blockType: BlockType.COMMAND,
-                        text: lang('debugger.test', 'test [boolean] if false: [message]'),
+                        text: lang('debugger.test', 'test [boolean] if [type] comment [message]'),
                         arguments: {
                             boolean: {
                                 type: ArgumentType.BOOLEAN,
+                            },
+                            type: {
+                                type: ArgumentType.STRING,
+                                menu: 'testType'
                             },
                             message: {
                                 type: ArgumentType.STRING,
@@ -584,6 +716,32 @@
                             }
                         ]
                     },
+                    testType: {
+                        acceptReporters: false,
+                        items: [
+                            {
+                                text: formatMessage({
+                                    id: 'debugger.true',
+                                    default: 'true'
+                                }),
+                                value: 'true'
+                            },
+                            {
+                                text: formatMessage({
+                                    id: 'debugger.false',
+                                    default: 'false'
+                                }),
+                                value: 'false'
+                            },
+                            {
+                                text: formatMessage({
+                                    id: 'debugger.trueOrFalse',
+                                    default: 'true or false'
+                                }),
+                                value: 'all'
+                            }
+                        ]
+                    }
                 }
             };
         }
@@ -626,6 +784,37 @@
             }
         }
 
+        testBreakpoint({ boolean, type }) {
+            boolean = Cast.toBoolean(boolean);
+            if (boolean === false && type === 'true') return;
+            if (boolean === true && type === 'false') return;
+            this.breakpoint();
+        }
+
+        testBreakpointAndLog({ boolean, type, message }) {
+            boolean = Cast.toBoolean(boolean);
+            if (boolean === false && type === 'true') return;
+            if (boolean === true && type === 'false') return;
+            addText({
+                bullet: lang(`debugger.${boolean ? 'pass' : 'fail'}`, boolean ? '' : ''),
+                message: message,
+                color: Cast.toBoolean(boolean) ? '#98C379' : '#E06C75'
+            });
+            this.breakpoint();
+        }
+
+        ifFalseBreakpointAndLog({ boolean, message }) {
+            boolean = Cast.toBoolean(boolean);
+            if (!boolean) {
+                addText({
+                    bullet: '',
+                    message: message,
+                    color: '#E06C75'
+                });
+                this.breakpoint();
+            }
+        }
+
         clearConsole() {
             clearConsoleText();
         }
@@ -654,14 +843,17 @@
             addText(args);
         }
 
-        test({ boolean, message }) {
-            if (!Cast.toBoolean(boolean)) {
-                addText({
-                    bullet: '',
-                    message: message,
-                    color: '#E06C75'
-                });
-            }
+        test({ boolean, type, message }) {
+            if (boolean === false && type === 'true') return;
+            if (boolean === true && type === 'false') return;
+
+            let mess = lang('debugger.testTip', 'test: [message]');
+            mess = mess.replace('[message]', message)
+            addText({
+                color: Cast.toBoolean(boolean) ? '#98C379' : '#E06C75',
+                message: mess,
+                bullet: lang(`debugger.${boolean ? 'pass' : 'fail'}`, boolean ? '' : '')
+            });
         }
 
         logStage() {
